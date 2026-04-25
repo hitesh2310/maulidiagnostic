@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mauli Diagnostic Centre</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ===================== RESET & VARIABLES ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1B2B5C;
+      --navy-dark: #111D40;
+      --gold:      #C9943A;
+      --gold-light:#E8B860;
+      --white:     #FFFFFF;
+      --off-white: #F4F6FA;
+      --text-dark: #1a1a2e;
+      --text-mid:  #4a5568;
+      --text-light:#718096;
+      --border:    #e2e8f0;
+      --shadow:    0 4px 24px rgba(27,43,92,0.12);
+      --radius:    10px;
+      --whatsapp:  #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===================== TYPOGRAPHY ===================== */
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
+
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.25; }
+
+    /* ===================== BUTTONS ===================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .btn-navy:hover { background: var(--navy-dark); border-color: var(--navy-dark); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+    .btn-gold:hover { background: #b07e28; border-color: #b07e28; transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: var(--white);
+      border-color: var(--whatsapp);
+    }
+    .btn-whatsapp:hover { background: #1ebe5b; border-color: #1ebe5b; transform: translateY(-2px); }
+
+    /* ===================== SECTION UTILITIES ===================== */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    /* ===================== TOP BAR ===================== */
+    .topbar {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.85);
+      padding: 9px 0;
+      font-size: 0.78rem;
+      font-weight: 400;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .topbar-left, .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .topbar span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .topbar i { color: var(--gold); font-size: 0.8rem; }
+
+    .topbar a { color: rgba(255,255,255,0.85); transition: color 0.2s; }
+    .topbar a:hover { color: var(--gold); }
+
+    /* ===================== NAVBAR ===================== */
+    .navbar {
+      background: var(--white);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(27,43,92,0.10);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      position: relative;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    .nav-cta { margin-left: 8px; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2.5px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 60%);
+      padding: 70px 0 60px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-line {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(27,43,92,0.18);
+    }
+
+    /* REPLACE: Swap the src below with a high-quality CT scan machine image */
+    .hero-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-image-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-image-badge i { color: var(--gold); }
+
+    /* ===================== FEATURES BAR ===================== */
+    .features-bar {
+      background: var(--navy);
+      padding: 28px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+    }
+
+    .feature-item:last-child { border-right: none; }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon i { color: var(--gold); font-size: 1rem; }
+
+    .feature-text-title {
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+    .feature-text-sub {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===================== SERVICES + ABOUT ===================== */
+    .services-about {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .services-about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Services column */
+    .services-col {}
+
+    .service-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 24px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+
+    .service-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .service-card-icon i { color: var(--gold); font-size: 1.3rem; }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin-bottom: 18px;
+    }
+
+    .know-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--navy);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .know-more-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Centre image column */
+    .centre-image-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deity-frame {
+      width: 260px;
+      height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(27,43,92,0.18);
+      border: 3px solid var(--gold);
+      background: #f0e8d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* REPLACE: Swap this src with the Mauli/deity god image */
+    .deity-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* About column */
+    .about-col {}
+
+    .about-col .section-title { font-size: 1.6rem; }
+
+    .about-col p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+    }
+
+    .about-checklist { margin-top: 16px; }
+
+    .about-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .about-checklist li i {
+      color: var(--gold);
+      font-size: 0.95rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ===================== GALLERY ===================== */
+    .gallery {
+      background: var(--navy);
+      padding: 70px 0;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .gallery-header .section-tag { justify-content: center; }
+    .gallery-header .section-tag::before,
+    .gallery-header .section-tag::after { background: rgba(255,255,255,0.4); }
+
+    .gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.07); filter: grayscale(0%); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(27,43,92,0.5) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    /* ===================== LOCATION ===================== */
+    .location {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+
+    .location-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .location-details { }
+
+    .location-detail-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .location-detail-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .location-detail-icon i { color: var(--gold); font-size: 1rem; }
+
+    .location-detail-text strong {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .location-detail-text span, .location-detail-text a {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+    }
+
+    .location-detail-text a:hover { color: var(--navy); }
+
+    .location-map {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 340px;
+      border: 3px solid var(--white);
+    }
+
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .directions-btn { margin-top: 24px; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.80);
+      padding: 60px 0 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo-wrap { }
+
+    .footer-logo {
+      margin-bottom: 16px;
+    }
+
+    .footer-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .footer-phone {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.60);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s, padding-left 0.2s;
+    }
+
+    .footer-links a::before {
+      content: '›';
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .footer-links a:hover { color: var(--white); padding-left: 4px; }
+
+    .footer-contact-list { display: flex; flex-direction: column; gap: 14px; }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .footer-contact-item i {
+      color: var(--gold);
+      font-size: 0.88rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-item a { color: rgba(255,255,255,0.60); }
+    .footer-contact-item a:hover { color: var(--gold); }
+
+    footer hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-bottom {
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.40);
+    }
+
+    .footer-bottom a { color: rgba(255,255,255,0.40); }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    .footer-heart { color: #e05a5a; }
+
+    /* ===================== WHATSAPP FLOAT ===================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .whatsapp-label {
+      background: var(--white);
+      color: var(--text-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s;
+    }
+
+    .whatsapp-float:hover .whatsapp-label { opacity: 1; transform: translateX(0); }
+
+    .whatsapp-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.40);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .whatsapp-btn i { color: var(--white); font-size: 1.8rem; }
+
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.5);
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover .whatsapp-btn { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.55); }
+
+    @keyframes pulse {
+      0%   { transform: scale(1);   opacity: 1; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    /* ===================== DIVIDER ===================== */
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .gold-divider::before, .gold-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .gold-divider i { color: var(--gold); font-size: 0.9rem; }
+
+    /* ===================== SCROLL TOP ===================== */
+    #scrollTop {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+      font-size: 0.9rem;
+    }
+    #scrollTop.visible { opacity: 1; pointer-events: all; }
+    #scrollTop:hover { background: var(--gold); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 992px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .feature-item:nth-child(even) { border-right: none; }
+
+      .services-about-inner { grid-template-columns: 1fr; }
+      .centre-image-col { display: none; }
+
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .location-inner { grid-template-columns: 1fr; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-left { display: none; }
+
+      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 16px 24px; box-shadow: 0 8px 24px rgba(27,43,92,0.12); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 0; border-bottom: 1px solid var(--border); }
+      .nav-links a::after { display: none; }
+      .nav-cta { display: none; }
+
+      .hamburger { display: flex; }
+      .navbar { position: relative; }
+
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .footer-inner { grid-template-columns: 1fr; }
+
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== TOP BAR ======== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <span>
+            <i class="fa-regular fa-clock"></i>
+            Mon – Sat: 8:00 AM – 8:00 PM &nbsp;|&nbsp; Sunday: 8:00 AM – 2:00 PM
+          </span>
+        </div>
+        <div class="topbar-right">
+          <span>
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:9049871578">9049871578</a>
+          </span>
+          <span>
+            <i class="fa-regular fa-envelope"></i>
+            <a href="mailto:maulidiagnostic@gmail.com">maulidiagnostic@gmail.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- Logo -->
+        <a href="#home" class="logo">
+          <img src="logo.png" alt="Mauli Diagnostic Centre" class="logo-img" />
+        </a>
+
+        <!-- Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Service</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <a href="https://wa.me/919049871578?text=Hello%2C%20I%20would%20like%20to%20book%20a%20CT%20Scan%20appointment." class="btn btn-navy nav-cta" target="_blank" rel="noopener">
+          <i class="fa-solid fa-calendar-check"></i> Book CT Scan
+        </a>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-inner">
+        <!-- Text -->
+        <div class="hero-content">
+          <span class="hero-badge">
+            <i class="fa-solid fa-star" style="color:var(--gold);font-size:0.65rem;"></i>
+            &nbsp; Accurate Diagnosis, Better Health
+          </span>
+          <h1 class="serif">Mauli<br>Diagnostic Centre</h1>
+          <div class="hero-line"></div>
+          <p>Trusted Care. Advanced Technology.<br>Your Health is Our Priority.</p>
+          <div class="hero-actions">
+            <a href="https://wa.me/919049871578?text=Hello%2C%20I%20would%20like%20to%20book%20a%20CT%20Scan%20appointment." class="btn btn-navy" target="_blank" rel="noopener">
+              <i class="fa-solid fa-calendar-check"></i> Book Your CT Scan
+            </a>
+            <a href="https://wa.me/919049871578" class="btn btn-outline" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+          <!--
+            REPLACE: Swap this src with a high-quality CT scan machine photo.
+            Recommended: A professional photo of your CT scan equipment.
+            Example: <img src="images/ct-machine.jpg" alt="CT Scan Machine" />
+          -->
+          <img
+            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&auto=format&fit=crop&q=80"
+            alt="Advanced CT Scan Machine at Mauli Diagnostic Centre"
+          />
+          <div class="hero-image-badge">
+            <i class="fa-solid fa-shield-check"></i>
+            High-Precision CT Scan
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FEATURES BAR ======== -->
+  <div class="features-bar">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="feature-text">
+            <div class="feature-text-title">Advanced</div>
+            <div class="feature-text-sub">CT Technology</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <div class="feature-text">
+            <div class="feature-text-title">Accurate</div>
+            <div class="feature-text-sub">Results</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <div class="feature-text">
+            <div class="feature-text-title">Experienced</div>
+            <div class="feature-text-sub">Radiologists</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <div class="feature-text">
+            <div class="feature-text-title">Patient First</div>
+            <div class="feature-text-sub">Approach</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== SERVICES + ABOUT ======== -->
+  <section class="services-about" id="services">
+    <div class="container">
+      <div class="services-about-inner">
+
+        <!-- Services -->
+        <div class="services-col">
+          <span class="section-tag">
+            <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
+            What We Offer
+          </span>
+          <h2 class="section-title">Our Service</h2>
+
+          <div class="service-card">
+            <div class="service-card-icon">
+              <i class="fa-solid fa-x-ray"></i>
+            </div>
+            <h3>CT Scan</h3>
+            <p>High-resolution CT Scans for precise diagnosis and better treatment planning. Fast, accurate, and comfortable.</p>
+            <a href="#contact" class="know-more-link">Know More <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+          </div>
+
+          <div class="service-card" style="margin-top:16px;">
+            <div class="service-card-icon">
+              <i class="fa-solid fa-notes-medical"></i>
+            </div>
+            <h3>Diagnostic Reports</h3>
+            <p>Detailed and timely diagnostic reports reviewed by expert radiologists for accurate medical decisions.</p>
+            <a href="#contact" class="know-more-link">Know More <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+          </div>
+        </div>
+
+        <!-- Deity / Centre Image -->
+        <div class="centre-image-col" id="about">
+          <div class="deity-frame">
+            <!--
+              REPLACE: This is the god/deity image shown in the centre of the page.
+              Add your Mauli deity photo here.
+              Example: <img src="images/mauli-deity.jpg" alt="Mauli - God Image" />
+            -->
+            <img
+              src="https://placehold.co/260x320/f0e8d0/C9943A?text=Mauli%0ADivine%0ABlessings&font=playfair-display"
+              alt="Mauli - Deity Blessings"
+            />
+          </div>
+        </div>
+
+        <!-- About -->
+        <div class="about-col">
+          <span class="section-tag">
+            <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
+            Who We Are
+          </span>
+          <h2 class="section-title">About Mauli Diagnostic Centre</h2>
+          <p>
+            <em>"Mauli"</em> means the compassionate form of God – a symbol of protection, care and blessings.
+          </p>
+          <p>
+            At Mauli Diagnostic Centre, we blend advanced imaging technology with compassionate care to provide accurate diagnosis and peace of mind.
+          </p>
+          <ul class="about-checklist">
+            <li>
+              <i class="fa-solid fa-square-check"></i>
+              State-of-the-art CT Scan Machine
+            </li>
+            <li>
+              <i class="fa-solid fa-square-check"></i>
+              Expert &amp; Experienced Radiologists
+            </li>
+            <li>
+              <i class="fa-solid fa-square-check"></i>
+              Hygienic &amp; Patient-friendly Environment
+            </li>
+            <li>
+              <i class="fa-solid fa-square-check"></i>
+              Quick Reports &amp; Reliable Results
+            </li>
+            <li>
+              <i class="fa-solid fa-square-check"></i>
+              Affordable &amp; Transparent Pricing
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CT SCAN GALLERY ======== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <div class="section-tag" style="color:rgba(255,255,255,0.6);">
+          Our Work
+        </div>
+        <h2 class="gallery-title">— CT Scan Gallery —</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <!--
+          REPLACE GALLERY IMAGES:
+          Each item below uses a placeholder. Replace the src with real CT scan images.
+          Example: <img src="images/scan-brain.jpg" alt="Brain CT Scan" />
+          Keep the class and structure the same, just change src and alt.
+        -->
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?w=300&auto=format&fit=crop&q=80&grayscale"
+            alt="Brain CT Scan"
+          />
+          <div class="gallery-overlay"></div>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=300&auto=format&fit=crop&q=80&grayscale"
+            alt="Chest CT Scan"
+          />
+          <div class="gallery-overlay"></div>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=300&auto=format&fit=crop&q=80&grayscale"
+            alt="Skull CT Scan"
+          />
+          <div class="gallery-overlay"></div>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=300&auto=format&fit=crop&q=80&grayscale"
+            alt="Abdominal CT Scan"
+          />
+          <div class="gallery-overlay"></div>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=300&auto=format&fit=crop&q=80&grayscale"
+            alt="Spine CT Scan"
+          />
+          <div class="gallery-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== LOCATION / CONTACT ======== -->
+  <section class="location" id="contact">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <span class="section-tag" style="justify-content:center;">
+          <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
+          Find Us
+        </span>
+        <h2 class="section-title" style="font-size:2rem;">Our Location</h2>
+      </div>
+
+      <div class="location-inner">
+        <!-- Details -->
+        <div class="location-details">
+          <div class="location-detail-item">
+            <div class="location-detail-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="location-detail-text">
+              <strong>Mauli Diagnostic Centre</strong>
+              <span>
+                Mohan Hospital, Sangola,<br>
+                Solapur District, Maharashtra
+              </span>
+            </div>
+          </div>
+
+          <div class="location-detail-item">
+            <div class="location-detail-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="location-detail-text">
+              <strong>Phone</strong>
+              <a href="tel:9049871578">9049871578</a>
+            </div>
+          </div>
+
+          <div class="location-detail-item">
+            <div class="location-detail-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div class="location-detail-text">
+              <strong>Timings</strong>
+              <span>Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM</span>
+            </div>
+          </div>
+
+          <div class="location-detail-item">
+            <div class="location-detail-icon">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div class="location-detail-text">
+              <strong>Email</strong>
+              <a href="mailto:maulidiagnostic@gmail.com">maulidiagnostic@gmail.com</a>
+            </div>
+          </div>
+
+          <a
+            href="https://www.google.com/maps/search/Mohan+Hospital+Sangola+Maharashtra"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-navy directions-btn"
+          >
+            <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+          </a>
+        </div>
+
+        <!-- Map -->
+        <div class="location-map">
+          <!--
+            REPLACE MAP: Update the Google Maps embed URL below with the exact location.
+            Go to maps.google.com → Find your location → Share → Embed a map → Copy the iframe src.
+          -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.0!2d75.1878!3d17.4614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc3f0e8e8e8e8e8%3A0x0!2sMohan+Hospital+Sangola!5e0!3m2!1sen!2sin!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mauli Diagnostic Centre - Mohan Hospital Sangola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+
+        <!-- Brand -->
+        <div class="footer-logo-wrap">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Mauli Diagnostic Centre" style="height:64px;width:auto;object-fit:contain;background:white;border-radius:8px;padding:6px 10px;" />
+          </div>
+          <p class="footer-desc">
+            Providing accurate diagnosis with compassionate care. Your health and well-being are our highest priority.
+          </p>
+          <div class="footer-phone">
+            <i class="fa-solid fa-phone-volume"></i>
+            <a href="tel:9049871578" style="color:var(--gold);">9049871578</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Service</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <div class="footer-col-title">Our Service</div>
+          <ul class="footer-links">
+            <li><a href="#services">CT Scan</a></li>
+            <li><a href="#services">Diagnostic Reports</a></li>
+            <li><a href="#contact">Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <div class="footer-col-title">Contact Us</div>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:9049871578">9049871578</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:maulidiagnostic@gmail.com">maulidiagnostic@gmail.com</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Mohan Hospital, Sangola,<br>Solapur, Maharashtra</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-brands fa-whatsapp"></i>
+              <a href="https://wa.me/919049871578" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2024 Mauli Diagnostic Centre. All Rights Reserved.</span>
+        <span>Designed with <span class="footer-heart">&#9829;</span> care for your good health</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======== WHATSAPP FLOATING BUTTON ======== -->
+  <div class="whatsapp-float">
+    <span class="whatsapp-label">Chat on WhatsApp</span>
+    <a
+      href="https://wa.me/919049871578?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20CT%20Scan%20services."
+      class="whatsapp-btn"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ======== SCROLL TO TOP ======== -->
+  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ======== SCRIPTS ======== -->
+  <script>
+    /* -- Mobile nav toggle -- */
+    function toggleNav() {
+      const links = document.getElementById('navLinks');
+      links.classList.toggle('open');
+    }
+
+    /* -- Close nav on link click -- */
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    /* -- Active nav link on scroll -- */
+    const sections = document.querySelectorAll('section[id], div[id="about"]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    /* -- Scroll to top button -- */
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('scrollTop');
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    });
+
+    /* -- Smooth scroll for anchor links -- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
