@@ -1,9 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAULI DIAGNOSTIC &amp; CT SCAN CENTRE | Sangola</title>
+  <meta name="theme-color" content="#1B2B5C" />
+  <meta name="description" content="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE, Sangola — precision CT imaging, contrast studies with automated injector, expert consultant radiologists. ॥ माऊली कृपा, आरोग्य सेवा ॥" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": "https://www.maulidiagnostic.com/#clinic",
+    "name": "MAULI DIAGNOSTIC & CT SCAN CENTRE",
+    "description": "CT scan and diagnostic imaging centre in Sangola — plain and contrast CT, cardiac and vascular studies, consultant radiology reporting.",
+    "url": "https://www.maulidiagnostic.com",
+    "email": "maulidiagnosticsangola@gmail.com",
+    "telephone": ["+91-7666884200", "+91-8412041122"],
+    "image": "https://www.maulidiagnostic.com/mauli-hero-banner.png",
+    "logo": "https://www.maulidiagnostic.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Basement, Mohan Hospital Building, Sangola–Miraj Road",
+      "addressLocality": "Sangola",
+      "postalCode": "413307",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "medicalSpecialty": "Radiology",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "availableService": {
+      "@type": "MedicalTest",
+      "name": "CT scan (computed tomography)"
+    }
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,26 +64,45 @@
     :root {
       --navy:      #1B2B5C;
       --navy-dark: #111D40;
+      --navy-soft: #2d3f6f;
       --gold:      #C9943A;
       --gold-light:#E8B860;
+      --clinical:  #e8f4fc;
+      --clinical-deep: #1e6b8c;
       --white:     #FFFFFF;
-      --off-white: #F4F6FA;
+      --off-white: #f0f4fa;
       --text-dark: #1a1a2e;
       --text-mid:  #4a5568;
       --text-light:#718096;
       --border:    #e2e8f0;
-      --shadow:    0 4px 24px rgba(27,43,92,0.12);
-      --radius:    10px;
+      --shadow:    0 8px 32px rgba(27,43,92,0.1);
+      --shadow-soft: 0 4px 24px rgba(27,43,92,0.08);
+      --radius:    12px;
+      --radius-lg: 20px;
       --whatsapp:  #25D366;
     }
 
     html { scroll-behavior: smooth; }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--text-dark);
-      background: var(--white);
-      line-height: 1.6;
+      background-color: #fafbfd;
+      background-image:
+        radial-gradient(ellipse 120% 80% at 100% 0%, rgba(27, 43, 92, 0.04) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 0% 100%, rgba(201, 148, 58, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
+      line-height: 1.65;
     }
 
     a { text-decoration: none; color: inherit; }
@@ -134,19 +197,21 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: clamp(1.65rem, 3vw, 2.15rem);
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
 
     /* ===================== TOP BAR ===================== */
     .topbar {
-      background: var(--navy-dark);
-      color: rgba(255,255,255,0.85);
-      padding: 9px 0;
+      background: linear-gradient(90deg, var(--navy-dark) 0%, #182a52 50%, var(--navy-dark) 100%);
+      color: rgba(255,255,255,0.88);
+      padding: 10px 0;
       font-size: 0.78rem;
       font-weight: 400;
+      border-bottom: 1px solid rgba(201, 148, 58, 0.2);
     }
 
     .topbar-inner {
@@ -175,14 +240,90 @@
     .topbar a { color: rgba(255,255,255,0.85); transition: color 0.2s; }
     .topbar a:hover { color: var(--gold); }
 
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+      padding-left: 14px;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .lang-switch .lang-switch-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.45);
+      margin-right: 4px;
+    }
+
+    .lang-switch button {
+      font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .lang-switch button:hover {
+      border-color: rgba(201, 148, 58, 0.5);
+      color: var(--gold-light);
+    }
+
+    .lang-switch button[aria-pressed="true"] {
+      background: rgba(201, 148, 58, 0.25);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    html[lang="mr"] body {
+      font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    html[lang="mr"] .section-tag,
+    html[lang="mr"] .btn,
+    html[lang="mr"] .nav-links a,
+    html[lang="mr"] .know-more-link,
+    html[lang="mr"] .trust-item .trust-label,
+    html[lang="mr"] .trust-item .trust-sub,
+    html[lang="mr"] .prep-tip strong,
+    html[lang="mr"] .prep-tip p,
+    html[lang="mr"] .faq-item summary,
+    html[lang="mr"] .faq-answer,
+    html[lang="mr"] .footer-links a,
+    html[lang="mr"] .footer-contact-item,
+    html[lang="mr"] .footer-desc,
+    html[lang="mr"] .footer-bottom {
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+    }
+
+    html[lang="mr"] h1,
+    html[lang="mr"] h2,
+    html[lang="mr"] h3,
+    html[lang="mr"] .section-title,
+    html[lang="mr"] .consultant-card .name,
+    html[lang="mr"] .consultants-lead .name,
+    html[lang="mr"] .service-card h3,
+    html[lang="mr"] .faq-block h3,
+    html[lang="mr"] .journey-step h3 {
+      font-family: 'Noto Sans Devanagari', 'Playfair Display', Georgia, serif;
+    }
+
     /* ===================== NAVBAR ===================== */
     .navbar {
-      background: var(--white);
-      padding: 14px 0;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      padding: 12px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 20px rgba(27,43,92,0.10);
+      box-shadow: 0 1px 0 rgba(27, 43, 92, 0.06), 0 12px 40px rgba(27, 43, 92, 0.06);
     }
 
     .nav-inner {
@@ -269,18 +410,42 @@
 
     /* ===================== HERO (pre-designed banner + CTAs) ===================== */
     .hero {
-      background: linear-gradient(180deg, #f6f8fc 0%, #ffffff 45%);
-      padding: 28px 0 40px;
+      background: linear-gradient(165deg, #eef3fb 0%, #f8fafc 40%, #ffffff 100%);
+      padding: 28px 0 0;
       overflow: hidden;
       position: relative;
     }
 
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 85% 10%, rgba(30, 107, 140, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 10% 90%, rgba(201, 148, 58, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero .container { position: relative; z-index: 1; }
+
     .hero-banner-frame {
-      border-radius: 18px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
       line-height: 0;
-      box-shadow: 0 20px 56px rgba(27, 43, 92, 0.12);
-      border: 1px solid rgba(201, 148, 58, 0.22);
+      box-shadow:
+        0 4px 0 rgba(201, 148, 58, 0.35),
+        0 24px 64px rgba(27, 43, 92, 0.14),
+        0 0 0 1px rgba(27, 43, 92, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+
+    .hero-banner-frame:hover {
+      box-shadow:
+        0 4px 0 rgba(201, 148, 58, 0.45),
+        0 32px 72px rgba(27, 43, 92, 0.16),
+        0 0 0 1px rgba(27, 43, 92, 0.06);
+      transform: translateY(-2px);
     }
 
     .hero-banner-frame img {
@@ -296,19 +461,93 @@
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-top: 22px;
+      margin-top: 24px;
+      padding-bottom: 36px;
     }
 
+    /* ===================== TRUST STRIP (diagnostic value props) ===================== */
+    .trust-strip {
+      position: relative;
+      margin-top: -8px;
+      padding: 28px 0 36px;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .trust-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='28' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h28v28H0z' fill='none'/%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .trust-strip-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 18px 14px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.25s, transform 0.25s, border-color 0.25s;
+    }
+
+    .trust-item:hover {
+      background: rgba(255, 255, 255, 0.11);
+      border-color: rgba(201, 148, 58, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .trust-item i {
+      font-size: 1.35rem;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .trust-item .trust-label {
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .trust-item .trust-sub {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.4;
+      max-width: 200px;
+    }
     /* ===================== CONSULTANTS ===================== */
     .consultants {
-      padding: 72px 0;
-      background: linear-gradient(180deg, #faf8f4 0%, var(--off-white) 100%);
+      padding: 88px 0;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(30, 107, 140, 0.06) 0%, transparent 45%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2f8 100%);
       position: relative;
     }
 
     .consultants-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
+    }
+
+    .consultants-intro {
+      color: var(--text-mid);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     .consultants .section-tag { justify-content: center; }
@@ -317,11 +556,12 @@
       text-align: center;
       max-width: 540px;
       margin: 0 auto 36px;
-      padding: 26px 28px;
+      padding: 28px 32px;
       background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 50px rgba(27, 43, 92, 0.1);
+      border: 1px solid rgba(201, 148, 58, 0.35);
+      border-top: 4px solid var(--gold);
     }
 
     .consultants-lead .role {
@@ -335,7 +575,7 @@
 
     .consultants-lead .name {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       color: var(--navy);
       font-weight: 700;
     }
@@ -350,42 +590,69 @@
     .consultants-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      max-width: 820px;
+      gap: 22px;
+      max-width: 840px;
       margin: 0 auto;
     }
 
     .consultant-card {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
       background: var(--white);
       padding: 22px 24px;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 16px rgba(27,43,92,0.08);
-      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(27, 43, 92, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .consultant-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(27, 43, 92, 0.11);
+    }
+
+    .consultant-avatar {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--gold-light);
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-soft) 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
 
     .consultant-card .name {
       font-weight: 600;
       color: var(--navy);
       margin-bottom: 8px;
-      font-size: 1rem;
+      font-size: 1.02rem;
+      font-family: 'Playfair Display', Georgia, serif;
     }
 
     .consultant-card .credentials {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-mid);
       line-height: 1.55;
     }
 
     /* ===================== SERVICES + ABOUT ===================== */
     .services-about {
-      padding: 80px 0;
-      background: var(--white);
+      padding: 88px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f8fc 55%, #ffffff 100%);
+      position: relative;
     }
 
     .services-about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 48px;
+      gap: 40px;
       align-items: start;
     }
 
@@ -393,40 +660,61 @@
     .services-col {}
 
     .service-card {
-      background: var(--off-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      margin-top: 24px;
+      background: var(--white);
+      border: 1px solid rgba(27, 43, 92, 0.07);
+      border-radius: var(--radius-lg);
+      padding: 26px 26px 26px 24px;
+      margin-top: 18px;
       transition: box-shadow 0.3s, transform 0.3s;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
     }
 
-    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--gold) 0%, var(--clinical-deep) 100%);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .service-card:first-of-type { margin-top: 0; }
+
+    .service-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-5px);
+    }
 
     .service-card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--navy);
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, var(--navy) 0%, #2d4a7c 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(27, 43, 92, 0.2);
     }
 
-    .service-card-icon i { color: var(--gold); font-size: 1.3rem; }
+    .service-card-icon i { color: var(--gold-light); font-size: 1.35rem; }
 
     .service-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.14rem;
       color: var(--navy);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .service-card p {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: var(--text-mid);
       margin-bottom: 18px;
+      line-height: 1.6;
     }
 
     .know-more-link {
@@ -435,81 +723,168 @@
       gap: 6px;
       font-size: 0.82rem;
       font-weight: 600;
-      color: var(--navy);
-      border-bottom: 1.5px solid var(--navy);
+      color: var(--clinical-deep);
+      border-bottom: 1.5px solid rgba(30, 107, 140, 0.35);
       padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
+      transition: color 0.2s, border-color 0.2s, gap 0.2s;
     }
 
-    .know-more-link:hover { color: var(--gold); border-color: var(--gold); }
+    .know-more-link:hover {
+      color: var(--navy);
+      border-color: var(--gold);
+      gap: 10px;
+    }
 
-    /* Centre image column */
+    /* Centre brand showcase */
     .centre-image-col {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .deity-frame {
-      width: 260px;
-      height: 320px;
-      border-radius: 16px;
+    .brand-showcase {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      padding: 40px 28px 36px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, var(--clinical) 55%, #e8f0f8 100%);
+      border: 1px solid rgba(27, 43, 92, 0.08);
+      box-shadow: 0 20px 50px rgba(27, 43, 92, 0.09);
+      text-align: center;
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(27,43,92,0.18);
-      border: 3px solid var(--gold);
-      background: #f0e8d0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    /* REPLACE: Swap this src with the Mauli/deity god image */
-    .deity-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .brand-showcase::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -35%;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(201, 148, 58, 0.22) 0%, transparent 70%);
+      pointer-events: none;
     }
+
+    .brand-showcase-logo {
+      position: relative;
+      width: 118px;
+      height: auto;
+      margin: 0 auto 18px;
+      filter: drop-shadow(0 8px 20px rgba(27, 43, 92, 0.12));
+    }
+
+    .brand-showcase-tag {
+      position: relative;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .brand-showcase-tag::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 14px auto 0;
+      border-radius: 2px;
+    }
+
+    .brand-showcase-moto {
+      position: relative;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      font-size: 0.95rem;
+      color: var(--navy-soft);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .brand-showcase-loc {
+      position: relative;
+      font-size: 0.78rem;
+      color: var(--text-mid);
+    }
+
+    .brand-showcase-loc i { color: var(--gold); margin-right: 6px; }
 
     /* About column */
     .about-col {}
 
-    .about-col .section-title { font-size: 1.6rem; }
+    .about-col .section-title { font-size: 1.55rem; }
 
     .about-col p {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-mid);
       margin-bottom: 20px;
+      line-height: 1.65;
     }
 
-    .about-checklist { margin-top: 16px; }
+    .about-checklist { margin-top: 8px; }
 
     .about-checklist li {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
       font-size: 0.88rem;
       color: var(--text-dark);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(27, 43, 92, 0.05);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .about-checklist li:hover {
+      border-color: rgba(201, 148, 58, 0.25);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .about-checklist li i {
       color: var(--gold);
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-top: 2px;
       flex-shrink: 0;
     }
 
     /* ===================== LOCATION ===================== */
     .location {
-      padding: 80px 0;
-      background: var(--off-white);
+      padding: 88px 0;
+      background: linear-gradient(180deg, var(--off-white) 0%, #e8edf5 100%);
+    }
+
+    .location-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .location-head .section-title { margin-bottom: 8px; }
+
+    .location-intro {
+      color: var(--text-mid);
+      font-size: 0.92rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     .location-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .location-card {
+      background: var(--white);
+      padding: 32px 32px 28px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(27, 43, 92, 0.06);
     }
 
     .location-details { }
@@ -517,58 +892,78 @@
     .location-detail-item {
       display: flex;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
+    .location-detail-item:last-of-type { margin-bottom: 0; }
+
     .location-detail-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--navy);
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--navy), var(--navy-soft));
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(27, 43, 92, 0.15);
     }
 
-    .location-detail-icon i { color: var(--gold); font-size: 1rem; }
+    .location-detail-icon i { color: var(--gold-light); font-size: 1.05rem; }
 
     .location-detail-text strong {
       display: block;
       font-weight: 600;
       font-size: 0.95rem;
       color: var(--navy);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .location-detail-text span, .location-detail-text a {
       font-size: 0.88rem;
       color: var(--text-mid);
+      line-height: 1.55;
     }
 
-    .location-detail-text a:hover { color: var(--navy); }
+    .location-detail-text a:hover { color: var(--clinical-deep); }
 
     .location-map {
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow);
-      height: 340px;
+      min-height: 380px;
+      height: 100%;
       border: 3px solid var(--white);
+      outline: 1px solid rgba(201, 148, 58, 0.25);
+      outline-offset: 4px;
     }
 
     .location-map iframe {
       width: 100%;
       height: 100%;
+      min-height: 380px;
       border: none;
     }
 
-    .directions-btn { margin-top: 24px; }
+    .directions-btn { margin-top: 28px; width: 100%; justify-content: center; }
 
     /* ===================== FOOTER ===================== */
     footer {
-      background: var(--navy-dark);
+      background: linear-gradient(180deg, var(--navy-dark) 0%, #0d1528 100%);
       color: rgba(255,255,255,0.80);
-      padding: 60px 0 0;
+      padding: 64px 0 0;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent);
+      opacity: 0.7;
     }
 
     .footer-inner {
@@ -779,10 +1174,245 @@
     #scrollTop.visible { opacity: 1; pointer-events: all; }
     #scrollTop:hover { background: var(--gold); }
 
+    /* ===================== SCROLL REVEAL ===================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== PATIENT GUIDE (journey + FAQ) ===================== */
+    .patient-guide {
+      padding: 88px 0 92px;
+      background: linear-gradient(180deg, #ffffff 0%, #eef4fb 45%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .patient-guide::before {
+      content: '';
+      position: absolute;
+      width: min(480px, 90vw);
+      height: 480px;
+      right: -160px;
+      top: 5%;
+      background: radial-gradient(circle, rgba(30, 107, 140, 0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .patient-guide .container { position: relative; z-index: 1; }
+
+    .patient-guide-head {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 48px;
+    }
+
+    .patient-guide-head .section-tag { justify-content: center; }
+
+    .patient-guide-sub {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-top: 14px;
+    }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px 16px;
+      list-style: none;
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .journey-steps::before {
+      content: '';
+      position: absolute;
+      top: 27px;
+      left: 14%;
+      right: 14%;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(201, 148, 58, 0.35), rgba(30, 107, 140, 0.25), rgba(201, 148, 58, 0.35));
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .journey-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .journey-step-num {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-soft) 100%);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(27, 43, 92, 0.18);
+      border: 3px solid var(--white);
+    }
+
+    .journey-step h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.02rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .journey-step p {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    .prep-tips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .prep-tip {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 22px 22px 20px;
+      border: 1px solid rgba(27, 43, 92, 0.07);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .prep-tip:hover {
+      border-color: rgba(201, 148, 58, 0.28);
+      box-shadow: 0 12px 36px rgba(27, 43, 92, 0.08);
+    }
+
+    .prep-tip > i {
+      color: var(--clinical-deep);
+      font-size: 1.28rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .prep-tip strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .prep-tip p {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .prep-disclaimer {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      text-align: center;
+      margin: 8px 0 52px;
+      padding: 14px 18px;
+      background: rgba(27, 43, 92, 0.03);
+      border-radius: var(--radius);
+      border: 1px dashed rgba(27, 43, 92, 0.1);
+    }
+
+    .faq-block {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .faq-block h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.38rem;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .faq-item {
+      border-radius: var(--radius);
+      border: 1px solid rgba(27, 43, 92, 0.08);
+      margin-bottom: 10px;
+      background: var(--white);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(27, 43, 92, 0.04);
+    }
+
+    .faq-item summary {
+      padding: 16px 18px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::before {
+      content: '+';
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(201, 148, 58, 0.16);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 500;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::before {
+      content: '−';
+      background: var(--navy);
+      color: var(--gold-light);
+    }
+
+    .faq-item summary:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .faq-item summary:hover { background: rgba(232, 244, 252, 0.55); }
+
+    .faq-answer {
+      padding: 0 18px 18px 62px;
+      font-size: 0.86rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
     /* ===================== RESPONSIVE ===================== */
     @media (max-width: 992px) {
-      .hero { padding: 20px 0 32px; }
+      .hero { padding: 20px 0 0; }
       .hero-banner-frame { border-radius: 14px; }
+
+      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); }
 
       .services-about-inner { grid-template-columns: 1fr; }
       .centre-image-col { display: none; }
@@ -790,9 +1420,34 @@
       .location-inner { grid-template-columns: 1fr; }
 
       .footer-inner { grid-template-columns: 1fr 1fr; }
+
+      .journey-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 20px;
+      }
+
+      .journey-steps::before { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .journey-steps { grid-template-columns: 1fr; }
+      .prep-tips { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
+      .trust-strip-inner { grid-template-columns: 1fr; }
+      .trust-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 16px;
+        row-gap: 4px;
+        text-align: left;
+        align-items: center;
+      }
+      .trust-item i { grid-row: 1 / span 2; margin-bottom: 0; align-self: center; }
+      .trust-item .trust-label { grid-column: 2; margin-bottom: 0; }
+      .trust-item .trust-sub { grid-column: 2; max-width: none; }
+
       .topbar-left { display: none; }
 
       .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 16px 24px; box-shadow: 0 8px 24px rgba(27,43,92,0.12); }
@@ -826,10 +1481,15 @@
         <div class="topbar-left">
           <span>
             <i class="fa-regular fa-clock"></i>
-            Mon – Sat: 8:00 AM – 8:00 PM &nbsp;|&nbsp; Sunday: 8:00 AM – 2:00 PM
+            <span data-i18n="top.hours">Mon – Sat: 8:00 AM – 8:00 PM &nbsp;|&nbsp; Sunday: 8:00 AM – 2:00 PM</span>
           </span>
         </div>
         <div class="topbar-right">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <span class="lang-switch-label" data-i18n="lang.label">Lang</span>
+            <button type="button" id="langBtnEn" lang="en" aria-pressed="true">English</button>
+            <button type="button" id="langBtnMr" lang="mr" aria-pressed="false">मराठी</button>
+          </div>
           <span>
             <i class="fa-solid fa-user"></i>
             Mayur Yelpale
@@ -856,25 +1516,26 @@
       <div class="nav-inner">
         <!-- Logo -->
         <a href="#home" class="logo">
-          <img src="logo.jpeg" alt="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE" class="logo-img" />
+          <img src="logo.jpeg" alt="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE" class="logo-img" data-i18n-alt="logo.alt" />
         </a>
 
         <!-- Nav Links -->
         <ul class="nav-links" id="navLinks">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#team">Our Experts</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+          <li><a href="#services" data-i18n="nav.services">Our Services</a></li>
+          <li><a href="#team" data-i18n="nav.team">Our Experts</a></li>
+          <li><a href="#patient-guide" data-i18n="nav.visit">Your Visit</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
         </ul>
 
         <!-- CTA -->
         <a href="https://wa.me/919266136934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20CT%20Scan%20appointment." class="btn btn-navy nav-cta" target="_blank" rel="noopener">
-          <i class="fa-solid fa-calendar-check"></i> Book CT Scan
+          <i class="fa-solid fa-calendar-check"></i> <span data-i18n="cta.bookNav">Book CT Scan</span>
         </a>
 
         <!-- Hamburger -->
-        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" data-i18n-aria="a11y.menu">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -884,33 +1545,56 @@
   <!-- ======== HERO ======== -->
   <section class="hero" id="home">
     <div class="container">
-      <h1 class="sr-only">
-        MAULI DIAGNOSTIC &amp; CT SCAN CENTRE, Sangola — precision imaging, prompt reporting.
-        माऊली कृपा, आरोग्य सेवा.
-      </h1>
+      <h1 class="sr-only" data-i18n="sr.h1">MAULI DIAGNOSTIC &amp; CT SCAN CENTRE, Sangola — precision imaging, prompt reporting. ॥ माऊली कृपा, आरोग्य सेवा ॥</h1>
       <div class="hero-banner-frame">
         <img
           src="mauli-hero-banner.png"
-          alt="Mauli Diagnostic Centre — CT scanner, branding, tagline माऊली कृपा आरोग्य सेवा, advanced technology, accurate diagnosis, compassionate care"
+          alt="Mauli Diagnostic Centre — CT suite with branding. Tagline: ॥ माऊली कृपा, आरोग्य सेवा ॥ — advanced technology, accurate diagnosis, compassionate care"
           width="1024"
           height="682"
           decoding="async"
           fetchpriority="high"
+          data-i18n-alt="hero.imgAlt"
         />
       </div>
       <div class="hero-cta-bar">
         <a href="https://wa.me/919266136934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20CT%20Scan%20appointment." class="btn btn-navy" target="_blank" rel="noopener">
-          <i class="fa-solid fa-calendar-check"></i> Book Your CT Scan
+          <i class="fa-solid fa-calendar-check"></i> <span data-i18n="cta.bookHero">Book Your CT Scan</span>
         </a>
         <a href="https://wa.me/919266136934" class="btn btn-hero-outline" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> <span data-i18n="cta.whatsapp">Chat on WhatsApp</span>
         </a>
       </div>
     </div>
   </section>
 
+  <section class="trust-strip" id="trustStrip" aria-label="Centre highlights" data-i18n-aria="trust.aria">
+    <div class="container trust-strip-inner">
+      <div class="trust-item">
+        <i class="fa-solid fa-x-ray" aria-hidden="true"></i>
+        <span class="trust-label" data-i18n="trust.t1">Advanced CT</span>
+        <span class="trust-sub" data-i18n="trust.s1">Plain, contrast &amp; triple‑phase studies</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-file-waveform" aria-hidden="true"></i>
+        <span class="trust-label" data-i18n="trust.t2">Prompt reports</span>
+        <span class="trust-sub" data-i18n="trust.s2">Consultant‑reviewed imaging reports</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
+        <span class="trust-label" data-i18n="trust.t3">Expert panel</span>
+        <span class="trust-sub" data-i18n="trust.s3">Radiology &amp; neuroimaging specialists</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
+        <span class="trust-label" data-i18n="trust.t4">Sangola centre</span>
+        <span class="trust-sub" data-i18n="trust.s4">Basement, Mohan Hospital — easy access</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ======== SERVICES + ABOUT ======== -->
-  <section class="services-about" id="services">
+  <section class="services-about reveal" id="services">
     <div class="container">
       <div class="services-about-inner">
 
@@ -918,59 +1602,54 @@
         <div class="services-col">
           <span class="section-tag">
             <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
-            What We Offer
+            <span data-i18n="svc.tag">What We Offer</span>
           </span>
-          <h2 class="section-title">Our Services</h2>
+          <h2 class="section-title" data-i18n="svc.title">Our Services</h2>
 
           <div class="service-card">
             <div class="service-card-icon">
               <i class="fa-solid fa-x-ray"></i>
             </div>
-            <h3>Comprehensive CT Imaging</h3>
-            <p>Full range of plain and contrast CT studies for precise diagnosis and treatment planning.</p>
-            <a href="#contact" class="know-more-link">Know More <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+            <h3 data-i18n="svc.c1t">Comprehensive CT Imaging</h3>
+            <p data-i18n="svc.c1p">Full range of plain and contrast CT studies for precise diagnosis and treatment planning.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
           </div>
 
-          <div class="service-card" style="margin-top:16px;">
+          <div class="service-card">
             <div class="service-card-icon">
               <i class="fa-solid fa-syringe"></i>
             </div>
-            <h3>Contrast with Automated Injector</h3>
-            <p>Contrast studies delivered safely and consistently using an automated injector system.</p>
-            <a href="#contact" class="know-more-link">Know More <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+            <h3 data-i18n="svc.c2t">Contrast with Automated Injector</h3>
+            <p data-i18n="svc.c2p">Contrast studies delivered safely and consistently using an automated injector system.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
           </div>
 
-          <div class="service-card" style="margin-top:16px;">
+          <div class="service-card">
             <div class="service-card-icon">
               <i class="fa-solid fa-heart-pulse"></i>
             </div>
-            <h3>Advanced Cardiac &amp; Vascular CT</h3>
-            <p>Specialised triple-phase and cardiac vascular CT protocols when advanced imaging is indicated.</p>
-            <a href="#contact" class="know-more-link">Know More <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+            <h3 data-i18n="svc.c3t">Advanced Cardiac &amp; Vascular CT</h3>
+            <p data-i18n="svc.c3p">Specialised triple-phase and cardiac vascular CT protocols when advanced imaging is indicated.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
           </div>
 
-          <div class="service-card" style="margin-top:16px;">
+          <div class="service-card">
             <div class="service-card-icon">
               <i class="fa-solid fa-notes-medical"></i>
             </div>
-            <h3>Diagnostic Reports</h3>
-            <p>Detailed, prompt reporting by subspecialty consultants to support your clinician’s decisions.</p>
-            <a href="#contact" class="know-more-link">Know More <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+            <h3 data-i18n="svc.c4t">Diagnostic Reports</h3>
+            <p data-i18n="svc.c4p">Detailed, prompt reporting by subspecialty consultants to support your clinician’s decisions.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
           </div>
         </div>
 
-        <!-- Deity / Centre Image -->
+        <!-- Brand showcase (replaces placeholder) -->
         <div class="centre-image-col" id="about">
-          <div class="deity-frame">
-            <!--
-              REPLACE: This is the god/deity image shown in the centre of the page.
-              Add your Mauli deity photo here.
-              Example: <img src="images/mauli-deity.jpg" alt="Mauli - God Image" />
-            -->
-            <img
-              src="https://placehold.co/260x320/f0e8d0/C9943A?text=Mauli%0ADivine%0ABlessings&font=playfair-display"
-              alt="Mauli - Deity Blessings"
-            />
+          <div class="brand-showcase">
+            <img src="logo.jpeg" alt="Mauli Diagnostic — logo" class="brand-showcase-logo" width="118" data-i18n-alt="brand.logoAlt" />
+            <p class="brand-showcase-tag" data-i18n="brand.tag">Precision Imaging · Prompt Reporting</p>
+            <p class="brand-showcase-moto devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</p>
+            <p class="brand-showcase-loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="brand.loc">Sangola, Maharashtra</span></p>
           </div>
         </div>
 
@@ -978,39 +1657,37 @@
         <div class="about-col">
           <span class="section-tag">
             <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
-            Who We Are
+            <span data-i18n="about.tag">Who We Are</span>
           </span>
-          <h2 class="section-title">About MAULI DIAGNOSTIC &amp; CT SCAN CENTRE</h2>
-          <p>
-            <em>"Mauli"</em> means the compassionate form of God – a symbol of protection, care and blessings. <span class="devanagari">माऊली कृपा, आरोग्य सेवा.</span>
+          <h2 class="section-title" data-i18n="about.title">About MAULI DIAGNOSTIC &amp; CT SCAN CENTRE</h2>
+          <p data-i18n-html="about.p1">
+            <em>"Mauli"</em> means the compassionate form of God – a symbol of protection, care and blessings. <span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>
           </p>
-          <p>
-            At our centre in Sangola, we blend advanced CT imaging with compassionate care — precision imaging and prompt reporting you can rely on.
-          </p>
+          <p data-i18n="about.p2">At our centre in Sangola, we blend advanced CT imaging with compassionate care — precision imaging and prompt reporting you can rely on.</p>
           <ul class="about-checklist">
             <li>
               <i class="fa-solid fa-square-check"></i>
-              Automated injector for contrast studies
+              <span data-i18n="about.li1">Automated injector for contrast studies</span>
             </li>
             <li>
               <i class="fa-solid fa-square-check"></i>
-              Advanced cardiac, vascular &amp; triple-phase CT
+              <span data-i18n="about.li2">Advanced cardiac, vascular &amp; triple-phase CT</span>
             </li>
             <li>
               <i class="fa-solid fa-square-check"></i>
-              Expert &amp; Experienced Radiologists
+              <span data-i18n="about.li3">Expert &amp; Experienced Radiologists</span>
             </li>
             <li>
               <i class="fa-solid fa-square-check"></i>
-              Hygienic &amp; Patient-friendly Environment
+              <span data-i18n="about.li4">Hygienic &amp; Patient-friendly Environment</span>
             </li>
             <li>
               <i class="fa-solid fa-square-check"></i>
-              Quick Reports &amp; Reliable Results
+              <span data-i18n="about.li5">Quick Reports &amp; Reliable Results</span>
             </li>
             <li>
               <i class="fa-solid fa-square-check"></i>
-              Affordable &amp; Transparent Pricing
+              <span data-i18n="about.li6">Affordable &amp; Transparent Pricing</span>
             </li>
           </ul>
         </div>
@@ -1020,65 +1697,178 @@
   </section>
 
   <!-- ======== EXPERT CONSULTANTS ======== -->
-  <section class="consultants" id="team">
+  <section class="consultants reveal" id="team">
     <div class="container">
       <div class="consultants-header">
         <span class="section-tag">
           <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
-          Expert Panel
+          <span data-i18n="team.tag">Expert Panel</span>
         </span>
-        <h2 class="section-title" style="margin-bottom:8px;">Our Expert Consultants</h2>
-        <p style="color:var(--text-mid); max-width:560px; margin:0 auto;">Experienced radiologists and neuroimaging specialists reporting your scans.</p>
+        <h2 class="section-title" style="margin-bottom:8px;" data-i18n="team.title">Our Expert Consultants</h2>
+        <p class="consultants-intro" data-i18n="team.intro">Board‑certified consultants — accurate reads when it matters most.</p>
       </div>
 
       <div class="consultants-lead">
-        <div class="role">Lead Radiologist</div>
+        <div class="role" data-i18n="team.leadRole">Lead Radiologist</div>
         <div class="name">Dr. Kishor Yelpale</div>
         <div class="credentials">MBBS, MD, DNB (Radiology), PGDHHM</div>
       </div>
 
       <div class="consultants-grid">
         <div class="consultant-card">
-          <div class="name">Dr. Vivek Lodhi</div>
-          <div class="credentials">MBBS, DNB (Radiology)</div>
+          <span class="consultant-avatar" aria-hidden="true">VL</span>
+          <div>
+            <div class="name">Dr. Vivek Lodhi</div>
+            <div class="credentials">MBBS, DNB (Radiology)</div>
+          </div>
         </div>
         <div class="consultant-card">
-          <div class="name">Dr. Komal Yadav</div>
-          <div class="credentials">MBBS, MD (Radiology)</div>
+          <span class="consultant-avatar" aria-hidden="true">KM</span>
+          <div>
+            <div class="name">Dr. Komal Yadav</div>
+            <div class="credentials">MBBS, MD (Radiology)</div>
+          </div>
         </div>
         <div class="consultant-card">
-          <div class="name">Dr. Reema Pradhan-Yelpale</div>
-          <div class="credentials">MBBS, DrNB (Neurosurgery), FEVN — Neuroimaging Specialist</div>
+          <span class="consultant-avatar" aria-hidden="true">RP</span>
+          <div>
+            <div class="name">Dr. Reema Pradhan-Yelpale</div>
+            <div class="credentials">MBBS, DrNB (Neurosurgery), FEVN — Neuroimaging Specialist</div>
+          </div>
         </div>
         <div class="consultant-card">
-          <div class="name">Dr. Shaurya Wardhan Singh</div>
-          <div class="credentials">MBBS, DNB (Radiology)</div>
+          <span class="consultant-avatar" aria-hidden="true">SS</span>
+          <div>
+            <div class="name">Dr. Shaurya Wardhan Singh</div>
+            <div class="credentials">MBBS, DNB (Radiology)</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== LOCATION / CONTACT ======== -->
-  <section class="location" id="contact">
+  <!-- ======== PATIENT GUIDE: journey + FAQ ======== -->
+  <section class="patient-guide reveal" id="patient-guide" aria-labelledby="patient-guide-title">
     <div class="container">
-      <div style="text-align:center; margin-bottom:48px;">
+      <header class="patient-guide-head">
+        <span class="section-tag">
+          <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
+          <span data-i18n="pg.tag">Patient care</span>
+        </span>
+        <h2 class="section-title" id="patient-guide-title" data-i18n="pg.title">Your visit — from booking to report</h2>
+        <p class="patient-guide-sub" data-i18n="pg.sub">A clear, calm pathway through your CT appointment. Bring your doctor’s request note and any prior scans if you have them.</p>
+      </header>
+
+      <ol class="journey-steps">
+        <li class="journey-step">
+          <div class="journey-step-num" aria-hidden="true">1</div>
+          <h3 data-i18n="jg.t1">Book</h3>
+          <p data-i18n="jg.p1">Call, WhatsApp, or walk in. We’ll suggest a slot and tell you if fasting or contrast prep applies.</p>
+        </li>
+        <li class="journey-step">
+          <div class="journey-step-num" aria-hidden="true">2</div>
+          <h3 data-i18n="jg.t2">Check‑in</h3>
+          <p data-i18n="jg.p2">Arrive a few minutes early with ID and papers. Our front desk confirms your study and answers questions.</p>
+        </li>
+        <li class="journey-step">
+          <div class="journey-step-num" aria-hidden="true">3</div>
+          <h3 data-i18n="jg.t3">Scan</h3>
+          <p data-i18n="jg.p3">Technologist guides you on the table. Most scans are quick; you may hear gentle whirring from the gantry.</p>
+        </li>
+        <li class="journey-step">
+          <div class="journey-step-num" aria-hidden="true">4</div>
+          <h3 data-i18n="jg.t4">Report</h3>
+          <p data-i18n="jg.p4">Images are reviewed by our consultants. Reports are prepared promptly for you and your referring doctor.</p>
+        </li>
+      </ol>
+
+      <div class="prep-tips">
+        <div class="prep-tip">
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+          <div>
+            <strong data-i18n="prep.t1">Fasting &amp; diet</strong>
+            <p data-i18n-html="prep.p1">Some abdomen or contrast studies need a short fast. We’ll confirm when you book — follow the instructions given for <em>your</em> exam only.</p>
+          </div>
+        </div>
+        <div class="prep-tip">
+          <i class="fa-solid fa-flask" aria-hidden="true"></i>
+          <div>
+            <strong data-i18n="prep.t2">Contrast (dye) studies</strong>
+            <p data-i18n="prep.p2">If your scan uses intravenous contrast, tell us about allergies, kidney issues, or diabetes medication. Our team screens safety before the injector is used.</p>
+          </div>
+        </div>
+        <div class="prep-tip">
+          <i class="fa-solid fa-shirt" aria-hidden="true"></i>
+          <div>
+            <strong data-i18n="prep.t3">Metal &amp; clothing</strong>
+            <p data-i18n="prep.p3">Remove metal objects near the area being scanned when asked. Comfortable clothing helps you stay relaxed during the procedure.</p>
+          </div>
+        </div>
+        <div class="prep-tip">
+          <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
+          <div>
+            <strong data-i18n="prep.t4">Diabetics &amp; special cases</strong>
+            <p data-i18n="prep.p4">Mention pregnancy or severe allergies when scheduling. We coordinate timing with your physician’s advice when needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="prep-disclaimer" data-i18n="prep.disclaimer">General information only — not a substitute for your doctor’s instructions. For medical decisions, always follow your treating physician.</p>
+
+      <div class="faq-block">
+        <h3 data-i18n="faq.title">Questions patients often ask</h3>
+
+        <details class="faq-item">
+          <summary data-i18n="faq.q1">How long does a CT scan take?</summary>
+          <div class="faq-answer" data-i18n="faq.a1">Most examinations are finished in a few minutes on the table; total time at the centre depends on preparation and whether contrast is required. We’ll give you an estimate when you book.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq.q2">Will the scan hurt? Is it claustrophobic?</summary>
+          <div class="faq-answer" data-i18n="faq.a2">CT is non-invasive and usually painless. The opening is relatively open compared with MRI; if you’re anxious, tell our staff — we’ll help you feel at ease.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq.q3">When will my report be ready?</summary>
+          <div class="faq-answer" data-i18n="faq.a3">We prioritise prompt, accurate reporting reviewed by consultants. Turnaround can vary by study complexity; our desk will inform you at the visit or on WhatsApp.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq.q4">Do I need a doctor’s referral?</summary>
+          <div class="faq-answer" data-i18n="faq.a4">A referring doctor’s note or prescription helps us perform the correct protocol and send the report to the right clinician. Bring any document your doctor gave you.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq.q5">Can I get a digital copy of my images?</summary>
+          <div class="faq-answer" data-i18n="faq.a5">Ask at the front desk about sharing images or reports with your hospital or doctor. Policies depend on format and workflow — we’ll guide you.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== LOCATION / CONTACT ======== -->
+  <section class="location reveal" id="contact">
+    <div class="container">
+      <div class="location-head">
         <span class="section-tag" style="justify-content:center;">
           <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
-          Find Us
+          <span data-i18n="loc.tag">Find Us</span>
         </span>
-        <h2 class="section-title" style="font-size:2rem;">Our Location</h2>
+        <h2 class="section-title" data-i18n="loc.title">Visit Our Centre</h2>
+        <p class="location-intro" data-i18n="loc.intro">Walk in or message us on WhatsApp for appointments. We’re located in the basement of Mohan Hospital, Sangola.</p>
       </div>
 
       <div class="location-inner">
         <!-- Details -->
-        <div class="location-details">
+        <div class="location-card">
+          <div class="location-details">
           <div class="location-detail-item">
             <div class="location-detail-icon">
               <i class="fa-solid fa-location-dot"></i>
             </div>
             <div class="location-detail-text">
               <strong>MAULI DIAGNOSTIC &amp; CT SCAN CENTRE</strong>
-              <span>
+              <span data-i18n-html="loc.addr">
                 Basement, Mohan Hospital Building,<br>
                 Sangola–Miraj Road, Sangola &ndash; 413307<br>
                 Maharashtra, India
@@ -1091,11 +1881,11 @@
               <i class="fa-solid fa-phone"></i>
             </div>
             <div class="location-detail-text">
-              <strong>Phone</strong>
+              <strong data-i18n="loc.phoneLabel">Phone</strong>
               <span>
                 <a href="tel:+917666884200">7666884200</a> · <a href="tel:+918412041122">8412041122</a><br>
-                Mayur Yelpale: <a href="tel:+917397955353">7397955353</a><br>
-                WhatsApp: <a href="https://wa.me/919266136934" target="_blank" rel="noopener">9266136934</a>
+                <span data-i18n="loc.mayur">Mayur Yelpale:</span> <a href="tel:+917397955353">7397955353</a><br>
+                <span data-i18n="loc.waLabel">WhatsApp:</span> <a href="https://wa.me/919266136934" target="_blank" rel="noopener">9266136934</a>
               </span>
             </div>
           </div>
@@ -1105,8 +1895,8 @@
               <i class="fa-regular fa-clock"></i>
             </div>
             <div class="location-detail-text">
-              <strong>Timings</strong>
-              <span>Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM</span>
+              <strong data-i18n="loc.hoursLabel">Timings</strong>
+              <span data-i18n-html="loc.hours">Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM</span>
             </div>
           </div>
 
@@ -1115,7 +1905,7 @@
               <i class="fa-regular fa-envelope"></i>
             </div>
             <div class="location-detail-text">
-              <strong>Email &amp; Website</strong>
+              <strong data-i18n="loc.emailLabel">Email &amp; Website</strong>
               <span>
                 <a href="mailto:maulidiagnosticsangola@gmail.com">maulidiagnosticsangola@gmail.com</a><br>
                 <a href="https://www.maulidiagnostic.com" target="_blank" rel="noopener">www.maulidiagnostic.com</a>
@@ -1129,8 +1919,9 @@
             rel="noopener"
             class="btn btn-navy directions-btn"
           >
-            <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            <i class="fa-solid fa-diamond-turn-right"></i> <span data-i18n="loc.directions">Get Directions</span>
           </a>
+        </div>
         </div>
 
         <!-- Map -->
@@ -1145,6 +1936,7 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE — Sangola"
+            data-i18n-title="loc.mapTitle"
           ></iframe>
         </div>
       </div>
@@ -1161,7 +1953,7 @@
           <div class="footer-logo">
             <img src="logo.png" alt="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE" style="height:84px;width:auto;object-fit:contain;background:white;border-radius:10px;padding:8px 12px;" />
           </div>
-          <p class="footer-desc">
+          <p class="footer-desc" data-i18n="foot.desc">
             Precision imaging and prompt reporting at Basement, Mohan Hospital Building, Sangola. Your health and well-being are our highest priority.
           </p>
           <div class="footer-phone">
@@ -1174,30 +1966,31 @@
 
         <!-- Quick Links -->
         <div>
-          <div class="footer-col-title">Quick Links</div>
+          <div class="footer-col-title" data-i18n="foot.quick">Quick Links</div>
           <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#team">Our Experts</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#home" data-i18n="nav.home">Home</a></li>
+            <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+            <li><a href="#services" data-i18n="nav.services">Our Services</a></li>
+            <li><a href="#team" data-i18n="nav.team">Our Experts</a></li>
+            <li><a href="#patient-guide" data-i18n="nav.visit">Your Visit</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
           </ul>
         </div>
 
         <!-- Services -->
         <div>
-          <div class="footer-col-title">Our Services</div>
+          <div class="footer-col-title" data-i18n="foot.svcTitle">Our Services</div>
           <ul class="footer-links">
-            <li><a href="#services">Comprehensive CT (Plain &amp; Contrast)</a></li>
-            <li><a href="#services">Contrast &amp; Automated Injector</a></li>
-            <li><a href="#services">Cardiac / Vascular / Triple-phase CT</a></li>
-            <li><a href="#contact">Book Appointment</a></li>
+            <li><a href="#services" data-i18n="foot.svc1">Comprehensive CT (Plain &amp; Contrast)</a></li>
+            <li><a href="#services" data-i18n="foot.svc2">Contrast &amp; Automated Injector</a></li>
+            <li><a href="#services" data-i18n="foot.svc3">Cardiac / Vascular / Triple-phase CT</a></li>
+            <li><a href="#contact" data-i18n="foot.book">Book Appointment</a></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div>
-          <div class="footer-col-title">Contact Us</div>
+          <div class="footer-col-title" data-i18n="foot.contact">Contact Us</div>
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="fa-solid fa-phone"></i>
@@ -1215,11 +2008,11 @@
             </li>
             <li class="footer-contact-item">
               <i class="fa-solid fa-location-dot"></i>
-              <span>Basement, Mohan Hospital, Sangola &ndash; 413307</span>
+              <span data-i18n="foot.addressShort">Basement, Mohan Hospital, Sangola &ndash; 413307</span>
             </li>
             <li class="footer-contact-item">
               <i class="fa-brands fa-whatsapp"></i>
-              <a href="https://wa.me/919266136934" target="_blank" rel="noopener">9266136934 (WhatsApp)</a>
+              <a href="https://wa.me/919266136934" target="_blank" rel="noopener" data-i18n="foot.waFull">9266136934 (WhatsApp)</a>
             </li>
           </ul>
         </div>
@@ -1231,20 +2024,21 @@
 
     <div class="container">
       <div class="footer-bottom">
-        <span>&copy; 2026 MAULI DIAGNOSTIC &amp; CT SCAN CENTRE. All Rights Reserved.</span>
-        <span>Designed with <span class="footer-heart">&#9829;</span> care for your good health</span>
+        <span data-i18n="foot.copy">&copy; 2026 MAULI DIAGNOSTIC &amp; CT SCAN CENTRE. All Rights Reserved.</span>
+        <span data-i18n-html="foot.tagline">Designed with <span class="footer-heart">&#9829;</span> care for your good health</span>
       </div>
     </div>
   </footer>
 
   <!-- ======== WHATSAPP FLOATING BUTTON ======== -->
   <div class="whatsapp-float">
-    <span class="whatsapp-label">Chat on WhatsApp</span>
+    <span class="whatsapp-label" data-i18n="cta.whatsappFloat">Chat on WhatsApp</span>
     <a
       href="https://wa.me/919266136934?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20CT%20Scan%20services."
       class="whatsapp-btn"
       target="_blank"
       rel="noopener"
+      data-i18n-aria="cta.whatsappAria"
       aria-label="Chat on WhatsApp"
     >
       <i class="fa-brands fa-whatsapp"></i>
@@ -1252,12 +2046,199 @@
   </div>
 
   <!-- ======== SCROLL TO TOP ======== -->
-  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n-aria="a11y.scrollTop" aria-label="Scroll to top">
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
   <!-- ======== SCRIPTS ======== -->
   <script>
+    (function () {
+      const T = {
+        en: {
+          'meta.title': 'MAULI DIAGNOSTIC & CT SCAN CENTRE | Sangola',
+          'meta.desc': 'MAULI DIAGNOSTIC & CT SCAN CENTRE, Sangola — precision CT imaging, contrast studies with automated injector, expert consultant radiologists. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'lang.label': 'Lang',
+          'top.hours': 'Mon – Sat: 8:00 AM – 8:00 PM \u00a0|\u00a0 Sunday: 8:00 AM – 2:00 PM',
+          'nav.home': 'Home', 'nav.about': 'About Us', 'nav.services': 'Our Services', 'nav.team': 'Our Experts', 'nav.visit': 'Your Visit', 'nav.contact': 'Contact Us',
+          'cta.bookNav': 'Book CT Scan', 'cta.bookHero': 'Book Your CT Scan', 'cta.whatsapp': 'Chat on WhatsApp', 'cta.whatsappFloat': 'Chat on WhatsApp', 'cta.whatsappAria': 'Chat on WhatsApp',
+          'a11y.menu': 'Menu', 'a11y.scrollTop': 'Scroll to top',
+          'sr.h1': 'MAULI DIAGNOSTIC & CT SCAN CENTRE, Sangola — precision imaging, prompt reporting. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'hero.imgAlt': 'Mauli Diagnostic Centre — CT suite with branding. Tagline: ॥ माऊली कृपा, आरोग्य सेवा ॥ — advanced technology, accurate diagnosis, compassionate care',
+          'logo.alt': 'MAULI DIAGNOSTIC & CT SCAN CENTRE',
+          'trust.aria': 'Centre highlights',
+          'trust.t1': 'Advanced CT', 'trust.s1': 'Plain, contrast & triple‑phase studies', 'trust.t2': 'Prompt reports', 'trust.s2': 'Consultant‑reviewed imaging reports',
+          'trust.t3': 'Expert panel', 'trust.s3': 'Radiology & neuroimaging specialists', 'trust.t4': 'Sangola centre', 'trust.s4': 'Basement, Mohan Hospital — easy access',
+          'svc.tag': 'What We Offer', 'svc.title': 'Our Services', 'common.more': 'Know More',
+          'svc.c1t': 'Comprehensive CT Imaging', 'svc.c1p': 'Full range of plain and contrast CT studies for precise diagnosis and treatment planning.',
+          'svc.c2t': 'Contrast with Automated Injector', 'svc.c2p': 'Contrast studies delivered safely and consistently using an automated injector system.',
+          'svc.c3t': 'Advanced Cardiac & Vascular CT', 'svc.c3p': 'Specialised triple-phase and cardiac vascular CT protocols when advanced imaging is indicated.',
+          'svc.c4t': 'Diagnostic Reports', 'svc.c4p': 'Detailed, prompt reporting by subspecialty consultants to support your clinician’s decisions.',
+          'brand.logoAlt': 'Mauli Diagnostic — logo', 'brand.tag': 'Precision Imaging · Prompt Reporting', 'brand.loc': 'Sangola, Maharashtra',
+          'about.tag': 'Who We Are', 'about.title': 'About MAULI DIAGNOSTIC & CT SCAN CENTRE',
+          'about.p1': '<em>“Mauli”</em> means the compassionate form of God – a symbol of protection, care and blessings. <span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>',
+          'about.p2': 'At our centre in Sangola, we blend advanced CT imaging with compassionate care — precision imaging and prompt reporting you can rely on.',
+          'about.li1': 'Automated injector for contrast studies', 'about.li2': 'Advanced cardiac, vascular & triple-phase CT', 'about.li3': 'Expert & Experienced Radiologists',
+          'about.li4': 'Hygienic & Patient-friendly Environment', 'about.li5': 'Quick Reports & Reliable Results', 'about.li6': 'Affordable & Transparent Pricing',
+          'team.tag': 'Expert Panel', 'team.title': 'Our Expert Consultants', 'team.intro': 'Board‑certified consultants — accurate reads when it matters most.', 'team.leadRole': 'Lead Radiologist',
+          'pg.tag': 'Patient care', 'pg.title': 'Your visit — from booking to report',
+          'pg.sub': 'A clear, calm pathway through your CT appointment. Bring your doctor’s request note and any prior scans if you have them.',
+          'jg.t1': 'Book', 'jg.p1': 'Call, WhatsApp, or walk in. We’ll suggest a slot and tell you if fasting or contrast prep applies.',
+          'jg.t2': 'Check‑in', 'jg.p2': 'Arrive a few minutes early with ID and papers. Our front desk confirms your study and answers questions.',
+          'jg.t3': 'Scan', 'jg.p3': 'Technologist guides you on the table. Most scans are quick; you may hear gentle whirring from the gantry.',
+          'jg.t4': 'Report', 'jg.p4': 'Images are reviewed by our consultants. Reports are prepared promptly for you and your referring doctor.',
+          'prep.t1': 'Fasting & diet', 'prep.t2': 'Contrast (dye) studies', 'prep.t3': 'Metal & clothing', 'prep.t4': 'Diabetics & special cases',
+          'prep.p1': 'Some abdomen or contrast studies need a short fast. We’ll confirm when you book — follow the instructions given for <em>your</em> exam only.',
+          'prep.p2': 'If your scan uses intravenous contrast, tell us about allergies, kidney issues, or diabetes medication. Our team screens safety before the injector is used.',
+          'prep.p3': 'Remove metal objects near the area being scanned when asked. Comfortable clothing helps you stay relaxed during the procedure.',
+          'prep.p4': 'Mention pregnancy or severe allergies when scheduling. We coordinate timing with your physician’s advice when needed.',
+          'prep.disclaimer': 'General information only — not a substitute for your doctor’s instructions. For medical decisions, always follow your treating physician.',
+          'faq.title': 'Questions patients often ask',
+          'faq.q1': 'How long does a CT scan take?',
+          'faq.a1': 'Most examinations are finished in a few minutes on the table; total time at the centre depends on preparation and whether contrast is required. We’ll give you an estimate when you book.',
+          'faq.q2': 'Will the scan hurt? Is it claustrophobic?',
+          'faq.a2': 'CT is non-invasive and usually painless. The opening is relatively open compared with MRI; if you’re anxious, tell our staff — we’ll help you feel at ease.',
+          'faq.q3': 'When will my report be ready?',
+          'faq.a3': 'We prioritise prompt, accurate reporting reviewed by consultants. Turnaround can vary by study complexity; our desk will inform you at the visit or on WhatsApp.',
+          'faq.q4': 'Do I need a doctor’s referral?',
+          'faq.a4': 'A referring doctor’s note or prescription helps us perform the correct protocol and send the report to the right clinician. Bring any document your doctor gave you.',
+          'faq.q5': 'Can I get a digital copy of my images?',
+          'faq.a5': 'Ask at the front desk about sharing images or reports with your hospital or doctor. Policies depend on format and workflow — we’ll guide you.',
+          'loc.tag': 'Find Us', 'loc.title': 'Visit Our Centre',
+          'loc.intro': 'Walk in or message us on WhatsApp for appointments. We’re located in the basement of Mohan Hospital, Sangola.',
+          'loc.addr': 'Basement, Mohan Hospital Building,<br>Sangola–Miraj Road, Sangola – 413307<br>Maharashtra, India',
+          'loc.phoneLabel': 'Phone', 'loc.mayur': 'Mayur Yelpale:', 'loc.waLabel': 'WhatsApp:', 'loc.hoursLabel': 'Timings', 'loc.emailLabel': 'Email & Website',
+          'loc.hours': 'Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM',
+          'loc.directions': 'Get Directions', 'loc.mapTitle': 'MAULI DIAGNOSTIC & CT SCAN CENTRE — Sangola',
+          'foot.desc': 'Precision imaging and prompt reporting at Basement, Mohan Hospital Building, Sangola. Your health and well-being are our highest priority.',
+          'foot.quick': 'Quick Links', 'foot.svcTitle': 'Our Services', 'foot.contact': 'Contact Us',
+          'foot.svc1': 'Comprehensive CT (Plain & Contrast)', 'foot.svc2': 'Contrast & Automated Injector', 'foot.svc3': 'Cardiac / Vascular / Triple-phase CT', 'foot.book': 'Book Appointment',
+          'foot.addressShort': 'Basement, Mohan Hospital, Sangola – 413307', 'foot.waFull': '9266136934 (WhatsApp)',
+          'foot.copy': '© 2026 MAULI DIAGNOSTIC & CT SCAN CENTRE. All Rights Reserved.',
+          'foot.tagline': 'Designed with <span class="footer-heart">&#9829;</span> care for your good health'
+        },
+        mr: {
+          'meta.title': 'MAULI निदान व सीटी स्कॅन केंद्र | सांगोला',
+          'meta.desc': 'सांगोला येथे MAULI निदान व सीटी स्कॅन केंद्र — अचूक सीटी इमेजिंग, ऑटोमॅटेड इंजेक्टरसह कॉन्ट्रास्ट अभ्यास, तज्ञ रेडिओलॉजिस्ट. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'lang.label': 'भाषा',
+          'top.hours': 'सोम – शनि: स. ८ – रा. ८ \u00a0|\u00a0 रवि: स. ८ – दु. २',
+          'nav.home': 'मुखपृष्ठ', 'nav.about': 'आमच्याबद्दल', 'nav.services': 'आमच्या सेवा', 'nav.team': 'तज्ञ सल्लागार', 'nav.visit': 'तुमची भेट', 'nav.contact': 'संपर्क साधा',
+          'cta.bookNav': 'सीटी स्कॅन बुक करा', 'cta.bookHero': 'तुमचा सीटी स्कॅन बुक करा', 'cta.whatsapp': 'व्हॉट्सअॅपवर चॅट करा', 'cta.whatsappFloat': 'व्हॉट्सअॅपवर चॅट', 'cta.whatsappAria': 'व्हॉट्सअॅपवर संदेश पाठवा',
+          'a11y.menu': 'मेनू', 'a11y.scrollTop': 'वर स्क्रोल करा',
+          'sr.h1': 'MAULI निदान व सीटी स्कॅन केंद्र, सांगोला — अचूक इमेजिंग व त्वरित अहवाल. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'hero.imgAlt': 'मौली निदान केंद्र — सीटी सुइट व ब्रांडिंग. घोषवाक्य: ॥ माऊली कृपा, आरोग्य सेवा ॥ — प्रगत तंत्रज्ञान, अचूक निदान, करुणामय सेवा',
+          'logo.alt': 'MAULI निदान व सीटी स्कॅन केंद्र',
+          'trust.aria': 'केंद्राची मुख्य वैशिष्ट्ये',
+          'trust.t1': 'प्रगत सीटी', 'trust.s1': 'साधे, कॉन्ट्रास्ट व त्रि-फेज अभ्यास', 'trust.t2': 'त्वरित अहवाल', 'trust.s2': 'सल्लागार-पडताढण केलेले इमेजिंग अहवाल',
+          'trust.t3': 'तज्ञ कार्यसंघ', 'trust.s3': 'रेडिओलॉजी व न्यूरोइमेजिंग तज्ञ', 'trust.t4': 'सांगोला केंद्र', 'trust.s4': 'मोहन रुग्णालय — तळमजला, सोपी उपलब्धता',
+          'svc.tag': 'आम्ही काय देतो', 'svc.title': 'आमच्या सेवा', 'common.more': 'अधिक माहिती',
+          'svc.c1t': 'विस्तृत सीटी इमेजिंग', 'svc.c1p': 'अचूक निदान व उपचार नियोजनासाठी साधे व कॉन्ट्रास्ट सीटी अभ्यासांची पूर्ण श्रेणी.',
+          'svc.c2t': 'ऑटोमॅटेड इंजेक्टरसह कॉन्ट्रास्ट', 'svc.c2p': 'ऑटोमॅटेड इंजेक्टर प्रणालीने कॉन्ट्रास्ट अभ्यास सुरक्षित व सातत्यपूर्ण पद्धतीने.',
+          'svc.c3t': 'प्रगत हृदय व रक्तवाहिन्या सीटी', 'svc.c3p': 'प्रगत इमेजिंग आवश्यक असताना त्रि-फेज व हृदय-व्हॅस्क्युलर सीटी प्रोटोकॉल.',
+          'svc.c4t': 'निदान अहवाल', 'svc.c4p': 'तुमच्या चिकित्सकांच्या निर्णयांसाठी उपविभागीय सल्लागारांकडून तपशीवार, त्वरित अहवाल.',
+          'brand.logoAlt': 'मौली निदान — लोगो', 'brand.tag': 'अचूक इमेजिंग · त्वरित अहवाल', 'brand.loc': 'सांगोला, महाराष्ट्र',
+          'about.tag': 'आम्ही कोण', 'about.title': 'MAULI निदान व सीटी स्कॅन केंद्र बद्दल',
+          'about.p1': '<em>माऊली</em> म्हणजे देवाची करुणामय रूपे — संरक्षण, काळजी आणि आशीर्वादांचे प्रतीक. <span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>',
+          'about.p2': 'सांगोला येथील आमच्या केंद्रात आम्ही प्रगत सीटी इमेजिंग व करुणामय सेवा एकत्र आणतो — विश्वासार्ह अचूक इमेजिंग व त्वरित अहवाल.',
+          'about.li1': 'कॉन्ट्रास्ट अभ्यासांसाठी ऑटोमॅटेड इंजेक्टर', 'about.li2': 'प्रगत हृदय, रक्तवाहिन्या व त्रि-फेज सीटी', 'about.li3': 'अनुभवी तज्ञ रेडिओलॉजिस्ट',
+          'about.li4': 'स्वच्छ व रुग्णसुलभ वातावरण', 'about.li5': 'त्वरित अहवाल व विश्वासार्ह निकाल', 'about.li6': 'परवडणारी व पारदर्शक दर',
+          'team.tag': 'तज्ञ कार्यसंघ', 'team.title': 'आमचे तज्ञ सल्लागार', 'team.intro': 'प्रमाणित सल्लागार — गरजेच्या वेळी अचूक वाचन.', 'team.leadRole': 'मुख्य रेडिओलॉजिस्ट',
+          'pg.tag': 'रुग्ण सेवा', 'pg.title': 'बुकिंगपासून अहवालापर्यंत — तुमची भेट',
+          'pg.sub': 'तुमच्या सीटी अपॉइंटमेंटसाठी स्पष्ट, शांत मार्ग. डॉक्टरांची विनंती नोंद व जुने स्कॅन असल्यास सोबत आणा.',
+          'jg.t1': 'बुकिंग', 'jg.p1': 'फोन, व्हॉट्सअॅप किंवा थेट भेटा. वेळ सुचवू आणि उपवास किंवा कॉन्ट्रास्ट तयारी लागते का सांगू.',
+          'jg.t2': 'नोंदणी', 'jg.p2': 'ओळखपत्र व कागदपत्रांसह काही मिनिटे आधी या. आमचे रिसेप्शन तुमचा अभ्यास निश्चित करते व प्रश्नांची उत्तरे देते.',
+          'jg.t3': 'स्कॅन', 'jg.p3': 'तंत्रज्ञ तुम्हाला टेबलवर मार्गदर्शन करतात. बहुतेक स्कॅन लवकर; गॅन्ट्रीचा हळू आवाज येऊ शकतो.',
+          'jg.t4': 'अहवाल', 'jg.p4': 'प्रतिमा आमचे सल्लागार पाहतात. अहवाल तुम्हाला व संदर्भित डॉक्टरांना त्वरित तयार केले जातात.',
+          'prep.t1': 'उपवास व आहार', 'prep.t2': 'कॉन्ट्रास्ट (रंग) अभ्यास', 'prep.t3': 'धातू व कपडे', 'prep.t4': 'मधुमेह व विशेष परिस्थिती',
+          'prep.p1': 'काही पोट किंवा कॉन्ट्रास्ट अभ्यासांसाठी लहान उपवास लागू शकतो. बुकिंगवेळी आम्ही सांगू — फक्त <em>तुमच्या</em> चाचणीसाठी दिलेले निर्देश पाळा.',
+          'prep.p2': 'जर स्कॅनमध्ये नसातील कॉन्ट्रास्ट वापरला जात असेल तर अ‍ॅलर्जी, मूत्रपिंड किंवा मधुमेह औषधांची माहिती द्या. इंजेक्टर वापरण्यापूर्वी आमचे कार्यसंघ सुरक्षा तपासतात.',
+          'prep.p3': 'सांगतेवेळी स्कॅन होणाऱ्या भागाजवळची धातू वस्तू काढा. आरामदायी कपडे प्रक्रियेदरम्यान शांत राहण्यास मदत करतात.',
+          'prep.p4': 'वेळापत्रक करताना गर्भधारणा किंवा गंभीर अ‍ॅलर्जी सांगा. आवश्यकतेनुसार तुमच्या चिकित्सकांच्या सल्ल्याशी आम्ही वेळ जुळवतो.',
+          'prep.disclaimer': 'हा केवल सामान्य माहितीचा सारांश आहे — तुमच्या डॉक्टरांच्या सूचनांचे प्रतिस्थापन नाही. वैद्यकीय निर्णयांसाठी नेहमी उपचार करणाऱ्या चिकित्सकांचे अनुसरण करा.',
+          'faq.title': 'रुग्णांना वारंवार पडणारे प्रश्न',
+          'faq.q1': 'सीटी स्कॅनला किती वेळ लागतो?',
+          'faq.a1': 'बहुतेक चाचण्या टेबलवर काही मिनिटांत पूर्ण होतात; एकूण वेळ तयारीवर व कॉन्ट्रास्ट आवश्यक आहे का यावर अवलंबून. बुकिंगवेळी आम्ही अंदाज देऊ.',
+          'faq.q2': 'स्कॅन दुखतो का? बंद जागेसारखे वाटते का?',
+          'faq.a2': 'सीटी अनिष्कासक (नॉन-इनव्हेसिव्ह) आणि सहसा पेनलेस. एमआरआयपेक्षा दरी अधिक उघडी; चिंता असल्यास कर्मचार्‍यांना सांगा — आम्ही मदत करू.',
+          'faq.q3': 'माझा अहवाल कधी तयार होईल?',
+          'faq.a3': 'सल्लागारांकडून पडताढण केलेले अचूक अहवाल आम्ही प्राधान्याने देतो. चाचणीच्या जटिलतेनुसार वेळ बदलू शकतो; भेटीदरम्यान किंवा व्हॉट्सअॅपवर रिसेप्शन सांगेल.',
+          'faq.q4': 'मला डॉक्टरांचा संदर्भ हवा का?',
+          'faq.a4': 'संदर्भित डॉक्टरांची नोंद व प्रिस्क्रिप्शन योग्य प्रोटोकॉल व अहवाल योग्य चिकित्सकाला पाठवण्यास मदत करते. डॉक्टरांनी दिलेले सर्व दस्तऐवज सोबत आणा.',
+          'faq.q5': 'मला प्रतिमांची डिजिटल प्रत मिळू शकते का?',
+          'faq.a5': 'तुमच्या रुग्णालय किंवा डॉक्टरासोबत प्रतिमा व अहवाल शेअर करण्याबद्दल रिसेप्शन विचारा. धोरण स्वरूप व कार्यपद्धतीनुसार असते — आम्ही मार्गदर्शन करू.',
+          'loc.tag': 'आम्हाला शोधा', 'loc.title': 'आमच्या केंद्राला भेट द्या',
+          'loc.intro': 'अपॉइंटमेंटसाठी थेट या किंवा व्हॉट्सअॅपवर संदेश पाठवा. आम्ही सांगोल्यात मोहन रुग्णालयाच्या तळमजल्यात आहोत.',
+          'loc.addr': 'तळमजला, मोहन रुग्णालय इमारत,<br>सांगोला–मिरज रोड, सांगोला – 413307<br>महाराष्ट्र, भारत',
+          'loc.phoneLabel': 'फोन', 'loc.mayur': 'मयूर येळपाळे:', 'loc.waLabel': 'व्हॉट्सअॅप:', 'loc.hoursLabel': 'वेळ', 'loc.emailLabel': 'ई-मेल व संकेतस्थळ',
+          'loc.hours': 'सोम – शनि: स. ८:०० – रा. ८:००<br>रवि: स. ८:०० – दु. २:००',
+          'loc.directions': 'दिशानिर्देश मिळवा', 'loc.mapTitle': 'MAULI निदान व सीटी स्कॅन केंद्र — सांगोला',
+          'foot.desc': 'सांगोला, मोहन रुग्णालय तळमजल्यात अचूक इमेजिंग व त्वरित अहवाल. तुमचे आरोग्य व चांगली तब्येत ही आमची प्राथमिकता.',
+          'foot.quick': 'द्रुत दुवे', 'foot.svcTitle': 'आमच्या सेवा', 'foot.contact': 'संपर्क साधा',
+          'foot.svc1': 'विस्तृत सीटी (साधे व कॉन्ट्रास्ट)', 'foot.svc2': 'कॉन्ट्रास्ट व ऑटोमॅटेड इंजेक्टर', 'foot.svc3': 'हृदय / रक्तवाहिन्या / त्रि-फेज सीटी', 'foot.book': 'अपॉइंटमेंट बुक करा',
+          'foot.addressShort': 'तळमजला, मोहन रुग्णालय, सांगोला – 413307', 'foot.waFull': '9266136934 (व्हॉट्सअॅप)',
+          'foot.copy': '© 2026 MAULI निदान व सीटी स्कॅन केंद्र. सर्व हक्क राखीव.',
+          'foot.tagline': 'तुमच्या उत्तम आरोग्यासाठी <span class="footer-heart">&#9829;</span> पूर्ण काळजीने तयार'
+        }
+      };
+
+      function tr(lang, key) {
+        var pack = T[lang] || T.en;
+        if (pack[key] !== undefined) return pack[key];
+        return T.en[key] !== undefined ? T.en[key] : '';
+      }
+
+      function applyLang(lang) {
+        if (lang !== 'mr') lang = 'en';
+        document.documentElement.lang = lang;
+        localStorage.setItem('mauli-lang', lang);
+        var ben = document.getElementById('langBtnEn');
+        var bmr = document.getElementById('langBtnMr');
+        if (ben) ben.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+        if (bmr) bmr.setAttribute('aria-pressed', lang === 'mr' ? 'true' : 'false');
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var v = tr(lang, el.getAttribute('data-i18n'));
+          if (v) el.textContent = v;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var v = tr(lang, el.getAttribute('data-i18n-html'));
+          if (v) el.innerHTML = v;
+        });
+        document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+          var v = tr(lang, el.getAttribute('data-i18n-alt'));
+          if (v) el.setAttribute('alt', v);
+        });
+        document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+          var v = tr(lang, el.getAttribute('data-i18n-title'));
+          if (v) el.setAttribute('title', v);
+        });
+        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+          var v = tr(lang, el.getAttribute('data-i18n-aria'));
+          if (v) el.setAttribute('aria-label', v);
+        });
+
+        var ts = document.getElementById('trustStrip');
+        if (ts) {
+          var a = tr(lang, 'trust.aria');
+          if (a) ts.setAttribute('aria-label', a);
+        }
+
+        document.title = tr(lang, 'meta.title');
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', tr(lang, 'meta.desc'));
+      }
+
+      window.mauliApplyLang = applyLang;
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var saved = localStorage.getItem('mauli-lang');
+        applyLang(saved === 'mr' ? 'mr' : 'en');
+        var ben = document.getElementById('langBtnEn');
+        var bmr = document.getElementById('langBtnMr');
+        if (ben) ben.addEventListener('click', function () { applyLang('en'); });
+        if (bmr) bmr.addEventListener('click', function () { applyLang('mr'); });
+      });
+    })();
+
     /* -- Mobile nav toggle -- */
     function toggleNav() {
       const links = document.getElementById('navLinks');
@@ -1289,6 +2270,26 @@
     }, { rootMargin: '-40% 0px -55% 0px' });
 
     sections.forEach(s => observer.observe(s));
+
+    /* -- Scroll reveal (respects reduced motion via CSS + early exit) -- */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.reveal').forEach((el) => {
+        const rev = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('reveal--visible');
+                rev.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: '0px 0px -8% 0px' }
+        );
+        rev.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('reveal--visible'));
+    }
 
     /* -- Scroll to top button -- */
     window.addEventListener('scroll', () => {
