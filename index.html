@@ -1352,6 +1352,167 @@
     }
     .gold-divider i { color: var(--cyan); font-size: 0.95rem; text-shadow: 0 0 20px rgba(34, 211, 238, 0.35); }
 
+    /* ===================== BOOKING MODAL ===================== */
+    .booking-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Author `display: flex` wins over the `hidden` attribute unless we force it */
+    .booking-modal[hidden] {
+      display: none !important;
+    }
+
+    .booking-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+
+    .booking-modal__panel {
+      position: relative;
+      z-index: 1;
+      pointer-events: auto;
+      width: 100%;
+      max-width: 440px;
+      max-height: min(92vh, 720px);
+      overflow: auto;
+      margin: auto;
+      padding: 28px 26px 24px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow:
+        0 0 0 1px rgba(34, 211, 238, 0.2),
+        0 24px 64px rgba(15, 23, 42, 0.22);
+      animation: booking-pop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes booking-pop {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .booking-modal__x {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(241, 245, 249, 0.9);
+      color: var(--text-dark);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .booking-modal__x:hover {
+      background: rgba(34, 211, 238, 0.2);
+      color: #0e7490;
+    }
+
+    .booking-modal__title {
+      font-family: 'Outfit', 'Poppins', system-ui, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0 40px 8px 0;
+      line-height: 1.25;
+    }
+
+    .booking-modal__sub {
+      margin: 0 0 20px;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .booking-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .booking-field input,
+    .booking-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--text-dark);
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .booking-field input:focus,
+    .booking-field textarea:focus {
+      outline: none;
+      border-color: rgba(34, 211, 238, 0.65);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.18);
+      background: var(--white);
+    }
+
+    .booking-field textarea {
+      resize: vertical;
+      min-height: 88px;
+    }
+
+    .booking-field-error {
+      margin: -6px 0 0;
+      min-height: 1.2em;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #b91c1c;
+    }
+
+    .booking-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 8px;
+      padding-top: 4px;
+    }
+
+    .booking-actions .btn { margin: 0; }
+
+    @media (max-width: 480px) {
+      .booking-modal__panel { padding: 24px 18px 20px; }
+      .booking-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+      .booking-actions .btn { width: 100%; justify-content: center; }
+    }
+
     /* ===================== SCROLL TOP ===================== */
     #scrollTop {
       position: fixed;
@@ -2003,6 +2164,48 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
 
+    html[data-theme="dark"] .booking-modal__backdrop {
+      background: rgba(2, 6, 23, 0.72);
+    }
+
+    html[data-theme="dark"] .booking-modal__panel {
+      background: linear-gradient(165deg, #0f172a 0%, #1e293b 100%);
+      box-shadow:
+        0 0 0 1px rgba(34, 211, 238, 0.22),
+        0 28px 72px rgba(0, 0, 0, 0.45);
+    }
+
+    html[data-theme="dark"] .booking-modal__x {
+      background: rgba(30, 41, 59, 0.95);
+      color: #e2e8f0;
+    }
+
+    html[data-theme="dark"] .booking-modal__x:hover {
+      background: rgba(34, 211, 238, 0.18);
+      color: #67e8f9;
+    }
+
+    html[data-theme="dark"] .booking-modal__title { color: #f1f5f9; }
+
+    html[data-theme="dark"] .booking-modal__sub { color: #94a3b8; }
+
+    html[data-theme="dark"] .booking-field { color: #e2e8f0; }
+
+    html[data-theme="dark"] .booking-field input,
+    html[data-theme="dark"] .booking-field textarea {
+      background: rgba(15, 23, 42, 0.65);
+      border-color: rgba(51, 65, 85, 0.9);
+      color: #f1f5f9;
+    }
+
+    html[data-theme="dark"] .booking-field input:focus,
+    html[data-theme="dark"] .booking-field textarea:focus {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(34, 211, 238, 0.45);
+    }
+
+    html[data-theme="dark"] .booking-field-error { color: #fca5a5; }
+
     html[data-theme="dark"] .footer-inner .footer-desc { color: rgba(226, 232, 240, 0.55); }
   </style>
 </head>
@@ -2069,7 +2272,7 @@
         </ul>
 
         <!-- CTA -->
-        <a href="https://wa.me/919266136934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20CT%20Scan%20appointment." class="btn btn-navy nav-cta" target="_blank" rel="noopener">
+        <a href="#" class="btn btn-navy nav-cta js-booking-open">
           <i class="fa-solid fa-calendar-check"></i> <span data-i18n="cta.bookNav">Book CT Scan</span>
         </a>
 
@@ -2098,7 +2301,7 @@
         />
       </div>
       <div class="hero-cta-bar">
-        <a href="https://wa.me/919266136934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20CT%20Scan%20appointment." class="btn btn-navy" target="_blank" rel="noopener">
+        <a href="#" class="btn btn-navy js-booking-open">
           <i class="fa-solid fa-calendar-check"></i> <span data-i18n="cta.bookHero">Book Your CT Scan</span>
         </a>
         <a href="https://wa.me/919266136934" class="btn btn-hero-outline" target="_blank" rel="noopener">
@@ -2524,7 +2727,7 @@
             <li><a href="#services" data-i18n="foot.svc1">Comprehensive CT (Plain &amp; Contrast)</a></li>
             <li><a href="#services" data-i18n="foot.svc2">Contrast &amp; Automated Injector</a></li>
             <li><a href="#services" data-i18n="foot.svc3">Cardiac / Vascular / Triple-phase CT</a></li>
-            <li><a href="#contact" data-i18n="foot.book">Book Appointment</a></li>
+            <li><a href="#" class="js-booking-open" data-i18n="foot.book">Book Appointment</a></li>
           </ul>
         </div>
 
@@ -2569,6 +2772,94 @@
       </div>
     </div>
   </footer>
+
+  <!-- ======== BOOKING MODAL ======== -->
+  <div
+    id="bookingModal"
+    class="booking-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="bookingModalTitle"
+    hidden
+  >
+    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
+    <div class="booking-modal__panel">
+      <button
+        type="button"
+        class="booking-modal__x"
+        data-booking-close
+        data-i18n-aria="bookModal.close"
+        aria-label="Close booking form"
+      >&times;</button>
+      <h2 id="bookingModalTitle" class="booking-modal__title" data-i18n="bookModal.title">Book a CT scan</h2>
+      <p class="booking-modal__sub" data-i18n="bookModal.sub">Enter your details below. We’ll open WhatsApp with a ready-to-send message to our desk.</p>
+      <form id="bookingForm" class="booking-form" novalidate>
+        <label class="booking-field">
+          <span data-i18n="bookModal.name">Full name</span>
+          <input
+            type="text"
+            id="bookingName"
+            name="name"
+            autocomplete="name"
+            required
+            data-i18n-placeholder="bookModal.phName"
+            placeholder="e.g. Rajesh Kumar"
+          />
+        </label>
+        <label class="booking-field">
+          <span data-i18n="bookModal.phone">Mobile number</span>
+          <input
+            type="tel"
+            id="bookingPhone"
+            name="phone"
+            autocomplete="tel"
+            inputmode="tel"
+            data-i18n-placeholder="bookModal.phPhone"
+            placeholder="10-digit mobile number"
+          />
+        </label>
+        <p id="bookingPhoneErr" class="booking-field-error" role="alert" aria-live="polite"></p>
+        <label class="booking-field">
+          <span data-i18n="bookModal.age">Age (optional)</span>
+          <input
+            type="text"
+            id="bookingAge"
+            name="age"
+            inputmode="numeric"
+            data-i18n-placeholder="bookModal.phAge"
+            placeholder="e.g. 42"
+          />
+        </label>
+        <label class="booking-field">
+          <span data-i18n="bookModal.pref">Preferred date / time (optional)</span>
+          <input
+            type="text"
+            id="bookingPref"
+            name="pref"
+            data-i18n-placeholder="bookModal.phPref"
+            placeholder="e.g. Tomorrow 10 AM"
+          />
+        </label>
+        <label class="booking-field">
+          <span data-i18n="bookModal.notes">Notes (optional)</span>
+          <textarea
+            id="bookingNotes"
+            name="notes"
+            rows="3"
+            data-i18n-placeholder="bookModal.phNotes"
+            placeholder="Scan type, doctor referral, etc."
+          ></textarea>
+        </label>
+        <div class="booking-actions">
+          <button type="button" class="btn btn-outline" data-booking-close data-i18n="bookModal.cancel">Cancel</button>
+          <button type="submit" class="btn btn-navy">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <span data-i18n="bookModal.submit">Continue to WhatsApp</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- ======== WHATSAPP FLOATING BUTTON ======== -->
   <div class="whatsapp-float">
@@ -2656,7 +2947,29 @@
           'foot.svc1': 'Comprehensive CT (Plain & Contrast)', 'foot.svc2': 'Contrast & Automated Injector', 'foot.svc3': 'Cardiac / Vascular / Triple-phase CT', 'foot.book': 'Book Appointment',
           'foot.addressShort': 'Basement, Mohan Hospital, Sangola – 413307', 'foot.waFull': '9266136934 (WhatsApp)',
           'foot.copy': '© 2026 MAULI DIAGNOSTIC & CT SCAN CENTRE. All Rights Reserved.',
-          'foot.tagline': 'Designed with <span class="footer-heart">&#9829;</span> and care for your good health'
+          'foot.tagline': 'Designed with <span class="footer-heart">&#9829;</span> and care for your good health',
+          'bookModal.title': 'Book a CT scan',
+          'bookModal.sub': 'Enter your details below. We’ll open WhatsApp with a ready-to-send message to our desk.',
+          'bookModal.name': 'Full name',
+          'bookModal.phone': 'Mobile number',
+          'bookModal.age': 'Age (optional)',
+          'bookModal.pref': 'Preferred date / time (optional)',
+          'bookModal.notes': 'Notes (optional)',
+          'bookModal.phName': 'e.g. Rajesh Kumar',
+          'bookModal.phPhone': '10-digit mobile number',
+          'bookModal.phAge': 'e.g. 42',
+          'bookModal.phPref': 'e.g. Tomorrow 10 AM',
+          'bookModal.phNotes': 'Scan type, doctor referral, etc.',
+          'bookModal.submit': 'Continue to WhatsApp',
+          'bookModal.cancel': 'Cancel',
+          'bookModal.close': 'Close booking form',
+          'bookModal.errPhone': 'Please enter a valid mobile number (at least 10 digits).',
+          'bookModal.msgHead': 'CT Scan booking — MAULI Diagnostic & CT Scan Centre, Sangola',
+          'bookModal.msgName': 'Name',
+          'bookModal.msgPhone': 'Phone',
+          'bookModal.msgAge': 'Age',
+          'bookModal.msgPref': 'Preferred date/time',
+          'bookModal.msgNotes': 'Notes'
         },
         mr: {
           'meta.title': 'माऊली निदान व सीटी स्कॅन केंद्र | सांगोला',
@@ -2720,7 +3033,29 @@
           'foot.svc1': 'विस्तृत सीटी (साधे व कॉन्ट्रास्ट)', 'foot.svc2': 'कॉन्ट्रास्ट व ऑटोमॅटेड इंजेक्टर', 'foot.svc3': 'हृदय / रक्तवाहिन्या / त्रि-फेज सीटी', 'foot.book': 'अपॉइंटमेंट बुक करा',
           'foot.addressShort': 'तळमजला, मोहन रुग्णालय, सांगोला – 413307', 'foot.waFull': '9266136934 (व्हॉट्सअॅप)',
           'foot.copy': '© 2026 माऊली निदान व सीटी स्कॅन केंद्र. सर्व हक्क राखीव.',
-          'foot.tagline': 'तुमच्या उत्तम आरोग्यासाठी <span class="footer-heart">&#9829;</span> पूर्ण काळजीने तयार'
+          'foot.tagline': 'तुमच्या उत्तम आरोग्यासाठी <span class="footer-heart">&#9829;</span> पूर्ण काळजीने तयार',
+          'bookModal.title': 'सीटी स्कॅन बुक करा',
+          'bookModal.sub': 'खाली तपशील भरा. आमच्या डेस्कवर पाठवण्यासाठी व्हॉट्सअॅप संदेश उघडू.',
+          'bookModal.name': 'पूर्ण नाव',
+          'bookModal.phone': 'मोबाइल नंबर',
+          'bookModal.age': 'वय (ऐच्छिक)',
+          'bookModal.pref': 'पसंतीची तारीख / वेळ (ऐच्छिक)',
+          'bookModal.notes': 'टीप (ऐच्छिक)',
+          'bookModal.phName': 'उदा. राजेश कुमार',
+          'bookModal.phPhone': '१० अंकी मोबाइल',
+          'bookModal.phAge': 'उदा. ४२',
+          'bookModal.phPref': 'उदा. उद्या सकाळी १०',
+          'bookModal.phNotes': 'स्कॅन प्रकार, डॉक्टर संदर्भ इत्यादी',
+          'bookModal.submit': 'व्हॉट्सअॅपवर पुढे जा',
+          'bookModal.cancel': 'रद्द करा',
+          'bookModal.close': 'फॉर्म बंद करा',
+          'bookModal.errPhone': 'कृपया वैध मोबाइल नंबर टाका (किमान १० अंक).',
+          'bookModal.msgHead': 'सीटी स्कॅन बुकिंग — माऊली निदान व सीटी स्कॅन केंद्र, सांगोला',
+          'bookModal.msgName': 'नाव',
+          'bookModal.msgPhone': 'फोन',
+          'bookModal.msgAge': 'वय',
+          'bookModal.msgPref': 'पसंतीची तारीख/वेळ',
+          'bookModal.msgNotes': 'टीप'
         }
       };
 
@@ -2752,6 +3087,8 @@
         return T.en[key] !== undefined ? T.en[key] : '';
       }
 
+      window.mauliTr = tr;
+
       function applyLang(lang) {
         if (lang !== 'mr') lang = 'en';
         document.documentElement.lang = lang;
@@ -2780,6 +3117,11 @@
         document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
           var v = tr(lang, el.getAttribute('data-i18n-aria'));
           if (v) el.setAttribute('aria-label', v);
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+          var v = tr(lang, el.getAttribute('data-i18n-placeholder'));
+          if (v !== undefined && v !== '') el.setAttribute('placeholder', v);
         });
 
         var ts = document.getElementById('trustStrip');
@@ -2871,6 +3213,7 @@
     /* -- Scroll to top button -- */
     window.addEventListener('scroll', () => {
       const btn = document.getElementById('scrollTop');
+      if (!btn) return;
       if (window.scrollY > 400) btn.classList.add('visible');
       else btn.classList.remove('visible');
     });
@@ -2878,7 +3221,9 @@
     /* -- Smooth scroll for anchor links -- */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (!href || href.length < 2 || href === '#') return;
+        const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
           const offset = 80;
@@ -2887,6 +3232,118 @@
         }
       });
     });
+
+    /* -- Booking modal + WhatsApp handoff -- */
+    (function () {
+      function initBookingModal() {
+      var modal = document.getElementById('bookingModal');
+      var form = document.getElementById('bookingForm');
+      if (!modal || !form) return;
+
+      modal.hidden = true;
+
+      var phoneEl = document.getElementById('bookingPhone');
+      var phoneErr = document.getElementById('bookingPhoneErr');
+      var openEls = document.querySelectorAll('.js-booking-open');
+      var closeEls = modal.querySelectorAll('[data-booking-close]');
+
+      function currentLang() {
+        return document.documentElement.lang === 'mr' ? 'mr' : 'en';
+      }
+
+      function L(key) {
+        return typeof window.mauliTr === 'function' ? window.mauliTr(currentLang(), key) : '';
+      }
+
+      function openModal() {
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        var nav = document.getElementById('navLinks');
+        if (nav) nav.classList.remove('open');
+        var first = form.querySelector('input, textarea, select');
+        if (first && first.focus) first.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+        if (phoneErr) phoneErr.textContent = '';
+      }
+
+      function digitsOnly(s) {
+        return String(s || '').replace(/\D/g, '');
+      }
+
+      function buildMessage(d) {
+        var lines = ['*' + L('bookModal.msgHead') + '*', ''];
+        lines.push(L('bookModal.msgName') + ': ' + d.name);
+        lines.push(L('bookModal.msgPhone') + ': ' + d.phone);
+        if (d.age) lines.push(L('bookModal.msgAge') + ': ' + d.age);
+        if (d.pref) lines.push(L('bookModal.msgPref') + ': ' + d.pref);
+        if (d.notes) lines.push(L('bookModal.msgNotes') + ': ' + d.notes);
+        return lines.join('\n');
+      }
+
+      openEls.forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      closeEls.forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          closeModal();
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) closeModal();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (phoneErr) phoneErr.textContent = '';
+
+        var nameEl = document.getElementById('bookingName');
+        var ageEl = document.getElementById('bookingAge');
+        var prefEl = document.getElementById('bookingPref');
+        var notesEl = document.getElementById('bookingNotes');
+
+        var name = nameEl ? nameEl.value.trim() : '';
+        var phone = phoneEl ? phoneEl.value.trim() : '';
+        var age = ageEl ? ageEl.value.trim() : '';
+        var pref = prefEl ? prefEl.value.trim() : '';
+        var notes = notesEl ? notesEl.value.trim() : '';
+
+        if (!name) {
+          if (nameEl && nameEl.focus) nameEl.focus();
+          return;
+        }
+        if (digitsOnly(phone).length < 10) {
+          if (phoneErr) phoneErr.textContent = L('bookModal.errPhone');
+          if (phoneEl && phoneEl.focus) phoneEl.focus();
+          return;
+        }
+
+        var text = buildMessage({ name: name, phone: phone, age: age, pref: pref, notes: notes });
+        var url = 'https://wa.me/919266136934?text=' + encodeURIComponent(text);
+        var w = window.open(url, '_blank', 'noopener,noreferrer');
+        if (!w) {
+          window.location.href = url;
+        }
+        closeModal();
+        form.reset();
+      });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initBookingModal);
+      } else {
+        initBookingModal();
+      }
+    })();
   </script>
 </body>
 </html>
