@@ -45,20 +45,12 @@
       "addressCountry": "IN"
     },
     "medicalSpecialty": "Radiology",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "08:00",
-        "closes": "20:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
-        "opens": "08:00",
-        "closes": "14:00"
-      }
-    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
     "availableService": {
       "@type": "MedicalTest",
       "name": "CT scan (computed tomography)"
@@ -323,6 +315,104 @@
 
     .topbar a { color: #1e3a5f; transition: color 0.2s; font-weight: 500; }
     .topbar a:hover { color: var(--clinical-deep); }
+
+    /* Open 24/7 blink + emergency red indicator (header / contact / footer) */
+    .topbar .hours-promo-row {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: min(100%, 42rem);
+    }
+
+    .hours-blink-open {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.45;
+      animation: hours-open-blink 1.85s ease-in-out infinite;
+    }
+
+    @keyframes hours-open-blink {
+      0%, 100% { opacity: 1; }
+      35% { opacity: 0.4; }
+      50% { opacity: 1; }
+      65% { opacity: 0.55; }
+      80% { opacity: 1; }
+    }
+
+    .hours-emergency-red {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.92em;
+      line-height: 1.45;
+      color: #b91c1c;
+      max-width: 22rem;
+    }
+
+    .hours-emergency-red::before {
+      content: '';
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      margin-top: 0.28em;
+      border-radius: 50%;
+      background: #ef4444;
+      animation: emergency-red-light 1.15s ease-in-out infinite;
+    }
+
+    @keyframes emergency-red-light {
+      0%, 100% {
+        opacity: 1;
+        box-shadow:
+          0 0 0 0 rgba(239, 68, 68, 0.65),
+          0 0 14px rgba(239, 68, 68, 0.95);
+      }
+      50% {
+        opacity: 0.2;
+        box-shadow:
+          0 0 0 8px rgba(239, 68, 68, 0),
+          0 0 28px rgba(248, 113, 113, 0.35);
+      }
+    }
+
+    .location-detail-text .hours-promo-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .footer-hours-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    footer .hours-emergency-red {
+      color: #fecaca;
+      font-size: 0.88rem;
+      max-width: 18rem;
+    }
+
+    footer .hours-blink-open {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hours-blink-open,
+      .hours-emergency-red::before {
+        animation: none !important;
+      }
+      .hours-emergency-red::before {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+      }
+    }
 
     .lang-switch {
       display: inline-flex;
@@ -2450,6 +2540,14 @@
     html[data-theme="dark"] .location-detail-text span,
     html[data-theme="dark"] .location-detail-text a { color: #94a3b8; }
 
+    html[data-theme="dark"] .location-detail-text .hours-blink-open {
+      color: #f1f5f9;
+    }
+
+    html[data-theme="dark"] .location-detail-text .hours-emergency-red {
+      color: #fecaca;
+    }
+
     html[data-theme="dark"] .location-map {
       border-color: rgba(51, 65, 85, 0.9);
       outline-color: rgba(19, 152, 232, 0.22);
@@ -2519,9 +2617,9 @@
     <div class="container">
       <div class="topbar-inner">
         <div class="topbar-left">
-          <span>
-            <i class="fa-regular fa-clock"></i>
-            <span data-i18n="top.hours">Mon – Sat: 8:00 AM – 8:00 PM &nbsp;|&nbsp; Sunday: 8:00 AM – 2:00 PM</span>
+          <span class="hours-promo-row">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <span class="hours-blink-open" data-i18n="top.hours">OPEN 24/7</span>
           </span>
         </div>
         <div class="topbar-right">
@@ -3045,7 +3143,10 @@
             </div>
             <div class="location-detail-text">
               <strong data-i18n="loc.hoursLabel">Timings</strong>
-              <span data-i18n-html="loc.hours">Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM</span>
+              <div class="hours-promo-stack">
+                <span class="hours-blink-open" data-i18n="loc.hoursOpen">OPEN 24/7</span>
+                <span class="hours-emergency-red" data-i18n="loc.emergencyLine">Emergency cases are handled immediately.</span>
+              </div>
             </div>
           </div>
 
@@ -3156,6 +3257,13 @@
             <li class="footer-contact-item">
               <i class="fa-solid fa-globe"></i>
               <a href="https://www.maulidiagnostic.com" target="_blank" rel="noopener">www.maulidiagnostic.com</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-regular fa-clock"></i>
+              <span class="footer-hours-block">
+                <span class="hours-blink-open" data-i18n="foot.hoursOpen">OPEN 24/7</span>
+                <span class="hours-emergency-red" data-i18n="foot.emergency">Emergency cases are handled immediately.</span>
+              </span>
             </li>
             <li class="footer-contact-item">
               <i class="fa-solid fa-location-dot"></i>
@@ -3299,7 +3407,7 @@
           'lang.label': 'Lang',
           'theme.toDark': 'Switch to dark theme',
           'theme.toLight': 'Switch to light theme',
-          'top.hours': 'Mon – Sat: 8:00 AM – 8:00 PM \u00a0|\u00a0 Sunday: 8:00 AM – 2:00 PM',
+          'top.hours': 'OPEN 24/7',
           'nav.home': 'Home', 'nav.about': 'About Us', 'nav.services': 'Our Services', 'nav.ref': 'For Doctors', 'nav.team': 'Our Experts', 'nav.visit': 'Your Visit', 'nav.contact': 'Contact Us',
           'cta.bookNav': 'Book CT Scan', 'cta.bookHero': 'Book Your CT Scan', 'cta.whatsapp': 'Chat on WhatsApp', 'cta.whatsappFloat': 'Chat on WhatsApp', 'cta.whatsappAria': 'Chat on WhatsApp',
           'a11y.menu': 'Menu', 'a11y.scrollTop': 'Scroll to top',
@@ -3362,11 +3470,12 @@
           'loc.tag': 'Find Us', 'loc.title': 'Visit Our Centre',
           'loc.intro': 'Walk in or message us on WhatsApp for appointments. We’re located in the basement of Mohan Hospital, Sangola.',
           'loc.addr': 'Basement, Mohan Hospital Building,<br>Sangola–Miraj Road, Sangola – 413307<br>Maharashtra, India',
-          'loc.phoneLabel': 'Phone', 'loc.mayur': 'Mayur Yelpale:', 'loc.waLabel': 'Call or WhatsApp:', 'loc.hoursLabel': 'Timings', 'loc.emailLabel': 'Email & Website',
-          'loc.hours': 'Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM',
+          'loc.phoneLabel': 'Phone', 'loc.mayur': 'Mayur Yelpale:', 'loc.waLabel': 'Call or WhatsApp:', 'loc.hoursLabel': 'Timings', 'loc.hoursOpen': 'OPEN 24/7', 'loc.emergencyLine': 'Emergency cases are handled immediately.', 'loc.emailLabel': 'Email & Website',
           'loc.directions': 'Get Directions', 'loc.mapTitle': 'MAULI DIAGNOSTIC CENTRE — Sangola',
           'foot.desc': 'Precision imaging and prompt reporting at Basement, Mohan Hospital Building, Sangola. Your health and well-being are our highest priority.',
           'foot.quick': 'Quick Links', 'foot.svcTitle': 'Our Services', 'foot.contact': 'Contact Us',
+          'foot.hoursOpen': 'OPEN 24/7',
+          'foot.emergency': 'Emergency cases are handled immediately.',
           'foot.svc1': 'Comprehensive CT (Plain & Contrast)', 'foot.svc2': 'Contrast & Automated Injector', 'foot.svc3': 'Cardiac / Vascular / Triple-phase CT', 'foot.book': 'Book Appointment',
           'foot.addressShort': 'Basement, Mohan Hospital, Sangola – 413307', 'foot.waFull': '7397955353 (WhatsApp)',
           'foot.copy': '© 2026 MAULI DIAGNOSTIC CENTRE. All Rights Reserved.',
@@ -3400,7 +3509,7 @@
           'lang.label': 'भाषा',
           'theme.toDark': 'गडद थीम सुरू करा',
           'theme.toLight': 'उजळ थीम सुरू करा',
-          'top.hours': 'सोम – शनि: स. ८ – रा. ८ \u00a0|\u00a0 रवि: स. ८ – दु. २',
+          'top.hours': 'OPEN 24/7',
           'nav.home': 'मुखपृष्ठ', 'nav.about': 'आमच्याबद्दल', 'nav.services': 'आमच्या सेवा', 'nav.ref': 'डॉक्टरांसाठी', 'nav.team': 'तज्ञ सल्लागार', 'nav.visit': 'तुमची भेट', 'nav.contact': 'संपर्क साधा',
           'cta.bookNav': 'सीटी स्कॅन बुक करा', 'cta.bookHero': 'तुमचा सीटी स्कॅन बुक करा', 'cta.whatsapp': 'व्हॉट्सअॅपवर चॅट करा', 'cta.whatsappFloat': 'व्हॉट्सअॅपवर चॅट', 'cta.whatsappAria': 'व्हॉट्सअॅपवर संदेश पाठवा',
           'a11y.menu': 'मेनू', 'a11y.scrollTop': 'वर स्क्रोल करा',
@@ -3463,11 +3572,12 @@
           'loc.tag': 'आम्हाला शोधा', 'loc.title': 'आमच्या केंद्राला भेट द्या',
           'loc.intro': 'अपॉइंटमेंटसाठी थेट या किंवा व्हॉट्सअॅपवर संदेश पाठवा. आम्ही सांगोल्यात मोहन रुग्णालयाच्या तळमजल्यात आहोत.',
           'loc.addr': 'तळमजला, मोहन रुग्णालय इमारत,<br>सांगोला–मिरज रोड, सांगोला – 413307<br>महाराष्ट्र, भारत',
-          'loc.phoneLabel': 'फोन', 'loc.mayur': 'मयूर येळपाळे:', 'loc.waLabel': 'व्हॉट्सअॅप:', 'loc.hoursLabel': 'वेळ', 'loc.emailLabel': 'ई-मेल व संकेतस्थळ',
-          'loc.hours': 'सोम – शनि: स. ८:०० – रा. ८:००<br>रवि: स. ८:०० – दु. २:००',
+          'loc.phoneLabel': 'फोन', 'loc.mayur': 'मयूर येळपाळे:', 'loc.waLabel': 'व्हॉट्सअॅप:', 'loc.hoursLabel': 'वेळ', 'loc.hoursOpen': 'OPEN 24/7', 'loc.emergencyLine': 'आपत्कालीन प्रकरणांना तातडीने सेवा.', 'loc.emailLabel': 'ई-मेल व संकेतस्थळ',
           'loc.directions': 'दिशानिर्देश मिळवा', 'loc.mapTitle': 'माऊली निदान केंद्र — सांगोला',
           'foot.desc': 'सांगोला, मोहन रुग्णालय तळमजल्यात अचूक इमेजिंग व त्वरित अहवाल. तुमचे आरोग्य व चांगली तब्येत ही आमची प्राथमिकता.',
           'foot.quick': 'द्रुत दुवे', 'foot.svcTitle': 'आमच्या सेवा', 'foot.contact': 'संपर्क साधा',
+          'foot.hoursOpen': 'OPEN 24/7',
+          'foot.emergency': 'आपत्कालीन प्रकरणांना तातडीने सेवा.',
           'foot.svc1': 'विस्तृत सीटी (साधे व कॉन्ट्रास्ट)', 'foot.svc2': 'कॉन्ट्रास्ट व ऑटोमॅटेड इंजेक्टर', 'foot.svc3': 'हृदय / रक्तवाहिन्या / त्रि-फेज सीटी', 'foot.book': 'अपॉइंटमेंट बुक करा',
           'foot.addressShort': 'तळमजला, मोहन रुग्णालय, सांगोला – 413307', 'foot.waFull': '7397955353 (व्हॉट्सअॅप)',
           'foot.copy': '© 2026 माऊली निदान केंद्र. सर्व हक्क राखीव.',
