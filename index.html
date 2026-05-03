@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAULI DIAGNOSTIC &amp; CT SCAN CENTRE | Sangola</title>
-  <meta name="theme-color" content="#0f172a" />
-  <meta name="description" content="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE, Sangola — precision CT imaging, contrast studies with automated injector, expert consultant radiologists. ॥ माऊली कृपा, आरोग्य सेवा ॥" />
+  <title>MAULI DIAGNOSTIC CENTRE | Sangola</title>
+  <meta name="theme-color" content="#1b2c7a" />
+  <meta name="description" content="MAULI DIAGNOSTIC CENTRE, Sangola — precision CT imaging, contrast studies with automated injector, expert consultant radiologists. ॥ माऊली कृपा, आरोग्य सेवा ॥" />
+
+  <!-- Tab / PWA icons: SVG for modern browsers; PNG fallback + Apple touch -->
+  <link rel="icon" href="mauli-logo-pin.svg" type="image/svg+xml" />
+  <link rel="icon" href="mauli-logo-reference.png" type="image/png" sizes="any" />
+  <link rel="apple-touch-icon" href="mauli-logo-reference.png" />
 
   <script>
     (function () {
@@ -14,7 +19,7 @@
         if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
         var m = document.querySelector('meta[name="theme-color"]');
-        if (m) m.setAttribute('content', t === 'dark' ? '#020617' : '#0f172a');
+        if (m) m.setAttribute('content', t === 'dark' ? '#020617' : '#1b2c7a');
       } catch (e) {}
     })();
   </script>
@@ -24,13 +29,13 @@
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "@id": "https://www.maulidiagnostic.com/#clinic",
-    "name": "MAULI DIAGNOSTIC & CT SCAN CENTRE",
+    "name": "MAULI DIAGNOSTIC CENTRE",
     "description": "CT scan and diagnostic imaging centre in Sangola — plain and contrast CT, cardiac and vascular studies, consultant radiology reporting.",
     "url": "https://www.maulidiagnostic.com",
     "email": "maulidiagnosticsangola@gmail.com",
     "telephone": ["+91-7397955353", "+91-7666884200", "+91-8412041122"],
     "image": "https://www.maulidiagnostic.com/mauli-hero-banner.png",
-    "logo": "https://www.maulidiagnostic.com/logo.png",
+    "logo": "https://www.maulidiagnostic.com/mauli-logo-pin.svg",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Basement, Mohan Hospital Building, Sangola–Miraj Road",
@@ -74,28 +79,36 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #0f172a;
-      --navy-dark:  #020617;
-      --navy-soft:  #1e293b;
-      --gold:       #d4a24a;
-      --gold-light: #f4d03f;
-      --cyan:       #22d3ee;
-      --cyan-muted: rgba(34, 211, 238, 0.35);
-      --clinical:   #f0fdfa;
-      --clinical-deep: #0e7490;
-      --white:      #FFFFFF;
-      --off-white:  #f1f5f9;
-      --text-dark:  #0f172a;
-      --text-mid:   #475569;
-      --text-light: #64748b;
-      --border:     rgba(148, 163, 184, 0.4);
-      --shadow:     0 24px 64px -16px rgba(15, 23, 42, 0.22);
-      --shadow-soft: 0 12px 40px -18px rgba(15, 23, 42, 0.14);
-      --shadow-glow: 0 0 48px rgba(34, 211, 238, 0.12);
-      --radius:     16px;
-      --radius-lg:  26px;
-      --whatsapp:   #25D366;
-      --glass:      rgba(255, 255, 255, 0.65);
+      /* Brand from shared logo + hero: royal blue, sky rings, gold caduceus, tilak orange */
+      --royal:        #1b2c7a;
+      --card-navy:    var(--royal);
+      --card-blue:    #1398e8;
+      --card-sky:     #9fd4f5;
+      --card-panel:   rgba(186, 224, 252, 0.55);
+      --navy:         var(--royal);
+      --navy-dark:    #131e58;
+      --navy-soft:    #2a4596;
+      --gold:         #b8903c;
+      --gold-light:   #d9b456;
+      --tilak:        #e07018;
+      --cyan:         #1398e8;
+      --cyan-muted:   rgba(19, 152, 232, 0.38);
+      --clinical:     #eef5fb;
+      --clinical-deep:#156fc4;
+      --brand-red:    #b42318;
+      --white:        #FFFFFF;
+      --off-white:    #f4f6fa;
+      --text-dark:    #1a2238;
+      --text-mid:     #4b5568;
+      --text-light:   #6a7280;
+      --border:       rgba(75, 85, 104, 0.22);
+      --shadow:       0 24px 64px -16px rgba(19, 30, 74, 0.2);
+      --shadow-soft:  0 12px 40px -18px rgba(19, 30, 74, 0.12);
+      --shadow-glow:  0 0 48px rgba(19, 152, 232, 0.14);
+      --radius:       16px;
+      --radius-lg:    26px;
+      --whatsapp:     #25D366;
+      --glass:        rgba(255, 255, 255, 0.65);
       --glass-strong: rgba(255, 255, 255, 0.82);
     }
 
@@ -127,12 +140,12 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--text-dark);
-      background-color: #f8fafc;
+      background-color: #f5f7fb;
       background-image:
-        linear-gradient(180deg, #f8fafc 0%, #f1f5f9 45%, #f8fafc 100%),
-        radial-gradient(ellipse 100% 80% at 85% -20%, rgba(34, 211, 238, 0.09) 0%, transparent 55%),
-        radial-gradient(ellipse 70% 50% at 5% 110%, rgba(212, 162, 74, 0.07) 0%, transparent 48%),
-        repeating-linear-gradient(-12deg, transparent, transparent 47px, rgba(15, 23, 42, 0.018) 47px, rgba(15, 23, 42, 0.018) 48px);
+        linear-gradient(180deg, #f7f9fc 0%, #f0f4fa 48%, #f8fafc 100%),
+        radial-gradient(ellipse 100% 80% at 88% -18%, rgba(19, 152, 232, 0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 6% 110%, rgba(184, 144, 60, 0.07) 0%, transparent 48%),
+        repeating-linear-gradient(-12deg, transparent, transparent 47px, rgba(27, 44, 105, 0.02) 47px, rgba(27, 44, 105, 0.02) 48px);
       background-attachment: fixed;
       line-height: 1.65;
     }
@@ -142,7 +155,7 @@
     img { display: block; max-width: 100%; }
 
     ::selection {
-      background: rgba(34, 211, 238, 0.28);
+      background: rgba(19, 152, 232, 0.28);
       color: var(--navy-dark);
     }
 
@@ -175,21 +188,21 @@
     }
 
     .btn-navy {
-      background: linear-gradient(145deg, #0f172a 0%, #1e3a5f 55%, #0f172a 100%);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--royal) 52%, #152056 100%);
       color: var(--white);
       border-color: transparent;
-      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 24px rgba(19, 30, 88, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
     .btn-navy:hover {
       filter: brightness(1.08);
       transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.32), 0 0 0 1px rgba(34, 211, 238, 0.25), 0 0 32px rgba(34, 211, 238, 0.12);
+      box-shadow: 0 12px 36px rgba(19, 30, 88, 0.35), 0 0 0 1px rgba(19, 152, 232, 0.35), 0 0 32px rgba(19, 152, 232, 0.14);
     }
 
     .btn-outline {
       background: rgba(255, 255, 255, 0.85);
       color: var(--navy);
-      border-color: rgba(15, 23, 42, 0.18);
+      border-color: var(--border);
       backdrop-filter: blur(8px);
     }
     .btn-outline:hover {
@@ -204,16 +217,16 @@
     .btn-hero-outline {
       background: rgba(255, 255, 255, 0.92);
       color: var(--navy-soft);
-      border: 2px solid rgba(212, 162, 74, 0.65);
+      border: 2px solid rgba(184, 144, 60, 0.55);
       backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 4px 20px rgba(27, 44, 105, 0.06);
     }
     .btn-hero-outline:hover {
       background: linear-gradient(135deg, rgba(236, 254, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
       border-color: var(--cyan);
       color: var(--clinical-deep);
       transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(34, 211, 238, 0.15);
+      box-shadow: 0 8px 32px rgba(19, 152, 232, 0.15);
     }
     .btn-hero-outline .fa-whatsapp { color: #25D366; }
 
@@ -221,12 +234,12 @@
       background: linear-gradient(145deg, var(--gold) 0%, #b8862a 100%);
       color: var(--navy-dark);
       border-color: transparent;
-      box-shadow: 0 4px 20px rgba(212, 162, 74, 0.35);
+      box-shadow: 0 4px 20px rgba(184, 144, 60, 0.35);
     }
     .btn-gold:hover {
       filter: brightness(1.06);
       transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(212, 162, 74, 0.4);
+      box-shadow: 0 12px 32px rgba(184, 144, 60, 0.4);
     }
 
     .btn-whatsapp {
@@ -255,9 +268,9 @@
       margin-bottom: 14px;
       padding: 9px 18px;
       border-radius: 999px;
-      background: linear-gradient(105deg, rgba(34, 211, 238, 0.12) 0%, rgba(212, 162, 74, 0.14) 100%);
-      border: 1px solid rgba(34, 211, 238, 0.22);
-      box-shadow: 0 4px 20px rgba(34, 211, 238, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+      background: linear-gradient(105deg, rgba(19, 152, 232, 0.12) 0%, rgba(184, 144, 60, 0.14) 100%);
+      border: 1px solid rgba(19, 152, 232, 0.22);
+      box-shadow: 0 4px 20px rgba(19, 152, 232, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
     .section-tag i { color: var(--cyan); font-size: 0.55rem; opacity: 0.9; }
     .section-tag::before,
@@ -342,15 +355,15 @@
     }
 
     .lang-switch button:hover {
-      border-color: rgba(14, 116, 144, 0.35);
+      border-color: rgba(27, 44, 105, 0.35);
       color: var(--clinical-deep);
     }
 
     .lang-switch button[aria-pressed="true"] {
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(236, 254, 255, 0.9) 100%);
-      border-color: rgba(34, 211, 238, 0.4);
-      color: #0e7490;
-      box-shadow: 0 2px 12px rgba(34, 211, 238, 0.15);
+      border-color: rgba(19, 152, 232, 0.4);
+      color: #1398e8;
+      box-shadow: 0 2px 12px rgba(19, 152, 232, 0.15);
     }
 
     .theme-switch {
@@ -377,26 +390,26 @@
     }
 
     .theme-toggle:hover {
-      border-color: rgba(34, 211, 238, 0.45);
+      border-color: rgba(19, 152, 232, 0.45);
       color: var(--clinical-deep);
-      box-shadow: 0 2px 16px rgba(34, 211, 238, 0.12);
+      box-shadow: 0 2px 16px rgba(19, 152, 232, 0.12);
     }
 
     .theme-toggle[aria-pressed="true"] {
       background: linear-gradient(145deg, rgba(236, 254, 255, 0.95) 0%, rgba(254, 243, 199, 0.5) 100%);
-      border-color: rgba(34, 211, 238, 0.35);
+      border-color: rgba(19, 152, 232, 0.35);
     }
 
     html[data-theme="dark"] .topbar {
       background: linear-gradient(90deg, var(--navy-dark) 0%, #0c1929 45%, var(--navy-dark) 100%);
       color: rgba(255,255,255,0.9);
-      border-bottom-color: rgba(34, 211, 238, 0.18);
+      border-bottom-color: rgba(19, 152, 232, 0.18);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     }
 
     html[data-theme="dark"] .topbar i {
       color: var(--cyan);
-      filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.45));
+      filter: drop-shadow(0 0 8px rgba(19, 152, 232, 0.45));
     }
 
     html[data-theme="dark"] .topbar a { color: rgba(255,255,255,0.85); font-weight: 400; }
@@ -418,10 +431,10 @@
     }
 
     html[data-theme="dark"] .lang-switch button[aria-pressed="true"] {
-      background: linear-gradient(145deg, rgba(34, 211, 238, 0.2) 0%, rgba(212, 162, 74, 0.22) 100%);
-      border-color: rgba(34, 211, 238, 0.45);
+      background: linear-gradient(145deg, rgba(19, 152, 232, 0.2) 0%, rgba(184, 144, 60, 0.22) 100%);
+      border-color: rgba(19, 152, 232, 0.45);
       color: var(--gold-light);
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.12);
+      box-shadow: 0 0 20px rgba(19, 152, 232, 0.12);
     }
 
     html[data-theme="dark"] .theme-switch { border-left-color: rgba(255, 255, 255, 0.15); }
@@ -433,18 +446,23 @@
     }
 
     html[data-theme="dark"] .theme-toggle:hover {
-      border-color: rgba(34, 211, 238, 0.45);
+      border-color: rgba(19, 152, 232, 0.45);
       color: var(--cyan);
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+      box-shadow: 0 0 20px rgba(19, 152, 232, 0.15);
     }
 
     html[data-theme="dark"] .theme-toggle[aria-pressed="true"] {
-      background: linear-gradient(145deg, rgba(34, 211, 238, 0.22) 0%, rgba(212, 162, 74, 0.18) 100%);
-      border-color: rgba(34, 211, 238, 0.4);
+      background: linear-gradient(145deg, rgba(19, 152, 232, 0.22) 0%, rgba(184, 144, 60, 0.18) 100%);
+      border-color: rgba(19, 152, 232, 0.4);
     }
 
     html[lang="mr"] body {
       font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    html[lang="mr"] .hero-line-pad,
+    html[lang="mr"] .hero-slogan {
+      font-family: 'Noto Sans Devanagari', 'Outfit', 'Poppins', sans-serif;
     }
 
     html[lang="mr"] .section-tag,
@@ -469,7 +487,6 @@
     html[lang="mr"] h3,
     html[lang="mr"] .section-title,
     html[lang="mr"] .consultant-card .name,
-    html[lang="mr"] .consultants-lead .name,
     html[lang="mr"] .service-card h3,
     html[lang="mr"] .faq-block h3,
     html[lang="mr"] .journey-step h3 {
@@ -485,7 +502,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+      border-bottom: 1px solid rgba(19, 152, 232, 0.12);
       box-shadow: 0 4px 30px rgba(15, 23, 42, 0.06), 0 1px 0 rgba(255, 255, 255, 0.85) inset;
     }
 
@@ -504,11 +521,34 @@
       flex-shrink: 0;
     }
 
-    .logo-img {
-      height: 100px;
+    .logo-raster {
+      height: 56px;
       width: auto;
-      object-fit: contain;
+      max-width: min(300px, 54vw);
+      flex-shrink: 0;
       display: block;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    /* Compact pin + M mark — preserve 220:200 viewBox (no stretch) */
+    .logo-raster.logo-pin-svg {
+      width: auto;
+      height: 56px;
+      max-width: calc(56px * 220 / 200);
+      max-height: 56px;
+      object-fit: contain;
+      object-position: left center;
+      filter: drop-shadow(0 2px 5px rgba(27, 44, 105, 0.12));
+    }
+
+    .footer-logo-mark.logo-pin-svg {
+      width: auto;
+      height: 72px;
+      max-width: calc(72px * 220 / 200);
+      max-height: 72px;
+      object-fit: contain;
+      object-position: left center;
     }
 
     /* Nav links */
@@ -574,7 +614,7 @@
 
     /* ===================== HERO (pre-designed banner + CTAs) ===================== */
     .hero {
-      background: linear-gradient(165deg, #ecfeff 0%, #f8fafc 42%, #ffffff 100%);
+      background: linear-gradient(165deg, #e8f1fa 0%, #f7f9fc 42%, #ffffff 100%);
       padding: 32px 0 0;
       overflow: hidden;
       position: relative;
@@ -601,7 +641,7 @@
     .hero-bg::before {
       width: min(560px, 95vw);
       height: min(560px, 95vw);
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.38) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(19, 152, 232, 0.28) 0%, transparent 68%);
       top: -18%;
       right: -12%;
     }
@@ -609,7 +649,7 @@
     .hero-bg::after {
       width: min(420px, 80vw);
       height: min(420px, 80vw);
-      background: radial-gradient(circle, rgba(212, 162, 74, 0.32) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(184, 144, 60, 0.22) 0%, transparent 70%);
       bottom: 8%;
       left: -14%;
       animation-delay: -8s;
@@ -620,10 +660,10 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px),
-        radial-gradient(ellipse 65% 45% at 88% 8%, rgba(14, 116, 144, 0.07) 0%, transparent 55%),
-        radial-gradient(ellipse 45% 38% at 8% 92%, rgba(212, 162, 74, 0.09) 0%, transparent 52%);
+        linear-gradient(90deg, rgba(19, 152, 232, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(19, 152, 232, 0.04) 1px, transparent 1px),
+        radial-gradient(ellipse 65% 45% at 88% 8%, rgba(27, 44, 105, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 38% at 8% 92%, rgba(184, 144, 60, 0.07) 0%, transparent 52%);
       background-size: 56px 56px, 56px 56px, auto, auto;
       pointer-events: none;
       z-index: 0;
@@ -638,11 +678,11 @@
       line-height: 0;
       background: linear-gradient(145deg, rgba(15, 23, 42, 0.04) 0%, rgba(255, 255, 255, 0.06) 100%);
       box-shadow:
-        0 0 0 1px rgba(34, 211, 238, 0.18),
-        0 0 0 6px rgba(34, 211, 238, 0.04),
-        0 5px 0 rgba(212, 162, 74, 0.42),
+        0 0 0 1px rgba(19, 152, 232, 0.18),
+        0 0 0 6px rgba(19, 152, 232, 0.04),
+        0 5px 0 rgba(184, 144, 60, 0.42),
         0 32px 80px rgba(15, 23, 42, 0.18),
-        0 0 64px rgba(34, 211, 238, 0.08);
+        0 0 64px rgba(19, 152, 232, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.85);
       transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -659,11 +699,11 @@
 
     .hero-banner-frame:hover {
       box-shadow:
-        0 0 0 1px rgba(34, 211, 238, 0.35),
-        0 0 0 8px rgba(34, 211, 238, 0.06),
-        0 5px 0 rgba(212, 162, 74, 0.5),
+        0 0 0 1px rgba(19, 152, 232, 0.35),
+        0 0 0 8px rgba(19, 152, 232, 0.06),
+        0 5px 0 rgba(184, 144, 60, 0.5),
         0 40px 96px rgba(15, 23, 42, 0.22),
-        0 0 80px rgba(34, 211, 238, 0.12);
+        0 0 80px rgba(19, 152, 232, 0.12);
       transform: translateY(-4px) scale(1.002);
     }
 
@@ -686,15 +726,50 @@
       padding-bottom: 40px;
     }
 
+    .hero-brand-lines {
+      text-align: center;
+      max-width: 640px;
+      margin: 20px auto 0;
+      padding: 0 8px;
+    }
+
+    .hero-line-pad {
+      font-size: clamp(0.78rem, 2.1vw, 0.88rem);
+      font-weight: 500;
+      color: var(--navy-soft);
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .hero-slogan {
+      font-family: 'Outfit', 'Poppins', system-ui, sans-serif;
+      font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .brand-showcase-line {
+      position: relative;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      line-height: 1.45;
+      margin: 0 0 12px;
+    }
+
     /* ===================== TRUST STRIP (light theme: mid grey) ===================== */
     .trust-strip {
       position: relative;
       margin-top: -1px;
       padding: 34px 0 42px;
-      background: linear-gradient(180deg, #dde1e8 0%, #cfd6e0 42%, #c6ced9 100%);
+      background: linear-gradient(180deg, #dbe3ee 0%, #cdd8e6 42%, #c4d0e0 100%);
       color: var(--text-dark);
-      border-top: 1px solid rgba(15, 23, 42, 0.08);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 16px 40px rgba(15, 23, 42, 0.07);
+      border-top: 1px solid rgba(27, 44, 105, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 16px 40px rgba(19, 30, 74, 0.08);
     }
 
     .trust-strip::before {
@@ -702,7 +777,7 @@
       position: absolute;
       inset: 0;
       background:
-        url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Ccircle cx='2' cy='2' r='0.8' fill='rgba(14,116,144,0.1)'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Ccircle cx='2' cy='2' r='0.8' fill='rgba(27,44,105,0.09)'/%3E%3C/svg%3E"),
         linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
       opacity: 0.5;
       pointer-events: none;
@@ -711,8 +786,12 @@
     .trust-strip-inner {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    @media (min-width: 993px) {
+      .trust-strip-inner { grid-template-columns: repeat(6, 1fr); }
     }
 
     .trust-item {
@@ -730,9 +809,9 @@
 
     .trust-item:hover {
       background: #ffffff;
-      border-color: rgba(34, 211, 238, 0.35);
+      border-color: rgba(19, 152, 232, 0.35);
       transform: translateY(-4px);
-      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1), 0 0 28px rgba(34, 211, 238, 0.08);
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1), 0 0 28px rgba(19, 152, 232, 0.08);
     }
 
     .trust-item i {
@@ -761,7 +840,7 @@
     .consultants {
       padding: 92px 0;
       background:
-        radial-gradient(ellipse 90% 55% at 50% -8%, rgba(34, 211, 238, 0.08) 0%, transparent 45%),
+        radial-gradient(ellipse 90% 55% at 50% -8%, rgba(19, 152, 232, 0.08) 0%, transparent 45%),
         linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
       position: relative;
     }
@@ -781,58 +860,6 @@
 
     .consultants .section-tag { justify-content: center; }
 
-    .consultants-lead {
-      text-align: center;
-      max-width: 540px;
-      margin: 0 auto 36px;
-      padding: 30px 34px;
-      padding-top: 34px;
-      background: linear-gradient(165deg, rgba(255,255,255,0.95) 0%, rgba(236,254,255,0.75) 100%);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(34, 211, 238, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      position: relative;
-    }
-
-    .consultants-lead::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 28px;
-      right: 28px;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--cyan), var(--gold));
-    }
-
-    .consultants-lead .role {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--clinical-deep), var(--gold));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 10px;
-    }
-
-    .consultants-lead .name {
-      font-family: 'Outfit', system-ui, sans-serif;
-      font-size: 1.45rem;
-      color: var(--navy);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .consultants-lead .credentials {
-      color: var(--text-mid);
-      font-size: 0.92rem;
-      margin-top: 10px;
-      line-height: 1.55;
-    }
-
     .consultants-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -849,14 +876,14 @@
       padding: 22px 24px;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(19, 152, 232, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
     }
 
     .consultant-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12), 0 0 36px rgba(34, 211, 238, 0.06);
-      border-color: rgba(34, 211, 238, 0.22);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12), 0 0 36px rgba(19, 152, 232, 0.06);
+      border-color: rgba(19, 152, 232, 0.22);
     }
 
     .consultant-avatar {
@@ -871,9 +898,9 @@
       font-weight: 700;
       letter-spacing: 0.03em;
       color: var(--gold-light);
-      background: linear-gradient(145deg, #0f172a 0%, #0e7490 100%);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 6px 16px rgba(14, 116, 144, 0.25);
-      border: 1px solid rgba(34, 211, 238, 0.2);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--clinical-deep) 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 6px 16px rgba(27, 44, 105, 0.25);
+      border: 1px solid rgba(19, 152, 232, 0.2);
     }
 
     .consultant-card .name {
@@ -895,7 +922,7 @@
     .services-about {
       padding: 92px 0;
       background:
-        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(34, 211, 238, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(19, 152, 232, 0.06) 0%, transparent 50%),
         linear-gradient(180deg, #ffffff 0%, #f1f5f9 52%, #ffffff 100%);
       position: relative;
     }
@@ -937,21 +964,21 @@
     .service-card:first-of-type { margin-top: 0; }
 
     .service-card:hover {
-      box-shadow: var(--shadow), 0 0 48px rgba(34, 211, 238, 0.08);
+      box-shadow: var(--shadow), 0 0 48px rgba(19, 152, 232, 0.08);
       transform: translateY(-6px);
-      border-color: rgba(34, 211, 238, 0.2);
+      border-color: rgba(19, 152, 232, 0.2);
     }
 
     .service-card-icon {
       width: 56px;
       height: 56px;
       border-radius: 16px;
-      background: linear-gradient(145deg, #0f172a 0%, #0e7490 100%);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--clinical-deep) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
-      box-shadow: 0 10px 28px rgba(14, 116, 144, 0.35), 0 0 0 1px rgba(34, 211, 238, 0.25);
+      box-shadow: 0 10px 28px rgba(27, 44, 105, 0.35), 0 0 0 1px rgba(19, 152, 232, 0.25);
     }
 
     .service-card-icon i { color: var(--gold-light); font-size: 1.38rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2)); }
@@ -979,7 +1006,7 @@
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--clinical-deep);
-      border-bottom: 1.5px solid rgba(34, 211, 238, 0.45);
+      border-bottom: 1.5px solid rgba(19, 152, 232, 0.45);
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s, gap 0.25s;
     }
@@ -1003,9 +1030,9 @@
       max-width: 300px;
       padding: 40px 28px 36px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(165deg, rgba(255, 255, 255, 0.88) 0%, rgba(236, 254, 255, 0.65) 50%, rgba(248, 250, 252, 0.95) 100%);
-      border: 1px solid rgba(34, 211, 238, 0.18);
-      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.1), 0 0 40px rgba(34, 211, 238, 0.06);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.92) 0%, var(--card-panel) 42%, rgba(248, 250, 252, 0.98) 100%);
+      border: 1px solid rgba(19, 152, 232, 0.22);
+      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.1), 0 0 40px rgba(19, 152, 232, 0.08);
       text-align: center;
       overflow: hidden;
       backdrop-filter: blur(12px);
@@ -1018,36 +1045,33 @@
       right: -35%;
       width: 160px;
       height: 160px;
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(19, 152, 232, 0.2) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .brand-showcase-logo {
       position: relative;
-      width: 118px;
+      width: 100%;
+      max-width: 280px;
       height: auto;
-      margin: 0 auto 18px;
-      filter: drop-shadow(0 8px 20px rgba(27, 43, 92, 0.12));
+      margin: 0 auto 12px;
+      filter: drop-shadow(0 8px 20px rgba(27, 44, 105, 0.18));
     }
 
-    .brand-showcase-tag {
+    .brand-showcase-slogan-bar {
       position: relative;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2.8px;
+      font-family: 'Outfit', 'Poppins', system-ui, sans-serif;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .brand-showcase-tag::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--gold));
-      margin: 14px auto 0;
-      border-radius: 2px;
+      color: var(--white);
+      background: var(--card-navy);
+      margin: 14px -12px 0;
+      padding: 10px 14px;
+      line-height: 1.35;
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(27, 44, 105, 0.22);
     }
 
     .brand-showcase-moto {
@@ -1056,13 +1080,14 @@
       font-size: 0.95rem;
       color: var(--navy-soft);
       line-height: 1.5;
-      margin-bottom: 8px;
+      margin: 0 0 6px;
     }
 
     .brand-showcase-loc {
       position: relative;
       font-size: 0.78rem;
       color: var(--text-mid);
+      margin-top: 12px;
     }
 
     .brand-showcase-loc i { color: var(--gold); margin-right: 6px; }
@@ -1111,7 +1136,7 @@
     .location {
       padding: 92px 0;
       background:
-        radial-gradient(ellipse 70% 45% at 100% 20%, rgba(34, 211, 238, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse 70% 45% at 100% 20%, rgba(19, 152, 232, 0.06) 0%, transparent 45%),
         linear-gradient(180deg, var(--off-white) 0%, #e2e8f0 100%);
     }
 
@@ -1143,7 +1168,7 @@
       border-radius: var(--radius-lg);
       border: 1px solid rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      box-shadow: 0 20px 56px rgba(15, 23, 42, 0.09), 0 0 0 1px rgba(34, 211, 238, 0.1);
+      box-shadow: 0 20px 56px rgba(15, 23, 42, 0.09), 0 0 0 1px rgba(19, 152, 232, 0.1);
     }
 
     .location-details { }
@@ -1160,12 +1185,12 @@
       width: 46px;
       height: 46px;
       border-radius: 12px;
-      background: linear-gradient(145deg, #0f172a 0%, #0e7490 100%);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--clinical-deep) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 8px 20px rgba(14, 116, 144, 0.28), 0 0 0 1px rgba(34, 211, 238, 0.2);
+      box-shadow: 0 8px 20px rgba(27, 44, 105, 0.28), 0 0 0 1px rgba(19, 152, 232, 0.2);
     }
 
     .location-detail-icon i { color: var(--gold-light); font-size: 1.05rem; }
@@ -1193,7 +1218,7 @@
       min-height: 380px;
       height: 100%;
       border: 1px solid rgba(255, 255, 255, 0.9);
-      outline: 2px solid rgba(34, 211, 238, 0.28);
+      outline: 2px solid rgba(19, 152, 232, 0.28);
       outline-offset: 5px;
     }
 
@@ -1236,6 +1261,19 @@
 
     .footer-logo {
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo-mark {
+      flex-shrink: 0;
+      width: auto;
+      height: 72px;
+      max-width: min(360px, 100%);
+      object-fit: contain;
+      object-position: left center;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
     }
 
     .footer-desc {
@@ -1406,7 +1444,7 @@
       height: 1px;
       background: var(--border);
     }
-    .gold-divider i { color: var(--cyan); font-size: 0.95rem; text-shadow: 0 0 20px rgba(34, 211, 238, 0.35); }
+    .gold-divider i { color: var(--cyan); font-size: 0.95rem; text-shadow: 0 0 20px rgba(19, 152, 232, 0.35); }
 
     /* ===================== BOOKING MODAL ===================== */
     .booking-modal {
@@ -1448,7 +1486,7 @@
       background: var(--white);
       border-radius: var(--radius-lg);
       box-shadow:
-        0 0 0 1px rgba(34, 211, 238, 0.2),
+        0 0 0 1px rgba(19, 152, 232, 0.2),
         0 24px 64px rgba(15, 23, 42, 0.22);
       animation: booking-pop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -1478,8 +1516,8 @@
     }
 
     .booking-modal__x:hover {
-      background: rgba(34, 211, 238, 0.2);
-      color: #0e7490;
+      background: rgba(19, 152, 232, 0.2);
+      color: #1398e8;
     }
 
     .booking-modal__title {
@@ -1531,8 +1569,8 @@
     .booking-field input:focus,
     .booking-field textarea:focus {
       outline: none;
-      border-color: rgba(34, 211, 238, 0.65);
-      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.18);
+      border-color: rgba(19, 152, 232, 0.65);
+      box-shadow: 0 0 0 3px rgba(19, 152, 232, 0.18);
       background: var(--white);
     }
 
@@ -1579,12 +1617,12 @@
       border-radius: 50%;
       background: linear-gradient(145deg, #0f172a 0%, #1e3a5f 100%);
       color: var(--white);
-      border: 1px solid rgba(34, 211, 238, 0.3);
+      border: 1px solid rgba(19, 152, 232, 0.3);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.25), 0 0 24px rgba(34, 211, 238, 0.12);
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.25), 0 0 24px rgba(19, 152, 232, 0.12);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s, transform 0.25s, box-shadow 0.25s;
@@ -1595,7 +1633,7 @@
     #scrollTop:hover {
       background: linear-gradient(145deg, var(--clinical-deep) 0%, #0f172a 100%);
       transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(14, 116, 144, 0.35);
+      box-shadow: 0 12px 36px rgba(27, 44, 105, 0.35);
     }
 
     /* ===================== SCROLL REVEAL ===================== */
@@ -1609,11 +1647,145 @@
       transform: translateY(0);
     }
 
+    /* ===================== REFERRING PHYSICIANS (clinical pad content) ===================== */
+    .referring-blk {
+      padding: 80px 0 88px;
+      background:
+        radial-gradient(ellipse 70% 45% at 80% 0%, rgba(19, 152, 232, 0.07) 0%, transparent 52%),
+        radial-gradient(ellipse 55% 50% at 10% 100%, rgba(201, 162, 39, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      border-top: 1px solid rgba(21, 47, 82, 0.06);
+    }
+
+    .referring-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    .referring-head .section-tag { justify-content: center; }
+
+    .referring-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .referring-urgent {
+      border-radius: var(--radius);
+      border: 1px solid rgba(180, 35, 24, 0.28);
+      background: linear-gradient(165deg, rgba(254, 242, 242, 0.95) 0%, rgba(255, 255, 255, 0.92) 100%);
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 28px rgba(180, 35, 24, 0.08);
+    }
+
+    .referring-urgent strong {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brand-red);
+      margin-bottom: 6px;
+    }
+
+    .referring-urgent p {
+      font-size: 0.9rem;
+      color: var(--navy-soft);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .referring-block h3 {
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin: 22px 0 10px;
+    }
+
+    .referring-block h3:first-child { margin-top: 0; }
+
+    .refer-studies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .refer-studies span {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(21, 47, 82, 0.1);
+      color: var(--navy-soft);
+    }
+
+    .referring-block p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin: 0 0 12px;
+    }
+
+    .referring-ethics {
+      font-size: 0.86rem;
+      color: var(--navy-soft);
+      font-style: italic;
+      border-left: 3px solid var(--gold);
+      padding: 10px 0 10px 16px;
+      margin-top: 16px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .referring-tech {
+      position: sticky;
+      top: 96px;
+      padding: 28px 24px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.96) 0%, rgba(238, 249, 252, 0.88) 100%);
+      border: 1px solid rgba(19, 152, 232, 0.2);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+    }
+
+    .referring-tech h3 {
+      font-size: 1rem;
+      color: var(--navy);
+      margin: 0 0 14px;
+    }
+
+    .referring-tech ul { margin: 0; padding: 0; list-style: none; }
+
+    .referring-tech li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--text-mid);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .referring-tech li:last-child { border-bottom: none; }
+
+    .referring-tech li i {
+      margin-top: 3px;
+      color: var(--clinical-deep);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .referring-grid { grid-template-columns: 1fr; }
+      .referring-tech { position: static; }
+    }
+
     /* ===================== PATIENT GUIDE (journey + FAQ) ===================== */
     .patient-guide {
       padding: 92px 0 96px;
       background:
-        radial-gradient(ellipse 65% 50% at 15% 80%, rgba(212, 162, 74, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 65% 50% at 15% 80%, rgba(184, 144, 60, 0.06) 0%, transparent 50%),
         linear-gradient(180deg, #ffffff 0%, #f0fdfa 42%, #ffffff 100%);
       position: relative;
       overflow: hidden;
@@ -1626,7 +1798,7 @@
       height: 520px;
       right: -180px;
       top: 2%;
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(19, 152, 232, 0.1) 0%, transparent 68%);
       pointer-events: none;
     }
 
@@ -1667,11 +1839,11 @@
       z-index: 0;
       background: linear-gradient(
         90deg,
-        rgba(34, 211, 238, 0.25),
-        rgba(212, 162, 74, 0.35),
-        rgba(34, 211, 238, 0.25),
-        rgba(14, 116, 144, 0.2),
-        rgba(34, 211, 238, 0.25)
+        rgba(19, 152, 232, 0.25),
+        rgba(184, 144, 60, 0.35),
+        rgba(19, 152, 232, 0.25),
+        rgba(27, 44, 105, 0.2),
+        rgba(19, 152, 232, 0.25)
       );
       background-size: 200% 100%;
       animation: journey-shimmer 10s linear infinite;
@@ -1689,14 +1861,14 @@
       height: 56px;
       margin: 0 auto 14px;
       border-radius: 50%;
-      background: linear-gradient(145deg, #0f172a 0%, #0e7490 100%);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--clinical-deep) 100%);
       color: var(--gold-light);
       font-weight: 700;
       font-size: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 32px rgba(14, 116, 144, 0.28), 0 0 0 1px rgba(34, 211, 238, 0.2);
+      box-shadow: 0 12px 32px rgba(27, 44, 105, 0.28), 0 0 0 1px rgba(19, 152, 232, 0.2);
       border: 3px solid var(--white);
     }
 
@@ -1726,7 +1898,7 @@
       background: linear-gradient(165deg, rgba(255,255,255,0.92) 0%, rgba(248,250,252,0.96) 100%);
       border-radius: var(--radius-lg);
       padding: 22px 22px 20px;
-      border: 1px solid rgba(34, 211, 238, 0.12);
+      border: 1px solid rgba(19, 152, 232, 0.12);
       box-shadow: var(--shadow-soft);
       display: flex;
       gap: 16px;
@@ -1735,7 +1907,7 @@
     }
 
     .prep-tip:hover {
-      border-color: rgba(34, 211, 238, 0.28);
+      border-color: rgba(19, 152, 232, 0.28);
       box-shadow: 0 16px 44px rgba(15, 23, 42, 0.09);
       transform: translateY(-2px);
     }
@@ -1767,9 +1939,9 @@
       text-align: center;
       margin: 8px 0 52px;
       padding: 14px 18px;
-      background: rgba(34, 211, 238, 0.05);
+      background: rgba(19, 152, 232, 0.05);
       border-radius: var(--radius);
-      border: 1px dashed rgba(34, 211, 238, 0.22);
+      border: 1px dashed rgba(19, 152, 232, 0.22);
     }
 
     .faq-block {
@@ -1789,7 +1961,7 @@
 
     .faq-item {
       border-radius: var(--radius);
-      border: 1px solid rgba(34, 211, 238, 0.12);
+      border: 1px solid rgba(19, 152, 232, 0.12);
       margin-bottom: 12px;
       background: linear-gradient(165deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.88) 100%);
       overflow: hidden;
@@ -1817,7 +1989,7 @@
       width: 32px;
       height: 32px;
       border-radius: 10px;
-      background: linear-gradient(145deg, rgba(34, 211, 238, 0.15) 0%, rgba(212, 162, 74, 0.12) 100%);
+      background: linear-gradient(145deg, rgba(19, 152, 232, 0.15) 0%, rgba(184, 144, 60, 0.12) 100%);
       color: var(--clinical-deep);
       display: flex;
       align-items: center;
@@ -1826,14 +1998,14 @@
       font-weight: 500;
       flex-shrink: 0;
       line-height: 1;
-      border: 1px solid rgba(34, 211, 238, 0.2);
+      border: 1px solid rgba(19, 152, 232, 0.2);
     }
 
     .faq-item[open] summary::before {
       content: '−';
-      background: linear-gradient(145deg, #0f172a 0%, #0e7490 100%);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--clinical-deep) 100%);
       color: var(--gold-light);
-      border-color: rgba(34, 211, 238, 0.25);
+      border-color: rgba(19, 152, 232, 0.25);
     }
 
     .faq-item summary:focus-visible {
@@ -1907,6 +2079,13 @@
       .hamburger { display: flex; }
       .navbar { position: relative; }
 
+      .logo-raster { height: 48px; max-width: min(260px, 52vw); }
+      .logo-raster.logo-pin-svg {
+        height: 48px;
+        max-width: calc(48px * 220 / 200);
+        max-height: 48px;
+      }
+
       .footer-inner { grid-template-columns: 1fr; }
 
       .footer-bottom { flex-direction: column; text-align: center; }
@@ -1918,7 +2097,7 @@
       }
       html[data-theme="dark"] .nav-links.open {
         background: rgba(30, 41, 59, 0.95);
-        border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+        border-bottom: 1px solid rgba(19, 152, 232, 0.12);
       }
       html[data-theme="dark"] .nav-links a { border-bottom-color: rgba(51, 65, 85, 0.9); }
     }
@@ -1936,28 +2115,28 @@
       background-color: #020617;
       background-image:
         linear-gradient(180deg, #020617 0%, #0f172a 40%, #020617 100%),
-        radial-gradient(ellipse 100% 80% at 85% -20%, rgba(34, 211, 238, 0.07) 0%, transparent 55%),
-        radial-gradient(ellipse 70% 50% at 5% 110%, rgba(212, 162, 74, 0.05) 0%, transparent 48%),
+        radial-gradient(ellipse 100% 80% at 85% -20%, rgba(19, 152, 232, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 5% 110%, rgba(184, 144, 60, 0.05) 0%, transparent 48%),
         repeating-linear-gradient(-12deg, transparent, transparent 47px, rgba(148, 163, 184, 0.04) 47px, rgba(148, 163, 184, 0.04) 48px);
     }
 
     html[data-theme="dark"] ::selection {
-      background: rgba(34, 211, 238, 0.35);
+      background: rgba(19, 152, 232, 0.35);
       color: #f8fafc;
     }
 
     html[data-theme="dark"] .section-title { color: #f1f5f9; }
 
     html[data-theme="dark"] .section-tag {
-      color: #5eead4;
-      background: linear-gradient(105deg, rgba(34, 211, 238, 0.14) 0%, rgba(212, 162, 74, 0.1) 100%);
-      border-color: rgba(34, 211, 238, 0.28);
+      color: #7ccdf8;
+      background: linear-gradient(105deg, rgba(19, 152, 232, 0.14) 0%, rgba(184, 144, 60, 0.1) 100%);
+      border-color: rgba(19, 152, 232, 0.28);
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     html[data-theme="dark"] .navbar {
       background: rgba(15, 23, 42, 0.82);
-      border-bottom-color: rgba(34, 211, 238, 0.16);
+      border-bottom-color: rgba(19, 152, 232, 0.16);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
     }
 
@@ -1975,13 +2154,13 @@
     html[data-theme="dark"] .btn-outline:hover {
       background: #1e293b;
       color: #f8fafc;
-      border-color: rgba(34, 211, 238, 0.4);
+      border-color: rgba(19, 152, 232, 0.4);
     }
 
     html[data-theme="dark"] .btn-hero-outline {
       background: rgba(30, 41, 59, 0.92);
       color: #f1f5f9;
-      border-color: rgba(212, 162, 74, 0.45);
+      border-color: rgba(184, 144, 60, 0.45);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     html[data-theme="dark"] .btn-hero-outline:hover {
@@ -1996,10 +2175,10 @@
 
     html[data-theme="dark"] .hero::before {
       background:
-        linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px),
-        radial-gradient(ellipse 65% 45% at 88% 8%, rgba(14, 116, 144, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 45% 38% at 8% 92%, rgba(212, 162, 74, 0.1) 0%, transparent 52%);
+        linear-gradient(90deg, rgba(19, 152, 232, 0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(19, 152, 232, 0.05) 1px, transparent 1px),
+        radial-gradient(ellipse 65% 45% at 88% 8%, rgba(27, 44, 105, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 38% at 8% 92%, rgba(184, 144, 60, 0.1) 0%, transparent 52%);
       background-size: 56px 56px, 56px 56px, auto, auto;
     }
 
@@ -2007,11 +2186,11 @@
       background: linear-gradient(145deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.35) 100%);
       border-color: rgba(51, 65, 85, 0.9);
       box-shadow:
-        0 0 0 1px rgba(34, 211, 238, 0.22),
-        0 0 0 6px rgba(34, 211, 238, 0.05),
-        0 5px 0 rgba(212, 162, 74, 0.35),
+        0 0 0 1px rgba(19, 152, 232, 0.22),
+        0 0 0 6px rgba(19, 152, 232, 0.05),
+        0 5px 0 rgba(184, 144, 60, 0.35),
         0 32px 80px rgba(0, 0, 0, 0.45),
-        0 0 64px rgba(34, 211, 238, 0.06);
+        0 0 64px rgba(19, 152, 232, 0.06);
     }
 
     html[data-theme="dark"] .hero-banner-frame::after {
@@ -2021,31 +2200,31 @@
     html[data-theme="dark"] .trust-strip {
       background: linear-gradient(180deg, #020617 0%, #0f172a 40%, #1e293b 100%);
       color: rgba(255, 255, 255, 0.92);
-      border-top-color: rgba(34, 211, 238, 0.22);
+      border-top-color: rgba(19, 152, 232, 0.22);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 48px rgba(0, 0, 0, 0.4);
     }
 
     html[data-theme="dark"] .trust-strip::before {
       background:
         url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Ccircle cx='2' cy='2' r='0.8' fill='rgba(34,211,238,0.12)'/%3E%3C/svg%3E"),
-        linear-gradient(105deg, transparent 40%, rgba(34, 211, 238, 0.04) 50%, transparent 60%);
+        linear-gradient(105deg, transparent 40%, rgba(19, 152, 232, 0.04) 50%, transparent 60%);
       opacity: 0.95;
     }
 
     html[data-theme="dark"] .trust-item {
       background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(34, 211, 238, 0.14);
+      border-color: rgba(19, 152, 232, 0.14);
     }
 
     html[data-theme="dark"] .trust-item:hover {
       background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(212, 162, 74, 0.3);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 32px rgba(34, 211, 238, 0.08);
+      border-color: rgba(184, 144, 60, 0.3);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 32px rgba(19, 152, 232, 0.08);
     }
 
     html[data-theme="dark"] .trust-item i {
       color: var(--cyan);
-      filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.4));
+      filter: drop-shadow(0 0 12px rgba(19, 152, 232, 0.4));
     }
 
     html[data-theme="dark"] .trust-item .trust-label {
@@ -2058,7 +2237,7 @@
 
     html[data-theme="dark"] .services-about {
       background:
-        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(34, 211, 238, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(19, 152, 232, 0.06) 0%, transparent 50%),
         linear-gradient(180deg, #0f172a 0%, #1e293b 52%, #0f172a 100%);
     }
 
@@ -2069,8 +2248,8 @@
     }
 
     html[data-theme="dark"] .service-card:hover {
-      border-color: rgba(34, 211, 238, 0.25);
-      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45), 0 0 48px rgba(34, 211, 238, 0.06);
+      border-color: rgba(19, 152, 232, 0.25);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45), 0 0 48px rgba(19, 152, 232, 0.06);
     }
 
     html[data-theme="dark"] .service-card h3 { color: #f1f5f9; }
@@ -2078,8 +2257,8 @@
     html[data-theme="dark"] .service-card p { color: #94a3b8; }
 
     html[data-theme="dark"] .know-more-link {
-      color: #5eead4;
-      border-bottom-color: rgba(34, 211, 238, 0.45);
+      color: #7ccdf8;
+      border-bottom-color: rgba(19, 152, 232, 0.45);
     }
 
     html[data-theme="dark"] .know-more-link:hover {
@@ -2089,11 +2268,16 @@
 
     html[data-theme="dark"] .brand-showcase {
       background: linear-gradient(165deg, rgba(30, 41, 59, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%);
-      border-color: rgba(34, 211, 238, 0.2);
-      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35), 0 0 40px rgba(34, 211, 238, 0.05);
+      border-color: rgba(19, 152, 232, 0.2);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35), 0 0 40px rgba(19, 152, 232, 0.05);
     }
 
-    html[data-theme="dark"] .brand-showcase-tag { color: #f1f5f9; }
+    html[data-theme="dark"] .brand-showcase-line { color: #94a3b8; }
+
+    html[data-theme="dark"] .brand-showcase-slogan-bar {
+      background: #2a3d7a;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
 
     html[data-theme="dark"] .brand-showcase-moto { color: #cbd5e1; }
 
@@ -2109,50 +2293,83 @@
 
     html[data-theme="dark"] .about-checklist li:hover {
       background: rgba(30, 41, 59, 0.85);
-      border-color: rgba(212, 162, 74, 0.25);
+      border-color: rgba(184, 144, 60, 0.25);
     }
 
     html[data-theme="dark"] .consultants {
       background:
-        radial-gradient(ellipse 90% 55% at 50% -8%, rgba(34, 211, 238, 0.07) 0%, transparent 45%),
+        radial-gradient(ellipse 90% 55% at 50% -8%, rgba(19, 152, 232, 0.07) 0%, transparent 45%),
         linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     }
 
     html[data-theme="dark"] .consultants-intro { color: #94a3b8; }
 
-    html[data-theme="dark"] .consultants-lead {
-      background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.88) 100%);
-      border-color: rgba(51, 65, 85, 0.8);
-      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(34, 211, 238, 0.12);
-    }
-
-    html[data-theme="dark"] .consultants-lead .name { color: #f1f5f9; }
-
-    html[data-theme="dark"] .consultants-lead .credentials { color: #94a3b8; }
-
     html[data-theme="dark"] .consultant-card {
       background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
-      border-color: rgba(34, 211, 238, 0.12);
+      border-color: rgba(19, 152, 232, 0.12);
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
     }
 
     html[data-theme="dark"] .consultant-card:hover {
-      border-color: rgba(34, 211, 238, 0.28);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 36px rgba(34, 211, 238, 0.06);
+      border-color: rgba(19, 152, 232, 0.28);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 36px rgba(19, 152, 232, 0.06);
     }
 
     html[data-theme="dark"] .consultant-card .name { color: #f1f5f9; }
 
     html[data-theme="dark"] .consultant-card .credentials { color: #94a3b8; }
 
+    html[data-theme="dark"] .referring-blk {
+      background:
+        radial-gradient(ellipse 70% 45% at 75% 0%, rgba(19, 152, 232, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      border-top-color: rgba(51, 65, 85, 0.5);
+    }
+
+    html[data-theme="dark"] .referring-urgent {
+      background: linear-gradient(165deg, rgba(127, 29, 29, 0.25) 0%, rgba(30, 41, 59, 0.85) 100%);
+      border-color: rgba(248, 113, 113, 0.35);
+    }
+
+    html[data-theme="dark"] .referring-urgent p { color: #e2e8f0; }
+
+    html[data-theme="dark"] .refer-studies span {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.85);
+      color: #cbd5e1;
+    }
+
+    html[data-theme="dark"] .referring-block h3 { color: #f1f5f9; }
+
+    html[data-theme="dark"] .referring-block p { color: #94a3b8; }
+
+    html[data-theme="dark"] .referring-ethics {
+      color: #cbd5e1;
+      background: rgba(30, 41, 59, 0.55);
+      border-left-color: var(--gold);
+    }
+
+    html[data-theme="dark"] .referring-tech {
+      background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.92) 100%);
+      border-color: rgba(19, 152, 232, 0.25);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    html[data-theme="dark"] .referring-tech h3 { color: #f1f5f9; }
+
+    html[data-theme="dark"] .referring-tech li {
+      color: #94a3b8;
+      border-bottom-color: rgba(51, 65, 85, 0.7);
+    }
+
     html[data-theme="dark"] .patient-guide {
       background:
-        radial-gradient(ellipse 65% 50% at 15% 80%, rgba(212, 162, 74, 0.05) 0%, transparent 50%),
-        linear-gradient(180deg, #0f172a 0%, rgba(19, 78, 74, 0.14) 42%, #0f172a 100%);
+        radial-gradient(ellipse 65% 50% at 15% 80%, rgba(184, 144, 60, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, #0f172a 0%, rgba(27, 44, 105, 0.18) 42%, #0f172a 100%);
     }
 
     html[data-theme="dark"] .patient-guide::before {
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(19, 152, 232, 0.08) 0%, transparent 68%);
     }
 
     html[data-theme="dark"] .patient-guide-sub { color: #94a3b8; }
@@ -2163,17 +2380,17 @@
 
     html[data-theme="dark"] .journey-step-num {
       border-color: #1e293b;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(34, 211, 238, 0.15);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(19, 152, 232, 0.15);
     }
 
     html[data-theme="dark"] .prep-tip {
       background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
-      border-color: rgba(34, 211, 238, 0.14);
+      border-color: rgba(19, 152, 232, 0.14);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
     }
 
     html[data-theme="dark"] .prep-tip:hover {
-      border-color: rgba(34, 211, 238, 0.28);
+      border-color: rgba(19, 152, 232, 0.28);
     }
 
     html[data-theme="dark"] .prep-tip strong { color: #f1f5f9; }
@@ -2182,24 +2399,24 @@
 
     html[data-theme="dark"] .prep-disclaimer {
       color: #64748b;
-      background: rgba(34, 211, 238, 0.06);
-      border-color: rgba(34, 211, 238, 0.2);
+      background: rgba(19, 152, 232, 0.06);
+      border-color: rgba(19, 152, 232, 0.2);
     }
 
     html[data-theme="dark"] .faq-block h3 { color: #f1f5f9; }
 
     html[data-theme="dark"] .faq-item {
       background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.88) 100%);
-      border-color: rgba(34, 211, 238, 0.14);
+      border-color: rgba(19, 152, 232, 0.14);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
 
     html[data-theme="dark"] .faq-item summary { color: #e2e8f0; }
 
     html[data-theme="dark"] .faq-item summary::before {
-      background: linear-gradient(145deg, rgba(34, 211, 238, 0.18) 0%, rgba(212, 162, 74, 0.12) 100%);
-      color: #5eead4;
-      border-color: rgba(34, 211, 238, 0.25);
+      background: linear-gradient(145deg, rgba(19, 152, 232, 0.18) 0%, rgba(184, 144, 60, 0.12) 100%);
+      color: #7ccdf8;
+      border-color: rgba(19, 152, 232, 0.25);
     }
 
     html[data-theme="dark"] .faq-item summary:hover { background: rgba(30, 41, 59, 0.65); }
@@ -2208,7 +2425,7 @@
 
     html[data-theme="dark"] .location {
       background:
-        radial-gradient(ellipse 70% 45% at 100% 20%, rgba(34, 211, 238, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse 70% 45% at 100% 20%, rgba(19, 152, 232, 0.06) 0%, transparent 45%),
         linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
     }
 
@@ -2217,7 +2434,7 @@
     html[data-theme="dark"] .location-card {
       background: linear-gradient(165deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
       border-color: rgba(51, 65, 85, 0.75);
-      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(34, 211, 238, 0.1);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(19, 152, 232, 0.1);
     }
 
     html[data-theme="dark"] .location-detail-text strong { color: #f1f5f9; }
@@ -2227,7 +2444,7 @@
 
     html[data-theme="dark"] .location-map {
       border-color: rgba(51, 65, 85, 0.9);
-      outline-color: rgba(34, 211, 238, 0.22);
+      outline-color: rgba(19, 152, 232, 0.22);
     }
 
     html[data-theme="dark"] .gold-divider::before,
@@ -2249,7 +2466,7 @@
     html[data-theme="dark"] .booking-modal__panel {
       background: linear-gradient(165deg, #0f172a 0%, #1e293b 100%);
       box-shadow:
-        0 0 0 1px rgba(34, 211, 238, 0.22),
+        0 0 0 1px rgba(19, 152, 232, 0.22),
         0 28px 72px rgba(0, 0, 0, 0.45);
     }
 
@@ -2259,7 +2476,7 @@
     }
 
     html[data-theme="dark"] .booking-modal__x:hover {
-      background: rgba(34, 211, 238, 0.18);
+      background: rgba(19, 152, 232, 0.18);
       color: #67e8f9;
     }
 
@@ -2279,7 +2496,7 @@
     html[data-theme="dark"] .booking-field input:focus,
     html[data-theme="dark"] .booking-field textarea:focus {
       background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(34, 211, 238, 0.45);
+      border-color: rgba(19, 152, 232, 0.45);
     }
 
     html[data-theme="dark"] .booking-field-error { color: #fca5a5; }
@@ -2335,8 +2552,16 @@
     <div class="container">
       <div class="nav-inner">
         <!-- Logo -->
-        <a href="#home" class="logo">
-          <img src="logo.jpeg" alt="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE" class="logo-img" data-i18n-alt="logo.alt" />
+        <a href="#home" class="logo" data-i18n-aria="logo.aria" aria-label="MAULI DIAGNOSTIC CENTRE — home">
+          <img
+            src="mauli-logo-pin.svg"
+            alt="MAULI DIAGNOSTIC CENTRE"
+            class="logo-raster logo-pin-svg"
+            width="62"
+            height="56"
+            decoding="async"
+            data-i18n-alt="logo.alt"
+          />
         </a>
 
         <!-- Nav Links -->
@@ -2344,6 +2569,7 @@
           <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
           <li><a href="#about" data-i18n="nav.about">About Us</a></li>
           <li><a href="#services" data-i18n="nav.services">Our Services</a></li>
+          <li><a href="#referring" data-i18n="nav.ref">For Doctors</a></li>
           <li><a href="#team" data-i18n="nav.team">Our Experts</a></li>
           <li><a href="#patient-guide" data-i18n="nav.visit">Your Visit</a></li>
           <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
@@ -2366,17 +2592,21 @@
   <section class="hero" id="home">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
-      <h1 class="sr-only" data-i18n="sr.h1">MAULI DIAGNOSTIC &amp; CT SCAN CENTRE, Sangola — precision imaging, prompt reporting. ॥ माऊली कृपा, आरोग्य सेवा ॥</h1>
+      <h1 class="sr-only" data-i18n="sr.h1">MAULI DIAGNOSTIC CENTRE, Sangola — precision imaging, prompt reporting. ॥ माऊली कृपा, आरोग्य सेवा ॥</h1>
       <div class="hero-banner-frame">
         <img
           src="mauli-hero-banner.png"
-          alt="Mauli Diagnostic Centre — CT suite with branding. Tagline: ॥ माऊली कृपा, आरोग्य सेवा ॥ — advanced technology, accurate diagnosis, compassionate care"
+          alt="Mauli Diagnostic Centre — CT scanner suite with MAULI wall logo, bright modern clinical space"
           width="1024"
           height="682"
           decoding="async"
           fetchpriority="high"
           data-i18n-alt="hero.imgAlt"
         />
+      </div>
+      <div class="hero-brand-lines">
+        <p class="hero-line-pad" data-i18n="hero.line1">— Advanced CT imaging · Cardiac · Angio · Contrast studies —</p>
+        <p class="hero-slogan" data-i18n="hero.slogan">PRECISION IMAGING. PROMPT REPORTING.</p>
       </div>
       <div class="hero-cta-bar">
         <a href="#" class="btn btn-navy js-booking-open">
@@ -2407,9 +2637,19 @@
         <span class="trust-sub" data-i18n="trust.s3">Radiology &amp; neuroimaging specialists</span>
       </div>
       <div class="trust-item">
-        <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
+        <i class="fa-solid fa-hospital" aria-hidden="true"></i>
         <span class="trust-label" data-i18n="trust.t4">Sangola centre</span>
         <span class="trust-sub" data-i18n="trust.s4">Basement, Mohan Hospital — easy access</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+        <span class="trust-label" data-i18n="trust.t5">Quality you can trust</span>
+        <span class="trust-sub" data-i18n="trust.s5">Ethical, independent diagnostic support</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        <span class="trust-label" data-i18n="trust.t6">Better outcomes</span>
+        <span class="trust-sub" data-i18n="trust.s6">Accurate diagnosis through quality imaging</span>
       </div>
     </div>
   </section>
@@ -2462,14 +2702,49 @@
             <p data-i18n="svc.c4p">Detailed, prompt reporting by subspecialty consultants to support your clinician’s decisions.</p>
             <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
           </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">
+              <i class="fa-solid fa-lungs"></i>
+            </div>
+            <h3 data-i18n="svc.c5t">HRCT chest &amp; lung imaging</h3>
+            <p data-i18n="svc.c5p">High-resolution chest CT and pulmonary protocols, including low-dose options when appropriate.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">
+              <i class="fa-solid fa-bezier-curve"></i>
+            </div>
+            <h3 data-i18n="svc.c6t">CT angiography &amp; 3D imaging</h3>
+            <p data-i18n="svc.c6p">CT angiography (arterial &amp; venous), pulmonary CT angiography, and 3D reconstructions — MPR, MIP &amp; VR.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card-icon">
+              <i class="fa-solid fa-truck-medical"></i>
+            </div>
+            <h3 data-i18n="svc.c7t">Specialised &amp; emergency CT</h3>
+            <p data-i18n="svc.c7p">Triple-phase liver / pancreas / kidney studies, CT urography, and emergency CT services when minutes matter.</p>
+            <a href="#contact" class="know-more-link"><span data-i18n="common.more">Know More</span> <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
+          </div>
         </div>
 
         <!-- Brand showcase (replaces placeholder) -->
         <div class="centre-image-col" id="about">
           <div class="brand-showcase">
-            <img src="logo.jpeg" alt="Mauli Diagnostic — logo" class="brand-showcase-logo" width="118" data-i18n-alt="brand.logoAlt" />
-            <p class="brand-showcase-tag" data-i18n="brand.tag">Precision Imaging · Prompt Reporting</p>
-            <p class="brand-showcase-moto devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</p>
+            <p class="brand-showcase-moto devanagari" data-i18n="brand.moto">।। माऊली कृपा । आरोग्य सेवा ।।</p>
+            <img
+              src="mauli-logo-reference.png"
+              alt=""
+              class="brand-showcase-logo"
+              width="280"
+              decoding="async"
+              data-i18n-alt="brand.logoAlt"
+            />
+            <p class="brand-showcase-line" data-i18n="brand.linePad">Advanced CT imaging · Cardiac · Angio · Contrast studies</p>
+            <p class="brand-showcase-slogan-bar" data-i18n="brand.cardSlogan">PRECISION IMAGING. PROMPT REPORTING.</p>
             <p class="brand-showcase-loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="brand.loc">Sangola, Maharashtra</span></p>
           </div>
         </div>
@@ -2480,7 +2755,7 @@
             <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
             <span data-i18n="about.tag">Who We Are</span>
           </span>
-          <h2 class="section-title" data-i18n="about.title">About MAULI DIAGNOSTIC &amp; CT SCAN CENTRE</h2>
+          <h2 class="section-title" data-i18n="about.title">About MAULI DIAGNOSTIC CENTRE</h2>
           <p data-i18n-html="about.p1">
             <em>"Mauli"</em> means the compassionate form of God – a symbol of protection, care and blessings. <span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>
           </p>
@@ -2517,6 +2792,62 @@
     </div>
   </section>
 
+  <section class="referring-blk reveal" id="referring" aria-labelledby="referring-title">
+    <div class="container">
+      <header class="referring-head">
+        <span class="section-tag">
+          <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
+          <span data-i18n="ref.tag">Clinical information</span>
+        </span>
+        <h2 class="section-title" id="referring-title" data-i18n="ref.title">For referring physicians</h2>
+        <p class="consultants-intro" style="margin-top:10px;" data-i18n="ref.sub">Aligned with our referral documentation — clarity for safe imaging and timely reports.</p>
+      </header>
+      <div class="referring-grid">
+        <div class="referring-block">
+          <div class="referring-urgent">
+            <strong data-i18n="ref.urgentLabel">Urgent cases</strong>
+            <p data-i18n="ref.urgentText">Urgent studies are prioritised for early reporting whenever clinically appropriate.</p>
+          </div>
+          <h3 data-i18n="ref.studiesTitle">Commonly requested study regions</h3>
+          <div class="refer-studies" aria-label="Study regions">
+            <span data-i18n="ref.st1">Brain</span>
+            <span data-i18n="ref.st2">Neck</span>
+            <span data-i18n="ref.st3">Chest</span>
+            <span data-i18n="ref.st4">Abdomen</span>
+            <span data-i18n="ref.st5">Pelvis</span>
+            <span data-i18n="ref.st6">Extremities</span>
+            <span data-i18n="ref.st7">HRCT chest</span>
+            <span data-i18n="ref.st8">Pulmonary CT angiography</span>
+          </div>
+          <h3 data-i18n="ref.advTitle">Advanced CT modalities &amp; protocols</h3>
+          <div class="refer-studies refer-studies--adv" aria-label="Advanced CT services">
+            <span data-i18n="ref.adv1">All CT scans — plain &amp; contrast</span>
+            <span data-i18n="ref.adv2">HRCT chest (high-resolution lung)</span>
+            <span data-i18n="ref.adv3">Low-dose CT protocols</span>
+            <span data-i18n="ref.adv4">3D reconstruction — MPR / MIP / VR</span>
+            <span data-i18n="ref.adv5">CT angiography — arterial &amp; venous</span>
+            <span data-i18n="ref.adv6">Pulmonary CT angiography</span>
+            <span data-i18n="ref.adv7">Triple-phase CT — liver / pancreas / kidney</span>
+            <span data-i18n="ref.adv8">CT urography</span>
+            <span data-i18n="ref.adv9">Emergency CT services</span>
+          </div>
+          <h3 data-i18n="ref.renalTitle">Renal function &amp; contrast safety</h3>
+          <p data-i18n="ref.renalText">Recent serum creatinine and eGFR help us plan contrast studies safely. Please share renal labs when contrast imaging is requested.</p>
+          <p class="referring-ethics" data-i18n="ref.ethics">The patient remains under your care. We provide independent, ethical diagnostic imaging only — with no interference in your clinical decisions.</p>
+        </div>
+        <aside class="referring-tech">
+          <h3 data-i18n="ref.techTitle">Technology &amp; workflow</h3>
+          <ul>
+            <li><i class="fa-solid fa-syringe" aria-hidden="true"></i> <span data-i18n="ref.tech1">Automated contrast injection protocols</span></li>
+            <li><i class="fa-solid fa-microchip" aria-hidden="true"></i> <span data-i18n="ref.tech2">AI-assisted imaging workflow</span></li>
+            <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i> <span data-i18n="ref.tech3">Structured reporting system</span></li>
+            <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> <span data-i18n="ref.tech4">Fast turnaround time</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <!-- ======== EXPERT CONSULTANTS ======== -->
   <section class="consultants reveal" id="team">
     <div class="container">
@@ -2527,12 +2858,6 @@
         </span>
         <h2 class="section-title" style="margin-bottom:8px;" data-i18n="team.title">Our Expert Consultants</h2>
         <p class="consultants-intro" data-i18n="team.intro">Board‑certified consultants — accurate reads when it matters most.</p>
-      </div>
-
-      <div class="consultants-lead">
-        <div class="role" data-i18n="team.leadRole">Lead Radiologist</div>
-        <div class="name">Dr. Kishor Yelpale</div>
-        <div class="credentials">MBBS, MD, DNB (Radiology), PGDHHM</div>
       </div>
 
       <div class="consultants-grid">
@@ -2688,7 +3013,7 @@
               <i class="fa-solid fa-location-dot"></i>
             </div>
             <div class="location-detail-text">
-              <strong>MAULI DIAGNOSTIC &amp; CT SCAN CENTRE</strong>
+              <strong>MAULI DIAGNOSTIC CENTRE</strong>
               <span data-i18n-html="loc.addr">
                 Basement, Mohan Hospital Building,<br>
                 Sangola–Miraj Road, Sangola &ndash; 413307<br>
@@ -2704,9 +3029,9 @@
             <div class="location-detail-text">
               <strong data-i18n="loc.phoneLabel">Phone</strong>
               <span>
+                <span data-i18n="loc.waLabel">Call or WhatsApp</span> <a href="https://wa.me/917397955353" target="_blank" rel="noopener">7397955353</a><br>
+                Call:
                 <a href="tel:+917666884200">7666884200</a> · <a href="tel:+918412041122">8412041122</a><br>
-                <span data-i18n="loc.mayur">Mayur Yelpale:</span> <a href="tel:+917397955353">7397955353</a><br>
-                <span data-i18n="loc.waLabel">WhatsApp:</span> <a href="https://wa.me/917397955353" target="_blank" rel="noopener">7397955353</a>
               </span>
             </div>
           </div>
@@ -2751,14 +3076,7 @@
             REPLACE MAP: Update the Google Maps embed URL below with the exact location.
             Go to maps.google.com → Find your location → Share → Embed a map → Copy the iframe src.
           -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.0!2d75.1878!3d17.4614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc3f0e8e8e8e8e8%3A0x0!2sMohan+Hospital+Sangola!5e0!3m2!1sen!2sin!4v1"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE — Sangola"
-            data-i18n-title="loc.mapTitle"
-          ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15226.28988616301!2d75.18590913414612!3d17.43229319536709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc6a6494c1dc939%3A0xa97a870a6886e062!2sMohan%20Hospital!5e0!3m2!1sen!2sin!4v1777815804625!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -2772,7 +3090,15 @@
         <!-- Brand -->
         <div class="footer-logo-wrap">
           <div class="footer-logo">
-            <img src="logo.png" alt="MAULI DIAGNOSTIC &amp; CT SCAN CENTRE" style="height:84px;width:auto;object-fit:contain;background:white;border-radius:10px;padding:8px 12px;" />
+            <img
+              src="mauli-logo-pin.svg"
+              alt=""
+              class="footer-logo-mark logo-pin-svg"
+              width="79"
+              height="72"
+              decoding="async"
+              data-i18n-alt="logo.alt"
+            />
           </div>
           <p class="footer-desc" data-i18n="foot.desc">
             Precision imaging and prompt reporting at Basement, Mohan Hospital Building, Sangola. Your health and well-being are our highest priority.
@@ -2792,6 +3118,7 @@
             <li><a href="#home" data-i18n="nav.home">Home</a></li>
             <li><a href="#about" data-i18n="nav.about">About Us</a></li>
             <li><a href="#services" data-i18n="nav.services">Our Services</a></li>
+            <li><a href="#referring" data-i18n="nav.ref">For Doctors</a></li>
             <li><a href="#team" data-i18n="nav.team">Our Experts</a></li>
             <li><a href="#patient-guide" data-i18n="nav.visit">Your Visit</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
@@ -2845,7 +3172,7 @@
 
     <div class="container">
       <div class="footer-bottom">
-        <span data-i18n="foot.copy">&copy; 2026 MAULI DIAGNOSTIC &amp; CT SCAN CENTRE. All Rights Reserved.</span>
+        <span data-i18n="foot.copy">&copy; 2026 MAULI DIAGNOSTIC CENTRE. All Rights Reserved.</span>
         <span data-i18n-html="foot.tagline">Designed with <span class="footer-heart">&#9829;</span> care for your good health</span>
       </div>
     </div>
@@ -2964,33 +3291,48 @@
     (function () {
       const T = {
         en: {
-          'meta.title': 'MAULI DIAGNOSTIC & CT SCAN CENTRE | Sangola',
-          'meta.desc': 'MAULI DIAGNOSTIC & CT SCAN CENTRE, Sangola — precision CT imaging, contrast studies with automated injector, expert consultant radiologists. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'meta.title': 'MAULI DIAGNOSTIC CENTRE | Sangola',
+          'meta.desc': 'MAULI DIAGNOSTIC CENTRE, Sangola — precision CT imaging, contrast studies with automated injector, expert consultant radiologists. ॥ माऊली कृपा, आरोग्य सेवा ॥',
           'lang.label': 'Lang',
           'theme.toDark': 'Switch to dark theme',
           'theme.toLight': 'Switch to light theme',
           'top.hours': 'Mon – Sat: 8:00 AM – 8:00 PM \u00a0|\u00a0 Sunday: 8:00 AM – 2:00 PM',
-          'nav.home': 'Home', 'nav.about': 'About Us', 'nav.services': 'Our Services', 'nav.team': 'Our Experts', 'nav.visit': 'Your Visit', 'nav.contact': 'Contact Us',
+          'nav.home': 'Home', 'nav.about': 'About Us', 'nav.services': 'Our Services', 'nav.ref': 'For Doctors', 'nav.team': 'Our Experts', 'nav.visit': 'Your Visit', 'nav.contact': 'Contact Us',
           'cta.bookNav': 'Book CT Scan', 'cta.bookHero': 'Book Your CT Scan', 'cta.whatsapp': 'Chat on WhatsApp', 'cta.whatsappFloat': 'Chat on WhatsApp', 'cta.whatsappAria': 'Chat on WhatsApp',
           'a11y.menu': 'Menu', 'a11y.scrollTop': 'Scroll to top',
-          'sr.h1': 'MAULI DIAGNOSTIC & CT SCAN CENTRE, Sangola — precision imaging, prompt reporting. ॥ माऊली कृपा, आरोग्य सेवा ॥',
-          'hero.imgAlt': 'Mauli Diagnostic Centre — CT suite with branding. Tagline: ॥ माऊली कृपा, आरोग्य सेवा ॥ — advanced technology, accurate diagnosis, compassionate care',
-          'logo.alt': 'MAULI DIAGNOSTIC & CT SCAN CENTRE',
+          'sr.h1': 'MAULI DIAGNOSTIC CENTRE, Sangola — precision imaging, prompt reporting. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'hero.imgAlt': 'Mauli Diagnostic Centre — CT scanner suite with MAULI wall logo in a bright, modern clinical space.',
+          'hero.line1': '— Advanced CT imaging · Cardiac · Angio · Contrast studies —',
+          'hero.slogan': 'PRECISION IMAGING. PROMPT REPORTING.',
+          'logo.alt': 'MAULI DIAGNOSTIC CENTRE',
+          'logo.aria': 'MAULI DIAGNOSTIC CENTRE — home',
           'trust.aria': 'Centre highlights',
           'trust.t1': 'Advanced CT', 'trust.s1': 'Plain, contrast & triple‑phase studies', 'trust.t2': 'Prompt reports', 'trust.s2': 'Consultant‑reviewed imaging reports',
           'trust.t3': 'Expert panel', 'trust.s3': 'Radiology & neuroimaging specialists', 'trust.t4': 'Sangola centre', 'trust.s4': 'Basement, Mohan Hospital — easy access',
+          'trust.t5': 'Quality you can trust', 'trust.s5': 'Ethical, independent diagnostic support',
+          'trust.t6': 'Better outcomes', 'trust.s6': 'Accurate diagnosis through quality imaging',
           'svc.tag': 'What We Offer', 'svc.title': 'Our Services', 'common.more': 'Know More',
           'svc.c1t': 'Comprehensive CT Imaging', 'svc.c1p': 'Full range of plain and contrast CT studies for precise diagnosis and treatment planning.',
           'svc.c2t': 'Contrast with Automated Injector', 'svc.c2p': 'Contrast studies delivered safely and consistently using an automated injector system.',
           'svc.c3t': 'Advanced Cardiac & Vascular CT', 'svc.c3p': 'Specialised triple-phase and cardiac vascular CT protocols when advanced imaging is indicated.',
           'svc.c4t': 'Diagnostic Reports', 'svc.c4p': 'Detailed, prompt reporting by subspecialty consultants to support your clinician’s decisions.',
-          'brand.logoAlt': 'Mauli Diagnostic — logo', 'brand.tag': 'Precision Imaging · Prompt Reporting', 'brand.loc': 'Sangola, Maharashtra',
-          'about.tag': 'Who We Are', 'about.title': 'About Mauli Diagnostic Centre',
-          'about.p1': '<em>“Mauli”</em> means the compassionate form of God – a symbol of protection, care and blessings. <span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>',
+          'svc.c5t': 'HRCT chest & lung imaging', 'svc.c5p': 'High-resolution chest CT and pulmonary protocols, including low-dose options when appropriate.',
+          'svc.c6t': 'CT angiography & 3D imaging', 'svc.c6p': 'CT angiography (arterial & venous), pulmonary CT angiography, and 3D reconstructions — MPR, MIP & VR.',
+          'svc.c7t': 'Specialised & emergency CT', 'svc.c7p': 'Triple-phase liver / pancreas / kidney studies, CT urography, and emergency CT services when minutes matter.',
+          'brand.logoAlt': 'MAULI — official logo', 'brand.linePad': 'Advanced CT imaging · Cardiac · Angio · Contrast studies', 'brand.tag': 'Precision imaging · Prompt reporting', 'brand.cardSlogan': 'PRECISION IMAGING. PROMPT REPORTING.', 'brand.moto': '।। माऊली कृपा । आरोग्य सेवा ।।', 'brand.loc': 'Sangola, Maharashtra',
+          'ref.tag': 'Clinical information', 'ref.title': 'For referring physicians', 'ref.sub': 'Aligned with our referral documentation — clarity for safe imaging and timely reports.',
+          'ref.urgentLabel': 'Urgent cases', 'ref.urgentText': 'Urgent studies are prioritised for early reporting whenever clinically appropriate.',
+          'ref.studiesTitle': 'Commonly requested study regions', 'ref.st1': 'Brain', 'ref.st2': 'Neck', 'ref.st3': 'Chest', 'ref.st4': 'Abdomen', 'ref.st5': 'Pelvis', 'ref.st6': 'Extremities', 'ref.st7': 'HRCT chest', 'ref.st8': 'Pulmonary CT angiography',
+          'ref.advTitle': 'Advanced CT modalities & protocols', 'ref.adv1': 'All CT scans — plain & contrast', 'ref.adv2': 'HRCT chest (high-resolution lung)', 'ref.adv3': 'Low-dose CT protocols', 'ref.adv4': '3D reconstruction — MPR / MIP / VR', 'ref.adv5': 'CT angiography — arterial & venous', 'ref.adv6': 'Pulmonary CT angiography', 'ref.adv7': 'Triple-phase CT — liver / pancreas / kidney', 'ref.adv8': 'CT urography', 'ref.adv9': 'Emergency CT services',
+          'ref.renalTitle': 'Renal function & contrast safety', 'ref.renalText': 'Recent serum creatinine and eGFR help us plan contrast studies safely. Please share renal labs when contrast imaging is requested.',
+          'ref.ethics': 'The patient remains under your care. We provide independent, ethical diagnostic imaging only — with no interference in your clinical decisions.',
+          'ref.techTitle': 'Technology & workflow', 'ref.tech1': 'Automated contrast injection protocols', 'ref.tech2': 'AI-assisted imaging workflow', 'ref.tech3': 'Structured reporting system', 'ref.tech4': 'Fast turnaround time',
+          'about.tag': 'Who We Are', 'about.title': 'About MAULI Diagnostic Centre',
+          'about.p1': '<em>“Mauli”</em> means the compassionate form of God – a symbol of protection, care and blessings. <br><span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>',
           'about.p2': 'At our centre in Sangola, we blend advanced CT imaging with compassionate care — precision imaging and prompt reporting you can rely on.',
           'about.li1': 'Automated injector for contrast studies', 'about.li2': 'Advanced cardiac, vascular & triple-phase CT', 'about.li3': 'Expert & Experienced Radiologists',
           'about.li4': 'Hygienic & Patient-friendly Environment', 'about.li5': 'Quick Reports & Reliable Results', 'about.li6': 'Affordable & Transparent Pricing',
-          'team.tag': 'Expert Panel', 'team.title': 'Our Expert Consultants', 'team.intro': 'Board‑certified consultants — accurate reads when it matters most.', 'team.leadRole': 'Lead Radiologist',
+          'team.tag': 'Expert Panel', 'team.title': 'Our Expert Consultants', 'team.intro': 'Board‑certified consultants — accurate reads when it matters most.',
           'pg.tag': 'Patient care', 'pg.title': 'Your visit — from booking to report',
           'pg.sub': 'A clear, calm pathway through your CT appointment. Bring your doctor’s request note and any prior scans if you have them.',
           'jg.t1': 'Book', 'jg.p1': 'Call, WhatsApp, or walk in. We’ll suggest a slot and tell you if fasting or contrast prep applies.',
@@ -3017,14 +3359,14 @@
           'loc.tag': 'Find Us', 'loc.title': 'Visit Our Centre',
           'loc.intro': 'Walk in or message us on WhatsApp for appointments. We’re located in the basement of Mohan Hospital, Sangola.',
           'loc.addr': 'Basement, Mohan Hospital Building,<br>Sangola–Miraj Road, Sangola – 413307<br>Maharashtra, India',
-          'loc.phoneLabel': 'Phone', 'loc.mayur': 'Mayur Yelpale:', 'loc.waLabel': 'WhatsApp:', 'loc.hoursLabel': 'Timings', 'loc.emailLabel': 'Email & Website',
+          'loc.phoneLabel': 'Phone', 'loc.mayur': 'Mayur Yelpale:', 'loc.waLabel': 'Call or WhatsApp:', 'loc.hoursLabel': 'Timings', 'loc.emailLabel': 'Email & Website',
           'loc.hours': 'Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 8:00 AM – 2:00 PM',
-          'loc.directions': 'Get Directions', 'loc.mapTitle': 'MAULI DIAGNOSTIC & CT SCAN CENTRE — Sangola',
+          'loc.directions': 'Get Directions', 'loc.mapTitle': 'MAULI DIAGNOSTIC CENTRE — Sangola',
           'foot.desc': 'Precision imaging and prompt reporting at Basement, Mohan Hospital Building, Sangola. Your health and well-being are our highest priority.',
           'foot.quick': 'Quick Links', 'foot.svcTitle': 'Our Services', 'foot.contact': 'Contact Us',
           'foot.svc1': 'Comprehensive CT (Plain & Contrast)', 'foot.svc2': 'Contrast & Automated Injector', 'foot.svc3': 'Cardiac / Vascular / Triple-phase CT', 'foot.book': 'Book Appointment',
           'foot.addressShort': 'Basement, Mohan Hospital, Sangola – 413307', 'foot.waFull': '7397955353 (WhatsApp)',
-          'foot.copy': '© 2026 MAULI DIAGNOSTIC & CT SCAN CENTRE. All Rights Reserved.',
+          'foot.copy': '© 2026 MAULI DIAGNOSTIC CENTRE. All Rights Reserved.',
           'foot.tagline': 'Designed with <span class="footer-heart">&#9829;</span> and care for your good health',
           'bookModal.title': 'Book a CT scan',
           'bookModal.sub': 'Enter your details below. We’ll open WhatsApp with a ready-to-send message to our desk.',
@@ -3042,7 +3384,7 @@
           'bookModal.cancel': 'Cancel',
           'bookModal.close': 'Close booking form',
           'bookModal.errPhone': 'Please enter a valid mobile number (at least 10 digits).',
-          'bookModal.msgHead': 'CT Scan booking — MAULI Diagnostic & CT Scan Centre, Sangola',
+          'bookModal.msgHead': 'CT scan booking — MAULI DIAGNOSTIC CENTRE, Sangola',
           'bookModal.msgName': 'Name',
           'bookModal.msgPhone': 'Phone',
           'bookModal.msgAge': 'Age',
@@ -3050,33 +3392,48 @@
           'bookModal.msgNotes': 'Notes'
         },
         mr: {
-          'meta.title': 'माऊली निदान व सीटी स्कॅन केंद्र | सांगोला',
-          'meta.desc': 'सांगोला येथे माऊली निदान व सीटी स्कॅन केंद्र — अचूक सीटी इमेजिंग, ऑटोमॅटेड इंजेक्टरसह कॉन्ट्रास्ट अभ्यास, तज्ञ रेडिओलॉजिस्ट. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'meta.title': 'माऊली निदान केंद्र | सांगोला',
+          'meta.desc': 'सांगोला येथे माऊली निदान केंद्र — अचूक सीटी इमेजिंग, ऑटोमॅटेड इंजेक्टरसह कॉन्ट्रास्ट अभ्यास, तज्ञ रेडिओलॉजिस्ट. ॥ माऊली कृपा, आरोग्य सेवा ॥',
           'lang.label': 'भाषा',
           'theme.toDark': 'गडद थीम सुरू करा',
           'theme.toLight': 'उजळ थीम सुरू करा',
           'top.hours': 'सोम – शनि: स. ८ – रा. ८ \u00a0|\u00a0 रवि: स. ८ – दु. २',
-          'nav.home': 'मुखपृष्ठ', 'nav.about': 'आमच्याबद्दल', 'nav.services': 'आमच्या सेवा', 'nav.team': 'तज्ञ सल्लागार', 'nav.visit': 'तुमची भेट', 'nav.contact': 'संपर्क साधा',
+          'nav.home': 'मुखपृष्ठ', 'nav.about': 'आमच्याबद्दल', 'nav.services': 'आमच्या सेवा', 'nav.ref': 'डॉक्टरांसाठी', 'nav.team': 'तज्ञ सल्लागार', 'nav.visit': 'तुमची भेट', 'nav.contact': 'संपर्क साधा',
           'cta.bookNav': 'सीटी स्कॅन बुक करा', 'cta.bookHero': 'तुमचा सीटी स्कॅन बुक करा', 'cta.whatsapp': 'व्हॉट्सअॅपवर चॅट करा', 'cta.whatsappFloat': 'व्हॉट्सअॅपवर चॅट', 'cta.whatsappAria': 'व्हॉट्सअॅपवर संदेश पाठवा',
           'a11y.menu': 'मेनू', 'a11y.scrollTop': 'वर स्क्रोल करा',
-          'sr.h1': 'माऊली निदान व सीटी स्कॅन केंद्र, सांगोला — अचूक इमेजिंग व त्वरित अहवाल. ॥ माऊली कृपा, आरोग्य सेवा ॥',
-          'hero.imgAlt': 'मौली निदान केंद्र — सीटी सुइट व ब्रांडिंग. घोषवाक्य: ॥ माऊली कृपा, आरोग्य सेवा ॥ — प्रगत तंत्रज्ञान, अचूक निदान, करुणामय सेवा',
-          'logo.alt': 'माऊली निदान व सीटी स्कॅन केंद्र',
+          'sr.h1': 'माऊली निदान केंद्र, सांगोला — अचूक इमेजिंग व त्वरित अहवाल. ॥ माऊली कृपा, आरोग्य सेवा ॥',
+          'hero.imgAlt': 'माऊली निदान केंद्र — भिंगरी दिसणारा सीटी स्कॅनर आणि भिंतीवरील MAULI लोगो, स्वच्छ आधुनिक रुग्णालयीन जागा.',
+          'hero.line1': '— प्रगत सीटी इमेजिंग · हृदय · अँजिओग्राफी · कॉन्ट्रास्ट अभ्यास —',
+          'hero.slogan': 'अचूक इमेजिंग. त्वरित अहवाल.',
+          'logo.alt': 'माऊली निदान केंद्र',
+          'logo.aria': 'माऊली निदान केंद्र — मुख्यपृष्ठ',
           'trust.aria': 'केंद्राची मुख्य वैशिष्ट्ये',
           'trust.t1': 'प्रगत सीटी', 'trust.s1': 'साधे, कॉन्ट्रास्ट व त्रि-फेज अभ्यास', 'trust.t2': 'त्वरित अहवाल', 'trust.s2': 'सल्लागार-पडताढण केलेले इमेजिंग अहवाल',
           'trust.t3': 'तज्ञ कार्यसंघ', 'trust.s3': 'रेडिओलॉजी व न्यूरोइमेजिंग तज्ञ', 'trust.t4': 'सांगोला केंद्र', 'trust.s4': 'मोहन रुग्णालय — तळमजला, सोपी उपलब्धता',
+          'trust.t5': 'गुणवत्ता व विश्वास', 'trust.s5': 'नैतिक, स्वतंत्र निदानीय सहाय्य',
+          'trust.t6': 'चांगले निकाल', 'trust.s6': 'गुणवत्तापूर्ण इमेजिंगद्वारे अचूक निदान',
           'svc.tag': 'आम्ही काय देतो', 'svc.title': 'आमच्या सेवा', 'common.more': 'अधिक माहिती',
           'svc.c1t': 'विस्तृत सीटी इमेजिंग', 'svc.c1p': 'अचूक निदान व उपचार नियोजनासाठी साधे व कॉन्ट्रास्ट सीटी अभ्यासांची पूर्ण श्रेणी.',
           'svc.c2t': 'ऑटोमॅटेड इंजेक्टरसह कॉन्ट्रास्ट', 'svc.c2p': 'ऑटोमॅटेड इंजेक्टर प्रणालीने कॉन्ट्रास्ट अभ्यास सुरक्षित व सातत्यपूर्ण पद्धतीने.',
           'svc.c3t': 'प्रगत हृदय व रक्तवाहिन्या सीटी', 'svc.c3p': 'प्रगत इमेजिंग आवश्यक असताना त्रि-फेज व हृदय-व्हॅस्क्युलर सीटी प्रोटोकॉल.',
           'svc.c4t': 'निदान अहवाल', 'svc.c4p': 'तुमच्या चिकित्सकांच्या निर्णयांसाठी उपविभागीय सल्लागारांकडून तपशीवार, त्वरित अहवाल.',
-          'brand.logoAlt': 'मौली निदान — लोगो', 'brand.tag': 'अचूक इमेजिंग · त्वरित अहवाल', 'brand.loc': 'सांगोला, महाराष्ट्र',
-          'about.tag': 'आम्ही कोण', 'about.title': 'माऊली निदान व सीटी स्कॅन केंद्र बद्दल',
+          'svc.c5t': 'HRCT छाती व फुफ्फुसे', 'svc.c5p': 'उच्च-रिझोल्यूशन छाती सीटी व फुफ्फुसीय प्रोटोकॉल; योग्यतेनुसार लो-डोज पर्याय.',
+          'svc.c6t': 'सीटी अँजिओग्राफी व ३डी', 'svc.c6p': 'सीटी अँजिओग्राफी (धमनी व शिरा), फुफ्फुसीय सीटी अँजिओ व ३डी पुनर्बांधणी — MPR, MIP व VR.',
+          'svc.c7t': 'विशेष व आपत्कालीन सीटी', 'svc.c7p': 'यकृत / स्वादुपिंड / मूत्रपिंड त्रि-फेज, सीटी युरोग्राफी व मिनिटांमहत्त्वाच्या आपत्कालीन सेवा.',
+          'brand.logoAlt': 'माऊली — अधिकृत लोगो', 'brand.linePad': 'प्रगत सीटी · हृदय · अँजिओ · कॉन्ट्रास्ट अभ्यास', 'brand.tag': 'अचूक इमेजिंग · त्वरित अहवाल', 'brand.cardSlogan': 'अचूक इमेजिंग. त्वरित अहवाल.', 'brand.moto': '।। माऊली कृपा । आरोग्य सेवा ।।', 'brand.loc': 'सांगोला, महाराष्ट्र',
+          'ref.tag': 'चिकित्सकीय माहिती', 'ref.title': 'संदर्भित डॉक्टरांसाठी', 'ref.sub': 'संदर्भ पत्रिकेस अनुरूप — सुरक्षित इमेजिंग व वेळेवर अहवालांसाठी स्पष्टता.',
+          'ref.urgentLabel': 'तातडीने', 'ref.urgentText': 'तातडीचे अभ्यास — जेव्हा सामावन्यासारखे असते — लवकर अहवालास प्राधान्य.',
+          'ref.studiesTitle': 'विनंती केलेली अभ्यास-क्षेत्रे', 'ref.st1': 'मेंदू', 'ref.st2': 'मान', 'ref.st3': 'छाती', 'ref.st4': 'पोट', 'ref.st5': 'पेल्विस', 'ref.st6': 'अंग', 'ref.st7': 'HRCT छाती', 'ref.st8': 'फुफ्फुसीय सीटी अँजिओ',
+          'ref.advTitle': 'प्रगत सीटी प्रकार व प्रोटोकॉल', 'ref.adv1': 'सर्व सीटी — साधे व कॉन्ट्रास्ट', 'ref.adv2': 'HRCT छाती (उच्च रिझोल्यूशन फुफ्फुसे)', 'ref.adv3': 'कमी डोस सीटी प्रोटोकॉल', 'ref.adv4': '३डी पुनर्बांधणी — MPR / MIP / VR', 'ref.adv5': 'सीटी अँजिओग्राफी — धमनी व शिरा', 'ref.adv6': 'फुफ्फुसीय सीटी अँजिओग्राफी', 'ref.adv7': 'त्रि-फेज सीटी — यकृत / स्वादुपिंड / मूत्रपिंड', 'ref.adv8': 'सीटी युरोग्राफी', 'ref.adv9': 'आपत्कालीन सीटी सेवा',
+          'ref.renalTitle': 'मूत्रपिंड कार्य व कॉन्ट्रास्ट सुरक्षा', 'ref.renalText': 'अलीकडील सीरम क्रिअटिनिन व eGFR कॉन्ट्रास्ट अभ्यास सुरक्षित नियोजित करण्यास मदत करतात. कॉन्ट्रास्ट इमेजिंगसाठी मूत्रपिंड चाचण्या सोबत द्या.',
+          'ref.ethics': 'रुग्ण तुमच्याच उपचाराखाली राहतो. आम्ही केवळ स्वतंत्र, नैतिक निदानीय इमेजिंग देतो — तुमच्या निर्णयांत हस्तक्षेप नाही.',
+          'ref.techTitle': 'तंत्रज्ञान व कार्यपद्धत', 'ref.tech1': 'ऑटोमॅटेड कॉन्ट्रास्ट इंजेक्शन प्रोटोकॉल', 'ref.tech2': 'एआय सहाय्यक इमेजिंग वर्कफ्लो', 'ref.tech3': 'संरचित अहवाल प्रणाली', 'ref.tech4': 'त्वरित टर्नअराउंड वेळ',
+          'about.tag': 'आम्ही कोण', 'about.title': 'माऊली निदान केंद्र बद्दल',
           'about.p1': '<em>माऊली</em> म्हणजे देवाची करुणामय रूपे — संरक्षण, काळजी आणि आशीर्वादांचे प्रतीक. <span class="devanagari">॥ माऊली कृपा, आरोग्य सेवा ॥</span>',
           'about.p2': 'सांगोला येथील आमच्या केंद्रात आम्ही प्रगत सीटी इमेजिंग व करुणामय सेवा एकत्र आणतो — विश्वासार्ह अचूक इमेजिंग व त्वरित अहवाल.',
           'about.li1': 'कॉन्ट्रास्ट अभ्यासांसाठी ऑटोमॅटेड इंजेक्टर', 'about.li2': 'प्रगत हृदय, रक्तवाहिन्या व त्रि-फेज सीटी', 'about.li3': 'अनुभवी तज्ञ रेडिओलॉजिस्ट',
           'about.li4': 'स्वच्छ व रुग्णसुलभ वातावरण', 'about.li5': 'त्वरित अहवाल व विश्वासार्ह निकाल', 'about.li6': 'परवडणारी व पारदर्शक दर',
-          'team.tag': 'तज्ञ कार्यसंघ', 'team.title': 'आमचे तज्ञ सल्लागार', 'team.intro': 'प्रमाणित सल्लागार — गरजेच्या वेळी अचूक वाचन.', 'team.leadRole': 'मुख्य रेडिओलॉजिस्ट',
+          'team.tag': 'तज्ञ कार्यसंघ', 'team.title': 'आमचे तज्ञ सल्लागार', 'team.intro': 'प्रमाणित सल्लागार — गरजेच्या वेळी अचूक वाचन.',
           'pg.tag': 'रुग्ण सेवा', 'pg.title': 'बुकिंगपासून अहवालापर्यंत — तुमची भेट',
           'pg.sub': 'तुमच्या सीटी अपॉइंटमेंटसाठी स्पष्ट, शांत मार्ग. डॉक्टरांची विनंती नोंद व जुने स्कॅन असल्यास सोबत आणा.',
           'jg.t1': 'बुकिंग', 'jg.p1': 'फोन, व्हॉट्सअॅप किंवा थेट भेटा. वेळ सुचवू आणि उपवास किंवा कॉन्ट्रास्ट तयारी लागते का सांगू.',
@@ -3105,12 +3462,12 @@
           'loc.addr': 'तळमजला, मोहन रुग्णालय इमारत,<br>सांगोला–मिरज रोड, सांगोला – 413307<br>महाराष्ट्र, भारत',
           'loc.phoneLabel': 'फोन', 'loc.mayur': 'मयूर येळपाळे:', 'loc.waLabel': 'व्हॉट्सअॅप:', 'loc.hoursLabel': 'वेळ', 'loc.emailLabel': 'ई-मेल व संकेतस्थळ',
           'loc.hours': 'सोम – शनि: स. ८:०० – रा. ८:००<br>रवि: स. ८:०० – दु. २:००',
-          'loc.directions': 'दिशानिर्देश मिळवा', 'loc.mapTitle': 'माऊली निदान व सीटी स्कॅन केंद्र — सांगोला',
+          'loc.directions': 'दिशानिर्देश मिळवा', 'loc.mapTitle': 'माऊली निदान केंद्र — सांगोला',
           'foot.desc': 'सांगोला, मोहन रुग्णालय तळमजल्यात अचूक इमेजिंग व त्वरित अहवाल. तुमचे आरोग्य व चांगली तब्येत ही आमची प्राथमिकता.',
           'foot.quick': 'द्रुत दुवे', 'foot.svcTitle': 'आमच्या सेवा', 'foot.contact': 'संपर्क साधा',
           'foot.svc1': 'विस्तृत सीटी (साधे व कॉन्ट्रास्ट)', 'foot.svc2': 'कॉन्ट्रास्ट व ऑटोमॅटेड इंजेक्टर', 'foot.svc3': 'हृदय / रक्तवाहिन्या / त्रि-फेज सीटी', 'foot.book': 'अपॉइंटमेंट बुक करा',
           'foot.addressShort': 'तळमजला, मोहन रुग्णालय, सांगोला – 413307', 'foot.waFull': '7397955353 (व्हॉट्सअॅप)',
-          'foot.copy': '© 2026 माऊली निदान व सीटी स्कॅन केंद्र. सर्व हक्क राखीव.',
+          'foot.copy': '© 2026 माऊली निदान केंद्र. सर्व हक्क राखीव.',
           'foot.tagline': 'तुमच्या उत्तम आरोग्यासाठी <span class="footer-heart">&#9829;</span> पूर्ण काळजीने तयार',
           'bookModal.title': 'सीटी स्कॅन बुक करा',
           'bookModal.sub': 'खाली तपशील भरा. आमच्या डेस्कवर पाठवण्यासाठी व्हॉट्सअॅप संदेश उघडू.',
@@ -3128,7 +3485,7 @@
           'bookModal.cancel': 'रद्द करा',
           'bookModal.close': 'फॉर्म बंद करा',
           'bookModal.errPhone': 'कृपया वैध मोबाइल नंबर टाका (किमान १० अंक).',
-          'bookModal.msgHead': 'सीटी स्कॅन बुकिंग — माऊली निदान व सीटी स्कॅन केंद्र, सांगोला',
+          'bookModal.msgHead': 'सीटी स्कॅन बुकिंग — माऊली निदान केंद्र, सांगोला',
           'bookModal.msgName': 'नाव',
           'bookModal.msgPhone': 'फोन',
           'bookModal.msgAge': 'वय',
@@ -3153,7 +3510,7 @@
         document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
         localStorage.setItem('mauli-theme', dark ? 'dark' : 'light');
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', dark ? '#020617' : '#0f172a');
+        if (meta) meta.setAttribute('content', dark ? '#020617' : '#1b2c7a');
         syncThemeButtonA11y(document.documentElement.lang === 'mr' ? 'mr' : 'en');
       }
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 200" role="img" aria-labelledby="mauPinLogoTitle">
+  <title id="mauPinLogoTitle">MAULI — location pin and M</title>
+  <!-- Location pin -->
+  <path
+    d="M110 20 C95 20 85 32 85 45 C85 70 110 95 110 95 C110 95 135 70 135 45 C135 32 125 20 110 20 Z"
+    fill="#F4B400"
+  />
+  <!-- Pin hole -->
+  <circle cx="110" cy="45" r="6" fill="#111" />
+  <!-- Letter M — site royal blue -->
+  <text
+    x="110"
+    y="165"
+    text-anchor="middle"
+    dominant-baseline="alphabetic"
+    font-size="150"
+    font-weight="600"
+    font-family="Georgia, 'Times New Roman', serif"
+    fill="#1b2c7a"
+  >M</text>
+</svg>
