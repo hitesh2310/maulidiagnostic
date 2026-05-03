@@ -791,7 +791,7 @@
     }
 
     @media (min-width: 993px) {
-      .trust-strip-inner { grid-template-columns: repeat(6, 1fr); }
+      .trust-strip-inner { grid-template-columns: repeat(5, 1fr); }
     }
 
     .trust-item {
@@ -2197,6 +2197,14 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 35%, transparent 70%, rgba(0,0,0,0.25) 100%);
     }
 
+    html[data-theme="dark"] .hero-line-pad {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    html[data-theme="dark"] .hero-slogan {
+      color: #ffffff;
+    }
+
     html[data-theme="dark"] .trust-strip {
       background: linear-gradient(180deg, #020617 0%, #0f172a 40%, #1e293b 100%);
       color: rgba(255, 255, 255, 0.92);
@@ -2637,11 +2645,6 @@
         <span class="trust-sub" data-i18n="trust.s3">Radiology &amp; neuroimaging specialists</span>
       </div>
       <div class="trust-item">
-        <i class="fa-solid fa-hospital" aria-hidden="true"></i>
-        <span class="trust-label" data-i18n="trust.t4">Sangola centre</span>
-        <span class="trust-sub" data-i18n="trust.s4">Basement, Mohan Hospital — easy access</span>
-      </div>
-      <div class="trust-item">
         <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
         <span class="trust-label" data-i18n="trust.t5">Quality you can trust</span>
         <span class="trust-sub" data-i18n="trust.s5">Ethical, independent diagnostic support</span>
@@ -2799,7 +2802,7 @@
           <i class="fa-solid fa-plus" style="font-size:0.6rem;"></i>
           <span data-i18n="ref.tag">Clinical information</span>
         </span>
-        <h2 class="section-title" id="referring-title" data-i18n="ref.title">For referring physicians</h2>
+        <h2 class="section-title" id="referring-title" data-i18n="ref.title">For Referring Physicians</h2>
         <p class="consultants-intro" style="margin-top:10px;" data-i18n="ref.sub">Aligned with our referral documentation — clarity for safe imaging and timely reports.</p>
       </header>
       <div class="referring-grid">
@@ -3308,7 +3311,7 @@
           'logo.aria': 'MAULI DIAGNOSTIC CENTRE — home',
           'trust.aria': 'Centre highlights',
           'trust.t1': 'Advanced CT', 'trust.s1': 'Plain, contrast & triple‑phase studies', 'trust.t2': 'Prompt reports', 'trust.s2': 'Consultant‑reviewed imaging reports',
-          'trust.t3': 'Expert panel', 'trust.s3': 'Radiology & neuroimaging specialists', 'trust.t4': 'Sangola centre', 'trust.s4': 'Basement, Mohan Hospital — easy access',
+          'trust.t3': 'Expert panel', 'trust.s3': 'Radiology & neuroimaging specialists',
           'trust.t5': 'Quality you can trust', 'trust.s5': 'Ethical, independent diagnostic support',
           'trust.t6': 'Better outcomes', 'trust.s6': 'Accurate diagnosis through quality imaging',
           'svc.tag': 'What We Offer', 'svc.title': 'Our Services', 'common.more': 'Know More',
@@ -3320,7 +3323,7 @@
           'svc.c6t': 'CT angiography & 3D imaging', 'svc.c6p': 'CT angiography (arterial & venous), pulmonary CT angiography, and 3D reconstructions — MPR, MIP & VR.',
           'svc.c7t': 'Specialised & emergency CT', 'svc.c7p': 'Triple-phase liver / pancreas / kidney studies, CT urography, and emergency CT services when minutes matter.',
           'brand.logoAlt': 'MAULI — official logo', 'brand.linePad': 'Advanced CT imaging · Cardiac · Angio · Contrast studies', 'brand.tag': 'Precision imaging · Prompt reporting', 'brand.cardSlogan': 'PRECISION IMAGING. PROMPT REPORTING.', 'brand.moto': '।। माऊली कृपा । आरोग्य सेवा ।।', 'brand.loc': 'Sangola, Maharashtra',
-          'ref.tag': 'Clinical information', 'ref.title': 'For referring physicians', 'ref.sub': 'Aligned with our referral documentation — clarity for safe imaging and timely reports.',
+          'ref.tag': 'Clinical information', 'ref.title': 'For Referring Physicians', 'ref.sub': 'Aligned with our referral documentation — clarity for safe imaging and timely reports.',
           'ref.urgentLabel': 'Urgent cases', 'ref.urgentText': 'Urgent studies are prioritised for early reporting whenever clinically appropriate.',
           'ref.studiesTitle': 'Commonly requested study regions', 'ref.st1': 'Brain', 'ref.st2': 'Neck', 'ref.st3': 'Chest', 'ref.st4': 'Abdomen', 'ref.st5': 'Pelvis', 'ref.st6': 'Extremities', 'ref.st7': 'HRCT chest', 'ref.st8': 'Pulmonary CT angiography',
           'ref.advTitle': 'Advanced CT modalities & protocols', 'ref.adv1': 'All CT scans — plain & contrast', 'ref.adv2': 'HRCT chest (high-resolution lung)', 'ref.adv3': 'Low-dose CT protocols', 'ref.adv4': '3D reconstruction — MPR / MIP / VR', 'ref.adv5': 'CT angiography — arterial & venous', 'ref.adv6': 'Pulmonary CT angiography', 'ref.adv7': 'Triple-phase CT — liver / pancreas / kidney', 'ref.adv8': 'CT urography', 'ref.adv9': 'Emergency CT services',
@@ -3409,7 +3412,7 @@
           'logo.aria': 'माऊली निदान केंद्र — मुख्यपृष्ठ',
           'trust.aria': 'केंद्राची मुख्य वैशिष्ट्ये',
           'trust.t1': 'प्रगत सीटी', 'trust.s1': 'साधे, कॉन्ट्रास्ट व त्रि-फेज अभ्यास', 'trust.t2': 'त्वरित अहवाल', 'trust.s2': 'सल्लागार-पडताढण केलेले इमेजिंग अहवाल',
-          'trust.t3': 'तज्ञ कार्यसंघ', 'trust.s3': 'रेडिओलॉजी व न्यूरोइमेजिंग तज्ञ', 'trust.t4': 'सांगोला केंद्र', 'trust.s4': 'मोहन रुग्णालय — तळमजला, सोपी उपलब्धता',
+          'trust.t3': 'तज्ञ कार्यसंघ', 'trust.s3': 'रेडिओलॉजी व न्यूरोइमेजिंग तज्ञ',
           'trust.t5': 'गुणवत्ता व विश्वास', 'trust.s5': 'नैतिक, स्वतंत्र निदानीय सहाय्य',
           'trust.t6': 'चांगले निकाल', 'trust.s6': 'गुणवत्तापूर्ण इमेजिंगद्वारे अचूक निदान',
           'svc.tag': 'आम्ही काय देतो', 'svc.title': 'आमच्या सेवा', 'common.more': 'अधिक माहिती',
