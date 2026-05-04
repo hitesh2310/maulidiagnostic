@@ -9,8 +9,8 @@
 
   <!-- Tab / PWA icons: SVG for modern browsers; PNG fallback + Apple touch -->
   <link rel="icon" href="mauli-logo-pin.svg" type="image/svg+xml" />
-  <link rel="icon" href="mauli-logo-reference.png" type="image/png" sizes="any" />
-  <link rel="apple-touch-icon" href="mauli-logo-reference.png" />
+  <link rel="icon" href="mauli.png" type="image/png" sizes="any" />
+  <link rel="apple-touch-icon" href="mauli.png" />
 
   <script>
     (function () {
@@ -1112,6 +1112,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: visible;
     }
 
     .brand-showcase {
@@ -1124,7 +1125,7 @@
       border: 1px solid rgba(19, 152, 232, 0.22);
       box-shadow: 0 24px 56px rgba(15, 23, 42, 0.1), 0 0 40px rgba(19, 152, 232, 0.08);
       text-align: center;
-      overflow: hidden;
+      overflow: visible;
       backdrop-filter: blur(12px);
     }
 
@@ -1145,7 +1146,8 @@
       max-width: 280px;
       height: auto;
       margin: 0 auto 12px;
-      filter: drop-shadow(0 8px 20px rgba(27, 44, 105, 0.18));
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(27, 44, 105, 0.18)) drop-shadow(0 0 24px rgba(184, 144, 60, 0.12));
     }
 
     .brand-showcase-slogan-bar {
@@ -2370,6 +2372,10 @@
       box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35), 0 0 40px rgba(19, 152, 232, 0.05);
     }
 
+    html[data-theme="dark"] .brand-showcase-logo {
+      filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 28px rgba(245, 200, 100, 0.15));
+    }
+
     html[data-theme="dark"] .brand-showcase-line { color: #94a3b8; }
 
     html[data-theme="dark"] .brand-showcase-slogan-bar {
@@ -2837,10 +2843,11 @@
           <div class="brand-showcase">
             <p class="brand-showcase-moto devanagari" data-i18n="brand.moto">।। माऊली कृपा । आरोग्य सेवा ।।</p>
             <img
-              src="mauli-logo-reference.png"
+              src="mauli.png"
               alt=""
               class="brand-showcase-logo"
               width="280"
+              height="187"
               decoding="async"
               data-i18n-alt="brand.logoAlt"
             />
